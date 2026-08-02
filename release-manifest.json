@@ -1,15 +1,18 @@
 {
   "version": "0.1.0",
   "macos": {
-    "available": false,
+    "available": true,
     "url": "downloads/Axis-macOS.dmg",
-    "minimumVersion": "15.0"
+    "minimumVersion": "15.0",
+    "signing": "ad-hoc",
+    "sha256": "88977436d4a195167bb1e75139a25210d93cdc997d5e85be27fed2bbd8e6e141"
   },
   "ios": {
-    "available": false,
+    "available": true,
     "url": "downloads/Axis-iOS-Simulator.zip",
     "target": "simulator",
-    "minimumVersion": "17.0"
+    "minimumVersion": "17.0",
+    "sha256": "76bc8bb83048012ef09bfb73349977d58aa821e1d54dd7a73233739c815236da"
   },
   "runtime": {
     "hosted": false,

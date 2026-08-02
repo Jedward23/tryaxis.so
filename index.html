@@ -34,6 +34,6 @@
   <footer>© 2026 Axis · Downloads only · No hosted runtime</footer>
 </main>
 <script>
-(async()=>{try{const r=await fetch('./release-manifest.json',{cache:'no-store'});if(!r.ok)return;const m=await r.json();for(const [id,key] of [['mac-download','macos'],['ios-download','ios']]){const a=document.getElementById(id),v=m[key];if(!v?.available){a.removeAttribute('href');a.removeAttribute('download');a.setAttribute('aria-disabled','true');a.textContent='Preparing signed download'}else if(v.url){a.href=v.url}}}catch{}})();
+(async()=>{try{const r=await fetch('./release-manifest.json',{cache:'no-store'});if(!r.ok)return;const m=await r.json();for(const [id,key] of [['mac-download','macos'],['ios-download','ios']]){const a=document.getElementById(id),v=m[key];if(!v?.available){a.removeAttribute('href');a.removeAttribute('download');a.setAttribute('aria-disabled','true');a.textContent='Build in progress'}else if(v.url){a.href=v.url}}}catch{}})();
 </script>
 </body></html>
