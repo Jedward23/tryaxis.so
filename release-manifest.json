@@ -1,0 +1,18 @@
+{
+  "version": "0.1.0",
+  "macos": {
+    "available": false,
+    "url": "downloads/Axis-macOS.dmg",
+    "minimumVersion": "15.0"
+  },
+  "ios": {
+    "available": false,
+    "url": "downloads/Axis-iOS-Simulator.zip",
+    "target": "simulator",
+    "minimumVersion": "17.0"
+  },
+  "runtime": {
+    "hosted": false,
+    "message": "Axis runs on the user's local machine or VPS. tryaxis.so distributes clients only."
+  }
+}
