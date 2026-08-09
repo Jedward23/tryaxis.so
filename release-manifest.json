@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "macos": {
     "available": true,
-    "url": "downloads/Axis-macOS.dmg",
+    "url": "https://github.com/Jedward23/axis/releases/download/macos-download-latest/Axis-macOS.dmg",
     "minimumVersion": "15.0",
     "signing": "ad-hoc",
     "sha256": "88977436d4a195167bb1e75139a25210d93cdc997d5e85be27fed2bbd8e6e141"
