@@ -14,6 +14,28 @@
     "minimumVersion": "17.0",
     "sha256": "76bc8bb83048012ef09bfb73349977d58aa821e1d54dd7a73233739c815236da"
   },
+  "linux": {
+    "available": true,
+    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-download-latest/Axis-Linux-amd64.deb",
+    "format": "deb",
+    "minimumVersion": "Ubuntu 22.04",
+    "architecture": "x86_64",
+    "signing": "gpg-detached",
+    "signature": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-download-latest/Axis-Linux-amd64.deb.asc",
+    "sha256": "5595abcd7f745f85bd307fb4763ec268a78524a68a6c4ccef748dcc86ea37f74",
+    "alternates": []
+  },
+  "android": {
+    "available": true,
+    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/android-download-latest/Axis-Android.apk",
+    "format": "apk",
+    "minimumVersion": "8.0",
+    "target": "apk",
+    "signing": "android-v2+v3",
+    "certificateSha256": "064368e76d4b5e26d803c56182a803001fb3e3484f6a7fa83d87c007f7e889cd",
+    "sha256": "019961087f34ba180e5c27ac4f2f48007017a73b289a4215b7ebbfa97ccc633e",
+    "alternates": []
+  },
   "runtime": {
     "hosted": false,
     "message": "Axis runs on the user's local machine or VPS. tryaxis.so distributes clients only."
