@@ -32,8 +32,7 @@
     "minimumVersion": "8.0",
     "target": "apk",
     "signing": "android-v2+v3",
-    "certificateSha256": "064368e76d4b5e26d803c56182a803001fb3e3484f6a7fa83d87c007f7e889cd",
-    "sha256": "019961087f34ba180e5c27ac4f2f48007017a73b289a4215b7ebbfa97ccc633e",
+    "sha256": "b2c3a5ee753c5642c1a111dc4f759cd7130c754a1cec692ea0577a83d7f44547",
     "alternates": []
   },
   "runtime": {
