@@ -22,7 +22,7 @@
     "architecture": "x86_64",
     "signing": "gpg-detached",
     "signature": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-download-latest/Axis-Linux-amd64.deb.asc",
-    "sha256": "5595abcd7f745f85bd307fb4763ec268a78524a68a6c4ccef748dcc86ea37f74",
+    "sha256": "e4114a6b9dc5bb7dc94ad904ec4b1a7cf46bbfa3eb86404110def41996b32f27",
     "alternates": []
   },
   "android": {
