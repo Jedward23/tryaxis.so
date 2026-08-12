@@ -13,9 +13,18 @@
     "sha256": "76bc8bb83048012ef09bfb73349977d58aa821e1d54dd7a73233739c815236da"
   },
   "linux": {
-    "available": false,
-    "blockedLabel": "Thin installer build pending",
-    "blockedReason": "The legacy 378 MB runtime-bundled package is retired. A versioned x86_64 thin installer must pass the clean-machine release workflow before this button is enabled."
+    "available": true,
+    "version": "0.1.0",
+    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v0.1.0/Axis-0.1.0-Linux-amd64.deb",
+    "format": "deb",
+    "minimumVersion": "Ubuntu 22.04",
+    "architecture": "x86_64",
+    "signing": "gpg-detached",
+    "signature": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v0.1.0/Axis-0.1.0-Linux-amd64.deb.asc",
+    "sha256": "dfa2687dd2b6aaa339c2a716ffaecf94c4e427b64a217005d909c715821604f9",
+    "sha256Url": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v0.1.0/Axis-0.1.0-Linux-amd64.deb.sha256",
+    "sizeBytes": 6891506,
+    "alternates": []
   },
   "android": {
     "available": true,
