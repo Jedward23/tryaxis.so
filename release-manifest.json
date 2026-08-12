@@ -1,11 +1,9 @@
 {
   "version": "0.1.0",
   "macos": {
-    "available": true,
-    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/macos-download-latest/Axis-macOS.dmg",
-    "minimumVersion": "15.0",
-    "signing": "ad-hoc",
-    "sha256": "88977436d4a195167bb1e75139a25210d93cdc997d5e85be27fed2bbd8e6e141"
+    "available": false,
+    "blockedLabel": "Notarized build pending",
+    "blockedReason": "Public macOS download is paused until Developer ID signing and notarization can be proven. Apple silicon is planned first; Intel is not yet published."
   },
   "ios": {
     "available": true,
@@ -15,15 +13,9 @@
     "sha256": "76bc8bb83048012ef09bfb73349977d58aa821e1d54dd7a73233739c815236da"
   },
   "linux": {
-    "available": true,
-    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-download-latest/Axis-Linux-amd64.deb",
-    "format": "deb",
-    "minimumVersion": "Ubuntu 22.04",
-    "architecture": "x86_64",
-    "signing": "gpg-detached",
-    "signature": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-download-latest/Axis-Linux-amd64.deb.asc",
-    "sha256": "e4114a6b9dc5bb7dc94ad904ec4b1a7cf46bbfa3eb86404110def41996b32f27",
-    "alternates": []
+    "available": false,
+    "blockedLabel": "Thin installer build pending",
+    "blockedReason": "The legacy 378 MB runtime-bundled package is retired. A versioned x86_64 thin installer must pass the clean-machine release workflow before this button is enabled."
   },
   "android": {
     "available": true,
@@ -37,6 +29,9 @@
   },
   "runtime": {
     "hosted": false,
-    "message": "Axis runs on the user's local machine or VPS. tryaxis.so distributes clients only."
+    "postActivationDownload": true,
+    "estimatedRuntimeBytes": 1500000000,
+    "estimatedBrowserBytes": 170000000,
+    "message": "The desktop installer is a thin bootstrap. After approved activation it downloads signed OS/architecture runtime and browser artifacts; customer data remains local."
   }
 }
