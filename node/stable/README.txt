@@ -1,0 +1,1 @@
+manifest.json is the mutable stable-channel pointer. Every promoted signed envelope is first retained under releases/<version>/<sha256>.json; runtime/browser bytes live in immutable versioned GitHub Releases.
