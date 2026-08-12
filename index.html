@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="axis-icon.svg" />
   <link rel="apple-touch-icon" href="axis-icon.svg" />
-  <meta name="description" content="Download Axis for macOS, Linux, iOS, and Android. Axis runs on your own Mac, local machine, or VPS." />
+  <meta name="description" content="Download Axis for macOS, Linux, iOS, and Android. Windows is coming soon." />
   <title>Axis — Downloads</title>
   <style>
     @font-face{font-family:'Mazzard Soft M';src:url('fonts/MazzardSoftM-Light.woff2') format('woff2');font-style:normal;font-weight:350;font-display:swap}
-    :root{color-scheme:dark;--bg:#090b10;--panel:#11151d;--line:#29303d;--text:#f4f6f8;--muted:#a2abb8;--accent:#86a7ff}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -20%,#1d2638 0,transparent 42%),var(--bg);color:var(--text);font:16px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    main{width:min(960px,calc(100% - 32px));margin:auto;padding:72px 0 64px}header{text-align:center;max-width:720px;margin:auto}.mark{display:block;width:72px;height:72px;margin:0 auto;border-radius:22.5%;box-shadow:0 0 0 1px #ffffff21,0 12px 34px #0009}h1{font-family:'Mazzard Soft M',ui-sans-serif,sans-serif;font-style:normal;font-weight:350;font-size:25.2px;line-height:26.6px;letter-spacing:.64em;color:#ececec;margin:24px -.64em 16px 0}header p{color:var(--muted);font-size:19px;margin:0 auto;max-width:620px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:52px}.card{display:flex;flex-direction:column;min-height:270px;padding:28px;border:1px solid var(--line);border-radius:20px;background:color-mix(in srgb,var(--panel) 94%,transparent);box-shadow:0 18px 60px #0006}.platform{color:var(--accent);font-size:13px;font-weight:750;letter-spacing:.11em;text-transform:uppercase}.card h2{font-size:28px;margin:7px 0 8px}.card p{color:var(--muted);margin:0}.requirements{font-size:13px;margin-top:12px!important}.action{margin-top:auto;padding-top:28px}.button{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;border-radius:12px;background:var(--text);color:#0b0d12;text-decoration:none;font-weight:750}.button svg{width:18px;height:18px;margin-right:10px;flex:none}.button[aria-disabled="true"]{background:#252b35;color:#8e98a7;cursor:not-allowed}.alt{margin-top:12px;text-align:center;font-size:13px;color:var(--muted)}.alt a{color:var(--accent);text-decoration:none}.alt a:hover{text-decoration:underline}.alt[hidden]{display:none}.note{margin:38px auto 0;padding:18px 20px;max-width:720px;border:1px solid var(--line);border-radius:14px;color:var(--muted);text-align:center;font-size:14px}.note strong{color:var(--text)}footer{margin-top:56px;text-align:center;color:#707988;font-size:13px}@media(max-width:680px){main{padding-top:48px}.grid{grid-template-columns:1fr}.card{min-height:240px}}
+    :root{color-scheme:dark;--bg:#080a0f;--panel:#11151d;--panel-strong:#151a24;--line:#29303d;--line-bright:#3a4558;--text:#f4f6f8;--muted:#a2abb8;--quiet:#737e8e;--accent:#86a7ff;--accent-dark:#6789e4}
+    *{box-sizing:border-box}html{background:var(--bg)}body{margin:0;min-height:100vh;background:radial-gradient(circle at 22% -8%,#25314a 0,transparent 31rem),radial-gradient(circle at 96% 56%,#111a2b 0,transparent 36rem),var(--bg);color:var(--text);font:16px/1.55 ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    main{width:min(1120px,calc(100% - 40px));margin:auto;padding:64px 0 56px}header{text-align:center;max-width:760px;margin:auto}.mark{display:block;width:72px;height:72px;margin:0 auto;border-radius:22.5%;box-shadow:0 0 0 1px #ffffff24,0 16px 40px #000b}h1{font-family:'Mazzard Soft M',ui-sans-serif,sans-serif;font-weight:350;font-size:25.2px;line-height:1.1;letter-spacing:.64em;color:#ececec;margin:24px -.64em 16px 0}header p{color:var(--muted);font-size:19px;margin:0 auto;max-width:680px}.downloads{display:grid;gap:24px;margin-top:52px}.suite{position:relative;padding:24px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(145deg,#151a24e8,#0d1017e8);box-shadow:0 24px 80px #0007;overflow:hidden}.suite:before{content:"";position:absolute;width:300px;height:220px;right:-110px;top:-130px;border-radius:50%;background:#86a7ff17;filter:blur(28px);pointer-events:none}.suite-header{position:relative;display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}.suite-title{margin:0;font-size:22px;letter-spacing:-.02em}.suite-description{color:var(--muted);margin:3px 0 0;font-size:14px}.suite-count{color:var(--quiet);font-size:12px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.grid{position:relative;display:grid;gap:14px}.desktop-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.mobile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card{position:relative;display:flex;flex-direction:column;min-height:252px;padding:22px;border:1px solid #323b4a;border-radius:18px;background:linear-gradient(150deg,#191f2a,#10131a);overflow:hidden;transition:border-color .2s ease,transform .2s ease,box-shadow .2s ease}.card:not(.coming-soon):hover{transform:translateY(-2px);border-color:var(--line-bright);box-shadow:0 16px 38px #0007}.card:before{content:"";position:absolute;width:120px;height:90px;right:-42px;top:-38px;border-radius:50%;background:#7799f026;filter:blur(22px);pointer-events:none}.platform-row{position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px}.platform{color:var(--accent);font-size:12px;font-weight:750;letter-spacing:.12em;text-transform:uppercase}.status{padding:4px 7px;border:1px solid #71788780;border-radius:999px;color:#aeb5c0;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.card h2{position:relative;font-size:24px;line-height:1.15;margin:10px 0 9px}.card p{position:relative;color:var(--muted);margin:0}.requirements{font-size:12px;margin-top:12px!important;color:#838d9c!important}.action{position:relative;margin-top:auto;padding-top:24px}.button{display:flex;align-items:center;justify-content:center;width:100%;min-height:46px;border-radius:11px;background:var(--accent);color:#091020;text-decoration:none;font-weight:800;box-shadow:0 8px 24px #5275d12b}.button:hover{background:#9bb5ff}.button svg{width:17px;height:17px;margin-right:9px;flex:none}.button[aria-disabled="true"]{background:#282d36;color:#9098a5;box-shadow:none;cursor:not-allowed}.coming-soon{opacity:.55;filter:saturate(.3);border-style:dashed}.coming-soon:before{background:#ffffff0c}.coming-soon .platform{color:#a2a8b2}.alt{margin:10px 0 0!important;text-align:center;font-size:12px;color:var(--muted)!important}.alt a{color:var(--accent);text-decoration:none}.alt a:hover{text-decoration:underline}.alt[hidden]{display:none}.note{margin:28px auto 0;padding:17px 20px;max-width:780px;border:1px solid var(--line);border-radius:15px;background:#0d1017a6;color:var(--muted);text-align:center;font-size:13px}.note strong{color:var(--text)}footer{margin-top:42px;text-align:center;color:#697382;font-size:12px}
+    @media(max-width:860px){.desktop-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.desktop-grid .coming-soon{grid-column:1/-1;min-height:205px}.card{min-height:235px}}
+    @media(max-width:620px){main{width:min(100% - 24px,1120px);padding:40px 0 42px}header p{font-size:16px}.downloads{margin-top:38px;gap:18px}.suite{padding:16px;border-radius:21px}.suite-header{align-items:flex-start}.suite-title{font-size:19px}.suite-count{display:none}.desktop-grid,.mobile-grid{grid-template-columns:1fr}.desktop-grid .coming-soon{grid-column:auto}.card,.desktop-grid .coming-soon{min-height:218px;padding:19px}.card h2{font-size:22px}}
+    @media(prefers-reduced-motion:reduce){.card{transition:none}}
   </style>
 </head>
 <body>
@@ -19,33 +22,48 @@
   <header>
     <img class="mark" src="axis-icon.svg" alt="Axis" width="72" height="72" />
     <h1>AXIS</h1>
-    <p>Your self-hosted control plane for coding agents, projects, and workspaces. Download the desktop node for your machine, and the mobile client for your phone.</p>
+    <p>One workspace across every machine. Run your Axis node on desktop, then stay connected from mobile.</p>
   </header>
-  <section class="grid" aria-label="Axis downloads">
-    <article class="card">
-      <div class="platform">macOS</div><h2>Axis for Mac</h2>
-      <p>Native desktop client for your own Axis instance.</p><p class="requirements">macOS 15 or later · Apple silicon and Intel</p>
-      <div class="action"><a class="button" id="mac-download" href="downloads/Axis-macOS.dmg" download><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.47 2.24-1.24 3.04-.84.88-2.2 1.56-3.32 1.47-.13-1.1.43-2.28 1.2-3.05.84-.85 2.3-1.5 3.36-1.46zM20.9 17.13c-.55 1.27-.82 1.84-1.53 2.96-.99 1.57-2.39 3.52-4.12 3.53-1.54.02-1.93-1-4.02-.99-2.09.01-2.52 1.01-4.06.99-1.73-.02-3.05-1.78-4.04-3.34C.36 15.9-.1 10.78 1.6 8.06c1.2-1.93 3.1-3.06 4.88-3.06 1.82 0 2.96 1 4.46 1 1.46 0 2.35-1 4.45-1 1.59 0 3.27.87 4.47 2.36-3.93 2.16-3.29 7.78 1.04 9.77z"/></svg><span class="label">Download for macOS</span></a></div>
-    </article>
-    <article class="card">
-      <div class="platform">iOS Simulator</div><h2>Axis for iOS</h2>
-      <p>Simulator build for testing secure mobile access to your self-hosted Axis instance.</p><p class="requirements">macOS with Xcode · Device-signed build coming later</p>
-      <div class="action"><a class="button" id="ios-download" href="downloads/Axis-iOS-Simulator.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="5.4" y="2.4" width="13.2" height="19.2" rx="3.2"/><path d="M10.2 5.4h3.6"/><path d="M10.2 18.8h3.6"/></svg><span class="label">Download Simulator build</span></a></div>
-    </article>
-    <article class="card">
-      <div class="platform">Linux</div><h2>Axis for Linux</h2>
-      <p>Desktop node that runs the complete Axis stack locally — server, terminals, and managed agent runtime.</p><p class="requirements">Ubuntu 22.04 or later · x86_64 · Signed .deb package</p>
-      <div class="action">
-        <a class="button" id="linux-download" download><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-1.7 0-3 1.5-3 3.3 0 .9.1 1.6-.2 2.3-.3.8-1 1.4-1.6 2.3-1 1.5-1.7 3.2-2.4 4.7-.3.7-.8 1.3-.6 2 .2.6.9.8 1.5.8.5 0 .8-.2 1.2-.4.3 1.1 1 2 2 2.5 1.4.7 3.3.7 4.7 0 1-.5 1.7-1.4 2-2.5.4.2.7.4 1.2.4.6 0 1.3-.2 1.5-.8.2-.7-.3-1.3-.6-2-.7-1.5-1.4-3.2-2.4-4.7-.6-.9-1.3-1.5-1.6-2.3-.3-.7-.2-1.4-.2-2.3C15 3.5 13.7 2 12 2zm-1.4 3.1c.4 0 .7.4.7.9s-.3.9-.7.9-.7-.4-.7-.9.3-.9.7-.9zm2.8 0c.4 0 .7.4.7.9s-.3.9-.7.9-.7-.4-.7-.9.3-.9.7-.9zM12 8.2c.8 0 1.6.4 1.6.8 0 .5-.8.9-1.6.9s-1.6-.4-1.6-.9c0-.4.8-.8 1.6-.8z"/></svg><span class="label">Download for Linux</span></a>
-        <p class="alt" id="linux-alt" hidden></p>
+
+  <div class="downloads" aria-label="Axis downloads">
+    <section class="suite" aria-labelledby="desktop-title">
+      <div class="suite-header"><div><h2 class="suite-title" id="desktop-title">Desktop node</h2><p class="suite-description">Where your agents, projects, and workspaces run.</p></div><div class="suite-count">3 platforms</div></div>
+      <div class="grid desktop-grid">
+        <article class="card">
+          <div class="platform-row"><div class="platform">macOS</div></div><h2>Axis for Mac</h2>
+          <p>Native desktop node for your own Axis workspace.</p><p class="requirements">macOS 15 or later · Apple silicon and Intel</p>
+          <div class="action"><a class="button" id="mac-download" href="downloads/Axis-macOS.dmg" download><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.47 2.24-1.24 3.04-.84.88-2.2 1.56-3.32 1.47-.13-1.1.43-2.28 1.2-3.05.84-.85 2.3-1.5 3.36-1.46zM20.9 17.13c-.55 1.27-.82 1.84-1.53 2.96-.99 1.57-2.39 3.52-4.12 3.53-1.54.02-1.93-1-4.02-.99-2.09.01-2.52 1.01-4.06.99-1.73-.02-3.05-1.78-4.04-3.34C.36 15.9-.1 10.78 1.6 8.06c1.2-1.93 3.1-3.06 4.88-3.06 1.82 0 2.96 1 4.46 1 1.46 0 2.35-1 4.45-1 1.59 0 3.27.87 4.47 2.36-3.93 2.16-3.29 7.78 1.04 9.77z"/></svg><span class="label">Download for macOS</span></a></div>
+        </article>
+        <article class="card">
+          <div class="platform-row"><div class="platform">Linux</div></div><h2>Axis for Linux</h2>
+          <p>Complete Axis stack with server, terminals, and managed agent runtime.</p><p class="requirements">Ubuntu 22.04 or later · x86_64 · Signed .deb</p>
+          <div class="action"><a class="button" id="linux-download" download><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c-1.7 0-3 1.5-3 3.3 0 .9.1 1.6-.2 2.3-.3.8-1 1.4-1.6 2.3-1 1.5-1.7 3.2-2.4 4.7-.3.7-.8 1.3-.6 2 .2.6.9.8 1.5.8.5 0 .8-.2 1.2-.4.3 1.1 1 2 2 2.5 1.4.7 3.3.7 4.7 0 1-.5 1.7-1.4 2-2.5.4.2.7.4 1.2.4.6 0 1.3-.2 1.5-.8.2-.7-.3-1.3-.6-2-.7-1.5-1.4-3.2-2.4-4.7-.6-.9-1.3-1.5-1.6-2.3-.3-.7-.2-1.4-.2-2.3C15 3.5 13.7 2 12 2z"/></svg><span class="label">Download for Linux</span></a><p class="alt" id="linux-alt" hidden></p></div>
+        </article>
+        <article class="card coming-soon" aria-disabled="true">
+          <div class="platform-row"><div class="platform">Windows</div><span class="status">Coming soon</span></div><h2>Axis for Windows</h2>
+          <p>Native desktop node for Windows workstations.</p><p class="requirements">Windows installer · In development</p>
+          <div class="action"><span class="button" aria-disabled="true"><span class="label">Coming soon</span></span></div>
+        </article>
       </div>
-    </article>
-    <article class="card">
-      <div class="platform">Android</div><h2>Axis for Android</h2>
-      <p>Mobile client that pairs with your own Axis node over your private network.</p><p class="requirements">Android 8.0 or later · Installed from APK</p>
-      <div class="action"><a class="button" id="android-download" download><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 9h12v9.2c0 1-.8 1.8-1.8 1.8H7.8C6.8 20 6 19.2 6 18.2V9zm-2.2.4c.7 0 1.2.6 1.2 1.3v4.6c0 .7-.5 1.3-1.2 1.3S2.6 16 2.6 15.3v-4.6c0-.7.5-1.3 1.2-1.3zm16.4 0c.7 0 1.2.6 1.2 1.3v4.6c0 .7-.5 1.3-1.2 1.3s-1.2-.6-1.2-1.3v-4.6c0-.7.5-1.3 1.2-1.3zM9 20.6c.7 0 1.2.6 1.2 1.3S9.7 23.2 9 23.2s-1.2-.6-1.2-1.3.5-1.3 1.2-1.3zm6 0c.7 0 1.2.6 1.2 1.3s-.5 1.3-1.2 1.3-1.2-.6-1.2-1.3.5-1.3 1.2-1.3zM8.2 3.3l.9 1.6c.9-.4 1.9-.6 2.9-.6s2 .2 2.9.6l.9-1.6c.1-.2 0-.5-.2-.6-.2-.1-.5 0-.6.2l-.9 1.5c-.7-.2-1.4-.3-2.1-.3s-1.4.1-2.1.3L9 2.9c-.1-.2-.4-.3-.6-.2-.2.1-.3.4-.2.6zM6.1 8c.2-2.6 2.7-4.7 5.9-4.7S17.7 5.4 17.9 8H6.1zm3.3-2.6c-.3 0-.6.3-.6.6s.3.6.6.6.6-.3.6-.6-.3-.6-.6-.6zm5.2 0c-.3 0-.6.3-.6.6s.3.6.6.6.6-.3.6-.6-.3-.6-.6-.6z"/></svg><span class="label">Download for Android</span></a></div>
-    </article>
-  </section>
+    </section>
+
+    <section class="suite" aria-labelledby="mobile-title">
+      <div class="suite-header"><div><h2 class="suite-title" id="mobile-title">Mobile companion</h2><p class="suite-description">Your Axis workspace, available wherever you go.</p></div><div class="suite-count">2 platforms</div></div>
+      <div class="grid mobile-grid">
+        <article class="card">
+          <div class="platform-row"><div class="platform">iOS Simulator</div></div><h2>Axis for iOS</h2>
+          <p>Simulator build for testing secure access to your Axis node.</p><p class="requirements">macOS with Xcode · Device-signed build coming later</p>
+          <div class="action"><a class="button" id="ios-download" href="downloads/Axis-iOS-Simulator.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><rect x="5.4" y="2.4" width="13.2" height="19.2" rx="3.2"/><path d="M10.2 5.4h3.6M10.2 18.8h3.6"/></svg><span class="label">Download Simulator build</span></a></div>
+        </article>
+        <article class="card">
+          <div class="platform-row"><div class="platform">Android</div></div><h2>Axis for Android</h2>
+          <p>Mobile client that pairs securely with your own Axis node.</p><p class="requirements">Android 8.0 or later · Signed APK</p>
+          <div class="action"><a class="button" id="android-download" download><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 9h12v9.2c0 1-.8 1.8-1.8 1.8H7.8C6.8 20 6 19.2 6 18.2V9zm-2.2.4c.7 0 1.2.6 1.2 1.3v4.6c0 .7-.5 1.3-1.2 1.3S2.6 16 2.6 15.3v-4.6c0-.7.5-1.3 1.2-1.3zm16.4 0c.7 0 1.2.6 1.2 1.3v4.6c0 .7-.5 1.3-1.2 1.3s-1.2-.6-1.2-1.3v-4.6c0-.7.5-1.3 1.2-1.3zM8.2 3.3l.9 1.6c.9-.4 1.9-.6 2.9-.6s2 .2 2.9.6l.9-1.6c.1-.2 0-.5-.2-.6-.2-.1-.5 0-.6.2l-.9 1.5c-.7-.2-1.4-.3-2.1-.3s-1.4.1-2.1.3L9 2.9c-.1-.2-.4-.3-.6-.2-.2.1-.3.4-.2.6zM6.1 8c.2-2.6 2.7-4.7 5.9-4.7S17.7 5.4 17.9 8H6.1z"/></svg><span class="label">Download for Android</span></a></div>
+        </article>
+      </div>
+    </section>
+  </div>
+
   <aside class="note"><strong>Axis is self-hosted.</strong> This website only distributes the apps. Your Axis server and data stay on your local machine or VPS; the apps connect to the private HTTPS origin you configure.</aside>
   <footer>© 2026 Axis · Downloads only · No hosted runtime</footer>
 </main>
@@ -55,17 +73,10 @@ for(const [id,key] of [['mac-download','macos'],['ios-download','ios'],['linux-d
   const a=document.getElementById(id);if(!a)continue;const v=m[key];
   if(!v?.available||!v.url){a.removeAttribute('href');a.removeAttribute('download');a.setAttribute('aria-disabled','true');const l=a.querySelector('.label');if(l)l.textContent='Build in progress';continue}
   a.removeAttribute('aria-disabled');a.setAttribute('download','');a.href=v.url;
-  // Alternate package formats are rendered as text nodes, never innerHTML.
   const alt=document.getElementById(key+'-alt');
   if(alt&&Array.isArray(v.alternates)&&v.alternates.length){
     alt.replaceChildren(document.createTextNode('Also available: '));
-    v.alternates.forEach((entry,i)=>{
-      if(!entry||typeof entry.url!=='string'||!/^(https:\/\/|downloads\/)/.test(entry.url))return;
-      if(i>0)alt.appendChild(document.createTextNode(' \u00b7 '));
-      const link=document.createElement('a');link.href=entry.url;link.setAttribute('download','');
-      link.textContent=String(entry.label??entry.format??'download');alt.appendChild(link);
-    });
-    alt.hidden=alt.childNodes.length<2;
+    let rendered=0;v.alternates.forEach((entry)=>{if(!entry||typeof entry.url!=='string'||!/^(https:\/\/|downloads\/)/.test(entry.url))return;if(rendered++>0)alt.appendChild(document.createTextNode(' · '));const link=document.createElement('a');link.href=entry.url;link.setAttribute('download','');link.textContent=String(entry.label??entry.format??'download');alt.appendChild(link)});alt.hidden=rendered===0;
   }
 }}catch{}})();
 </script>
