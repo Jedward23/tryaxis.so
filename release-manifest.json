@@ -14,16 +14,16 @@
   },
   "linux": {
     "available": true,
-    "version": "0.1.0",
-    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v0.1.0/Axis-0.1.0-Linux-amd64.deb",
+    "version": "0.1.1",
+    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v0.1.1/Axis-0.1.1-Linux-amd64.deb",
     "format": "deb",
     "minimumVersion": "Ubuntu 22.04",
     "architecture": "x86_64",
     "signing": "gpg-detached",
-    "signature": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v0.1.0/Axis-0.1.0-Linux-amd64.deb.asc",
-    "sha256": "dfa2687dd2b6aaa339c2a716ffaecf94c4e427b64a217005d909c715821604f9",
-    "sha256Url": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v0.1.0/Axis-0.1.0-Linux-amd64.deb.sha256",
-    "sizeBytes": 6891506,
+    "signature": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v0.1.1/Axis-0.1.1-Linux-amd64.deb.asc",
+    "sha256": "77bafa2f3b04dcd0f00802034474408eb7b0d2d78a53f1b1ccb3277a3f916918",
+    "sha256Url": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v0.1.1/Axis-0.1.1-Linux-amd64.deb.sha256",
+    "sizeBytes": 6891498,
     "alternates": []
   },
   "android": {
