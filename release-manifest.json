@@ -1,16 +1,30 @@
 {
   "version": "0.1.0",
   "macos": {
-    "available": false,
-    "blockedLabel": "Notarized build pending",
-    "blockedReason": "Public macOS download is paused until Developer ID signing and notarization can be proven. Apple silicon is planned first; Intel is not yet published."
+    "available": true,
+    "version": "1.0.0",
+    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/macos-v1.0.0/Axis-1.0.0-macOS.dmg",
+    "format": "dmg",
+    "minimumVersion": "macOS 15",
+    "architecture": "native",
+    "signing": "developer-id-notarized+tauri-updater",
+    "sha256": "06cb7f317f7587dc83acceb27f3025c928867cc4e876f42bd260957d6fac06b6",
+    "sha256Url": "https://github.com/Jedward23/tryaxis.so/releases/download/macos-v1.0.0/Axis-1.0.0-macOS.dmg.sha256",
+    "sizeBytes": 6117688,
+    "updater": "https://github.com/Jedward23/tryaxis.so/releases/download/macos-v1.0.0/Axis-1.0.0-arm64.app.tar.gz",
+    "updaterSignature": "https://github.com/Jedward23/tryaxis.so/releases/download/macos-v1.0.0/Axis-1.0.0-arm64.app.tar.gz.sig",
+    "alternates": []
   },
   "ios": {
     "available": true,
-    "url": "downloads/Axis-iOS-Simulator.zip",
+    "version": "1.0.0",
+    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/ios-simulator-v1.0.0/Axis-1.0.0-iOS-Simulator.zip",
     "target": "simulator",
-    "minimumVersion": "17.0",
-    "sha256": "76bc8bb83048012ef09bfb73349977d58aa821e1d54dd7a73233739c815236da"
+    "signing": "unsigned-simulator",
+    "sha256": "b54c90000cdfc3fdeb168cac1584674b77fa5023fdc028458112a2e06bbc8653",
+    "sha256Url": "https://github.com/Jedward23/tryaxis.so/releases/download/ios-simulator-v1.0.0/Axis-1.0.0-iOS-Simulator.zip.sha256",
+    "sizeBytes": 11901435,
+    "alternates": []
   },
   "linux": {
     "available": true,
