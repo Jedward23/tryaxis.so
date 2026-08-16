@@ -1,57 +1,16 @@
 {
   "version": "0.1.0",
   "macos": {
-    "available": true,
-    "version": "1.0.1",
-    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/macos-v1.0.1/Axis-1.0.1.dmg",
-    "format": "dmg",
-    "minimumVersion": "macOS 15",
-    "architecture": "native",
-    "signing": "developer-id-notarized+tauri-updater",
-    "sha256": "89e961beaf639fcb4fa96176b635ef3560155088149a4e54cd7c98fbdaafc638",
-    "sha256Url": "https://github.com/Jedward23/tryaxis.so/releases/download/macos-v1.0.1/Axis-1.0.1.dmg.sha256",
-    "sizeBytes": 6121059,
-    "updater": "https://github.com/Jedward23/tryaxis.so/releases/download/macos-v1.0.1/Axis-1.0.1-arm64.app.tar.gz",
-    "updaterSignature": "https://github.com/Jedward23/tryaxis.so/releases/download/macos-v1.0.1/Axis-1.0.1-arm64.app.tar.gz.sig",
-    "alternates": []
+    "available": false
   },
   "ios": {
-    "available": true,
-    "version": "1.0.0",
-    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/ios-simulator-v1.0.0/Axis-1.0.0-iOS-Simulator.zip",
-    "target": "simulator",
-    "signing": "unsigned-simulator",
-    "sha256": "b54c90000cdfc3fdeb168cac1584674b77fa5023fdc028458112a2e06bbc8653",
-    "sha256Url": "https://github.com/Jedward23/tryaxis.so/releases/download/ios-simulator-v1.0.0/Axis-1.0.0-iOS-Simulator.zip.sha256",
-    "sizeBytes": 11901435,
-    "alternates": []
+    "available": false
   },
   "linux": {
-    "available": true,
-    "version": "1.0.0",
-    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v1.0.0/Axis-1.0.0-Linux-amd64.deb",
-    "format": "deb",
-    "minimumVersion": "Ubuntu 22.04",
-    "architecture": "x86_64",
-    "signing": "gpg-detached",
-    "signature": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v1.0.0/Axis-1.0.0-Linux-amd64.deb.asc",
-    "sha256": "f36efe8e3d1702446e9870c19717af0d53fde0621ee567f09126ce784cf2578c",
-    "sha256Url": "https://github.com/Jedward23/tryaxis.so/releases/download/linux-v1.0.0/Axis-1.0.0-Linux-amd64.deb.sha256",
-    "sizeBytes": 6937092,
-    "alternates": []
+    "available": false
   },
   "android": {
-    "available": true,
-    "version": "1.0.0",
-    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/android-v1.0.0/Axis-1.0.0-Android.apk",
-    "format": "apk",
-    "minimumVersion": "8.0",
-    "target": "apk",
-    "signing": "android-v2+v3",
-    "sha256": "38cb4eb0452c6bc7b5679ceb6052b43b77ab3b43fd67a88f0733976996a3395b",
-    "sha256Url": "https://github.com/Jedward23/tryaxis.so/releases/download/android-v1.0.0/Axis-1.0.0-Android.apk.sha256",
-    "sizeBytes": 12430533,
-    "alternates": []
+    "available": false
   },
   "runtime": {
     "hosted": false,
