@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "status": "published",
+  "createdAt": "2026-08-16T10:30:39.957Z",
+  "createdBy": "axis-release-admin",
+  "reason": "macOS 1.0.1 redirect repair passed Developer ID, notarization, Gatekeeper, and immutable artifact verification; retain Linux 1.0.0 artifacts",
+  "manifest": {
+    "schemaVersion": 1,
+    "channel": "stable",
+    "version": "1.0.1",
+    "rollout": {
+      "percent": 100
+    },
+    "notes": "Axis 1.0.1",
+    "artifacts": [
+      {
+        "kind": "browsers",
+        "platform": "darwin",
+        "arch": "arm64",
+        "url": "https://github.com/Jedward23/tryaxis.so/releases/download/axis-node-darwin-v1.0.1/axis-browsers-darwin-1.0.1-arm64.tar.gz",
+        "sha256": "f938c4596f1d757af7204121e24cde8d0a67b908d6a577f2a8a5a4454dbf9c8f",
+        "sizeBytes": 248157749
+      },
+      {
+        "kind": "runtime",
+        "platform": "darwin",
+        "arch": "arm64",
+        "url": "https://github.com/Jedward23/tryaxis.so/releases/download/axis-node-darwin-v1.0.1/axis-runtime-darwin-1.0.1-arm64.tar.gz",
+        "sha256": "6096757b79fb32d3b91a27f25afcc7f17ab504194ad2f2d7d6e0c7781f85909d",
+        "sizeBytes": 384801145
+      },
+      {
+        "kind": "browsers",
+        "platform": "linux",
+        "arch": "x64",
+        "url": "https://github.com/Jedward23/tryaxis.so/releases/download/axis-node-linux-v1.0.0/axis-browsers-linux-1.0.0-x64.tar.gz",
+        "sha256": "98aa287eedf0c1ae90bf47efe844ac5b22f5a49f5a4311341866ae1b44a54155",
+        "sizeBytes": 268720858
+      },
+      {
+        "kind": "runtime",
+        "platform": "linux",
+        "arch": "x64",
+        "url": "https://github.com/Jedward23/tryaxis.so/releases/download/axis-node-linux-v1.0.0/axis-runtime-linux-1.0.0-x64.tar.gz",
+        "sha256": "fc5da70380402294154d341cb19c4ebe96581dfad7ffba04d4fb651563583bca",
+        "sizeBytes": 417140496
+      }
+    ]
+  },
+  "publishedAt": "2026-08-16T10:30:40.853Z"
+}
