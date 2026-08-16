@@ -28,12 +28,15 @@
   },
   "android": {
     "available": true,
-    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/android-download-latest/Axis-Android.apk",
+    "version": "1.0.0",
+    "url": "https://github.com/Jedward23/tryaxis.so/releases/download/android-v1.0.0/Axis-1.0.0-Android.apk",
     "format": "apk",
     "minimumVersion": "8.0",
     "target": "apk",
     "signing": "android-v2+v3",
-    "sha256": "b2c3a5ee753c5642c1a111dc4f759cd7130c754a1cec692ea0577a83d7f44547",
+    "sha256": "38cb4eb0452c6bc7b5679ceb6052b43b77ab3b43fd67a88f0733976996a3395b",
+    "sha256Url": "https://github.com/Jedward23/tryaxis.so/releases/download/android-v1.0.0/Axis-1.0.0-Android.apk.sha256",
+    "sizeBytes": 12430533,
     "alternates": []
   },
   "runtime": {
