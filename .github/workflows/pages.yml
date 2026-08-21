@@ -18,6 +18,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: docs-src/package-lock.json
+      # Builds the Starlight docs into ./docs, which is then uploaded with the
+      # rest of the static site. The generated directory is not committed.
+      - name: Build docs
+        working-directory: docs-src
+        run: |
+          npm ci
+          npm run build
+      - name: Verify docs output
+        run: |
+          test -f docs/index.html
+          test -f docs/pagefind/pagefind.js
+          grep -q 'Axis documentation' docs/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

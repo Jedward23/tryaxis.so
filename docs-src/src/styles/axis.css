@@ -1,0 +1,232 @@
+/* Axis docs theme.
+   The public site is deliberately monochrome, so Starlight's accent scale is
+   collapsed to greyscale rather than given a hue. Dark is the default because
+   the marketing pages present dark regardless of OS preference. */
+
+@font-face {
+  font-family: 'Mazzard Soft M';
+  src: url('/fonts/MazzardSoftM-Light.woff2') format('woff2');
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+:root {
+  --axis-bg: #000;
+  --axis-panel: #080808;
+  --axis-line: #292929;
+  --axis-line-bright: #555;
+  --axis-text: #fff;
+  --axis-muted: #aaa;
+
+  --sl-font: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --sl-font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+
+  --sl-content-width: 48rem;
+  --sl-sidebar-width: 17.5rem;
+  --sl-nav-height: 3.75rem;
+  --sl-text-code: 0.875em;
+}
+
+:root[data-theme='dark'] {
+  --sl-color-white: #fff;
+  --sl-color-gray-1: #eee;
+  --sl-color-gray-2: #ddd;
+  --sl-color-gray-3: #aaa;
+  --sl-color-gray-4: #777;
+  --sl-color-gray-5: #303030;
+  --sl-color-gray-6: #1a1a1a;
+  --sl-color-gray-7: #111;
+  --sl-color-black: #000;
+
+  --sl-color-accent-low: #1a1a1a;
+  --sl-color-accent: #fff;
+  --sl-color-accent-high: #fff;
+
+  --sl-color-text: #fff;
+  --sl-color-text-accent: #fff;
+  --sl-color-bg: var(--axis-bg);
+  --sl-color-bg-nav: rgba(0, 0, 0, 0.72);
+  --sl-color-bg-sidebar: var(--axis-bg);
+  --sl-color-bg-inline-code: #141414;
+  --sl-color-hairline: var(--axis-line);
+  --sl-color-hairline-light: var(--axis-line);
+  --sl-color-hairline-shade: var(--axis-line);
+}
+
+:root[data-theme='light'] {
+  --sl-color-white: #000;
+  --sl-color-gray-1: #111;
+  --sl-color-gray-2: #333;
+  --sl-color-gray-3: #555;
+  --sl-color-gray-4: #777;
+  --sl-color-gray-5: #d8d8d8;
+  --sl-color-gray-6: #ececec;
+  --sl-color-gray-7: #f6f6f6;
+  --sl-color-black: #fff;
+
+  --sl-color-accent-low: #ececec;
+  --sl-color-accent: #000;
+  --sl-color-accent-high: #000;
+
+  --sl-color-text: #111;
+  --sl-color-text-accent: #000;
+  --sl-color-bg: #fff;
+  --sl-color-bg-nav: rgba(255, 255, 255, 0.78);
+  --sl-color-bg-sidebar: #fff;
+  --sl-color-bg-inline-code: #f0f0f0;
+  --sl-color-hairline: #e4e4e4;
+  --sl-color-hairline-light: #ececec;
+  --sl-color-hairline-shade: #e4e4e4;
+}
+
+/* Display type. Mazzard carries headings and the wordmark; DM Sans carries prose. */
+.site-title,
+.content-panel h1,
+.content-panel h2,
+.sl-markdown-content h1,
+.sl-markdown-content h2 {
+  font-family: 'Mazzard Soft M', ui-sans-serif, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+}
+
+.sl-markdown-content h1 {
+  font-size: clamp(2rem, 1.4rem + 2vw, 2.75rem);
+  line-height: 1.1;
+}
+
+.sl-markdown-content h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--sl-color-hairline);
+}
+
+.sl-markdown-content h2:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 2rem;
+}
+
+.sl-markdown-content h3 {
+  font-size: 1.125rem;
+  margin-top: 1.75rem;
+}
+
+.sl-markdown-content p,
+.sl-markdown-content li {
+  line-height: 1.7;
+}
+
+/* Nav and sidebar: hairline structure, no filled highlights. */
+header.header {
+  border-bottom: 1px solid var(--sl-color-hairline);
+  backdrop-filter: blur(12px);
+}
+
+.sidebar-content {
+  padding-top: 1.25rem;
+}
+
+.sidebar-content summary,
+.sidebar-content .large {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sl-color-gray-4);
+}
+
+.sidebar-content a {
+  border-radius: 6px;
+  font-size: 0.9rem;
+  padding-block: 0.35rem;
+}
+
+.sidebar-content a[aria-current='page'] {
+  background-color: var(--sl-color-accent-low);
+  color: var(--sl-color-white);
+  font-weight: 500;
+}
+
+/* Code: flat panels, hairline border, no rounded chrome bar. */
+.sl-markdown-content :not(pre) > code {
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+}
+
+.expressive-code .frame pre,
+.sl-markdown-content pre {
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 8px;
+  background-color: var(--axis-panel);
+}
+
+:root[data-theme='light'] .expressive-code .frame pre,
+:root[data-theme='light'] .sl-markdown-content pre {
+  background-color: #fafafa;
+}
+
+/* Cards and asides inherit the same hairline language as the marketing site. */
+.card,
+.sl-markdown-content .starlight-aside {
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 10px;
+  background-color: var(--axis-panel);
+}
+
+:root[data-theme='light'] .card,
+:root[data-theme='light'] .sl-markdown-content .starlight-aside {
+  background-color: #fafafa;
+}
+
+.sl-markdown-content .starlight-aside {
+  border-left-width: 1px;
+}
+
+/* Starlight tints card icons from a rotating palette. Axis is monochrome, so the
+   icon reads as a hairline square in the same greyscale as everything else. */
+.card .icon {
+  color: var(--sl-color-white);
+  background-color: transparent;
+  border: 1px solid var(--sl-color-hairline);
+  border-radius: 6px;
+  padding: 0.3rem;
+}
+
+.card .title {
+  font-weight: 600;
+}
+
+.sl-markdown-content .starlight-aside__title {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* Tables read as a 1px grid, matching the app's rendered-markdown treatment. */
+.sl-markdown-content table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+}
+
+.sl-markdown-content :is(th, td) {
+  border: 1px solid var(--sl-color-hairline);
+  padding: 0.5rem 0.75rem;
+  background: transparent;
+}
+
+.sl-markdown-content th {
+  font-weight: 600;
+  text-align: left;
+  color: var(--sl-color-gray-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

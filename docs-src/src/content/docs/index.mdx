@@ -1,0 +1,62 @@
+---
+title: Axis documentation
+description: Axis keeps your agents, work, and context in one place. Install it, learn the model, and automate the work you repeat.
+template: splash
+hero:
+  tagline: One persistent place for sessions, browsers, memory, evidence, approvals, and automation — without losing your judgment or the thread.
+  actions:
+    - text: Install Axis
+      link: /docs/install/
+      icon: right-arrow
+      variant: primary
+    - text: Quick start
+      link: /docs/quick-start/
+      icon: rocket
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Axis is a workspace for coding agents. Agents keep working while you step away, and
+Axis holds the terminals, browsers, files, and decisions they produce so the thread
+survives a closed laptop, a reconnect, or a switch to your phone.
+
+## Start here
+
+<CardGrid>
+  <LinkCard title="Install Axis" href="/docs/install/" description="Get Axis onto your machine and sign in." />
+  <LinkCard title="Quick start" href="/docs/quick-start/" description="Create a project, start a session, and finish one real task." />
+  <LinkCard title="Concepts" href="/docs/concepts/" description="Projects, sessions, workspaces, and panes — the model behind everything." />
+  <LinkCard title="Keyboard" href="/docs/keyboard/" description="Shortcuts for moving without the mouse." />
+</CardGrid>
+
+## Learn the workflow
+
+<CardGrid>
+  <Card title="Work with agents" icon="comment">
+    [Sessions](/docs/sessions/) are the unit of work. [Work plans](/docs/work-plans/)
+    keep multi-step efforts coherent, and [sub-agents](/docs/sub-agents/) split a large
+    goal across parallel workers.
+  </Card>
+  <Card title="Stay in control" icon="approve-check">
+    The [inbox](/docs/inbox/) collects everything waiting on your judgment.
+    [Memory](/docs/memory/) stops you re-explaining decisions in every new session.
+  </Card>
+  <Card title="See real evidence" icon="laptop">
+    Agents can drive a [real browser](/docs/browser/) and turn results into
+    [artifacts](/docs/artifacts/) you can open, read, and keep.
+  </Card>
+  <Card title="Automate the repeats" icon="seti:clock">
+    Turn a prompt you keep retyping into a [recurring task](/docs/recurring-tasks/),
+    a [scheduled prompt](/docs/scheduled-prompts/), or a [quick action](/docs/quick-actions/).
+  </Card>
+</CardGrid>
+
+## Reference
+
+<CardGrid>
+  <LinkCard title="CLI reference" href="/docs/cli-reference/" description="Every axis command, flag, and example." />
+  <LinkCard title="Agent tools" href="/docs/agent-tools/" description="The tools agents call inside Axis." />
+  <LinkCard title="Configuration" href="/docs/configuration/" description="Settings, providers, and where state lives." />
+  <LinkCard title="Troubleshooting" href="/docs/troubleshooting/" description="When something is stuck, start here." />
+</CardGrid>
