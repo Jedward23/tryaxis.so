@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "product": "Axis",
+  "channel": "stable",
+  "version": "1.0.6",
+  "buildVersion": "1.0.6",
+  "publishedAt": "2026-08-21T09:21:15.000Z",
+  "notes": "Axis 1.0.6 — canonical Voice Orb, progressive Voice setup, and Axis Air default wallpaper.",
+  "feeds": {
+    "tauri": "https://releases.tryaxis.so/desktop/stable/latest.json",
+    "sparkle": null
+  },
+  "artifacts": [
+    {
+      "file": "Axis-1.0.6-arm64.app.tar.gz",
+      "url": "https://releases.tryaxis.so/desktop/stable/artifacts/Axis-1.0.6-arm64.app.tar.gz",
+      "size": 6654755,
+      "sha256": "cc6b7e0a8ea252aa59e15371ec17b1fc56102c63b9d32ec3140988be8d4a254c",
+      "updater": "tauri-v2",
+      "targets": [
+        "darwin-aarch64"
+      ],
+      "signatureAlgorithm": "minisign"
+    }
+  ]
+}
