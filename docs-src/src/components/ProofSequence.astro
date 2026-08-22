@@ -43,8 +43,16 @@ const {
     {items.map((item, index) => (
       <li class="axis-proof-sequence-item">
         <header>
-          <span class="axis-sequence-number">{String(index + 1).padStart(2, '0')}</span>
-          <div>
+          <div class="axis-sequence-marker">
+            <button class="axis-sequence-number" type="button" aria-expanded="false" aria-controls={`${id}-step-${index + 1}`}>
+              {String(index + 1).padStart(2, '0')}
+            </button>
+            <aside class="axis-sequence-tooltip" id={`${id}-step-${index + 1}`} role="tooltip">
+              <strong>{item.title}</strong>
+              {item.description && <span>{item.description}</span>}
+            </aside>
+          </div>
+          <div class="axis-sequence-copy">
             <h3>{item.title}</h3>
             {item.description && <p>{item.description}</p>}
           </div>
@@ -63,3 +71,25 @@ const {
     ))}
   </ol>
 </section>
+
+<script>
+  const closeSequenceTooltips = (except?: HTMLButtonElement) => {
+    document.querySelectorAll<HTMLButtonElement>('.axis-sequence-number[aria-expanded="true"]').forEach((button) => {
+      if (button !== except) button.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  document.querySelectorAll<HTMLButtonElement>('.axis-sequence-number').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const opening = button.getAttribute('aria-expanded') !== 'true';
+      closeSequenceTooltips(button);
+      button.setAttribute('aria-expanded', String(opening));
+    });
+  });
+
+  document.addEventListener('click', () => closeSequenceTooltips());
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeSequenceTooltips();
+  });
+</script>

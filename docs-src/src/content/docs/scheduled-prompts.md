@@ -11,9 +11,9 @@ primitive, not a general customer automation model and not a replacement for Rou
 
 <!-- PROOF-ID: SCHEDULED-CHECKIN-01 -->
 
-![Real Axis Routines: scheduled work, event-triggered work, and manual actions remain visible and inspectable.](/docs/proof/routines.png)
+![Two future messages scheduled directly above the Axis composer, each with its delivery time and a Send now action.](/docs/proof/scheduled-messages.webp)
 
-*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+*Scheduled messages remain attached to the exact session and can be sent immediately when plans change.*
 
 ## When to use it
 

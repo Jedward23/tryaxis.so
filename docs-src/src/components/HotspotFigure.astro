@@ -1,5 +1,5 @@
 ---
-import ProofLabel, { type ProofKind } from './ProofLabel.astro';
+import type { ProofKind } from './ProofLabel.astro';
 
 export interface Hotspot {
   x: number;
@@ -41,15 +41,18 @@ const clamp = (value: number) => Math.min(100, Math.max(0, value));
     <ol class="axis-hotspot-markers" aria-label="Image annotations">
       {hotspots.map((hotspot, index) => (
         <li style={`--hotspot-x:${clamp(hotspot.x)}%;--hotspot-y:${clamp(hotspot.y)}%`}>
-          <a href={`#${id}-annotation-${index + 1}`} aria-label={`Annotation ${index + 1}: ${hotspot.title}`}>
+          <button type="button" aria-expanded="false" aria-controls={`${id}-tooltip-${index + 1}`} aria-label={`Annotation ${index + 1}: ${hotspot.title}`}>
             {index + 1}
-          </a>
+          </button>
+          <aside class="axis-hotspot-tooltip" id={`${id}-tooltip-${index + 1}`} role="tooltip">
+            <strong>{hotspot.title}</strong>
+            <span>{hotspot.description}</span>
+          </aside>
         </li>
       ))}
     </ol>
   </div>
   <figcaption>
-    <ProofLabel kind={kind} label={label} />
     <span>{caption}</span>
   </figcaption>
   <ol class="axis-hotspot-annotations">
@@ -64,3 +67,25 @@ const clamp = (value: number) => Math.min(100, Math.max(0, value));
     ))}
   </ol>
 </figure>
+
+<script>
+  const closeHotspotTooltips = (except?: HTMLButtonElement) => {
+    document.querySelectorAll<HTMLButtonElement>('.axis-hotspot-markers button[aria-expanded="true"]').forEach((button) => {
+      if (button !== except) button.setAttribute('aria-expanded', 'false');
+    });
+  };
+
+  document.querySelectorAll<HTMLButtonElement>('.axis-hotspot-markers button').forEach((button) => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const opening = button.getAttribute('aria-expanded') !== 'true';
+      closeHotspotTooltips(button);
+      button.setAttribute('aria-expanded', String(opening));
+    });
+  });
+
+  document.addEventListener('click', () => closeHotspotTooltips());
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeHotspotTooltips();
+  });
+</script>
