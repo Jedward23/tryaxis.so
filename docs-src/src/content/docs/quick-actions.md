@@ -1,66 +1,74 @@
 ---
 title: Quick actions
-description: One-click buttons for the prompts you run over and over.
+summary: Launch a prepared, project-aware request on demand without pretending it is a scheduled workflow.
+description: Launch a prepared, project-aware request on demand without pretending it is a scheduled workflow.
 ---
 
-A quick action is a button that launches a prepared prompt. No schedule — you press it
-when you want it.
+**Learn lane · Mission: make frequent work one click away**
 
-## When to use one
+A quick action is an on-demand launcher for a prepared request. You decide when to run
+it; Axis supplies the current project context and opens a visible session for the work.
 
-You have a prompt you retype constantly with minor variations:
+<!-- PROOF-ID: QUICK-ACTION-01 -->
 
-- *Review my uncommitted changes and tell me what is risky.*
-- *Check the dev server logs and summarise errors.*
-- *Update the changelog from commits since the last tag.*
-- *Find work in this project that has gone quiet.*
+![Real Axis Routines: scheduled work, event-triggered work, and manual actions remain visible and inspectable.](/docs/proof/routines.png)
 
-If you are retyping it weekly, it should be a button.
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-## Creating one
+## Use one for frequent, irregular work
 
-A quick action needs a short title and the full prompt to launch. It can be scoped to
-one project or available everywhere.
+Good examples:
 
-Prompts can reference the project they run in, so one action works across projects
-without rewriting it.
+- review the current uncommitted changes,
+- inspect this project's service logs,
+- find project work that has gone quiet,
+- prepare a changelog from the current release range.
 
-## Where they appear
+The button removes repetitive setup. It does not remove review or evidence.
 
-Quick actions live in the actions panel. Pressing one starts a new session with that
-prompt already delivered.
+## Define a complete job
 
-## Writing the prompt
-
-Write it as a complete instruction, because it arrives with no conversation before it.
-
-A weak action:
+A quick action needs a clear title and a request that can stand on its own. Describe the
+outcome and expected evidence rather than teaching users a prompt formula:
 
 ```text
-check the code
+Review this project's uncommitted changes. Group them by intended outcome, identify
+anything unfinished or unrelated, and provide the exact evidence I need before deciding
+what to keep.
 ```
 
-A strong action:
+Project-scoped variables may let one action work across projects. Verify the supported
+substitution syntax in the current creation surface rather than copying internal tool
+arguments from another version.
 
-```text
-Review the uncommitted changes in this project. For each one, say whether
-it is safe to commit, and flag anything that looks unfinished or
-accidentally included.
-```
+## Choose between a quick action and a Routine
 
-## Quick action or recurring task?
+| Need | Best fit |
+| --- | --- |
+| Lightweight button, ordinary session is enough | Quick action |
+| Scheduled runs and first-class run history | Routine |
+| On-demand runs but comparable run history matters | Manual Routine |
+| Exact existing session should resume later | Scheduled check-in |
 
-| | Quick action | Recurring task |
-| --- | --- | --- |
-| Runs | When you press it | On a schedule |
-| History | Just the session | Tracked run history |
-| Best for | Frequent, unpredictable timing | Predictable cadence |
+## Preserve normal safety
 
-A recurring task set to manual is close to a quick action. Choose a quick action when
-you want a button, and a manual recurring task when you want run history.
+Launching from a button does not grant more authority. The resulting session should use
+the same working agreement, provider boundaries, capacity controls, evidence standards,
+and approval gates as a request typed by hand.
+
+## Keep the library intentional
+
+Actions lose value when every one-off prompt becomes a button. Keep actions for stable,
+recognizable jobs. Rename or remove stale launchers rather than forcing users to remember
+which near-duplicate is current.
+
+## Mission complete when
+
+Run the action in two projects and confirm each session uses the correct project context,
+produces inspectable evidence, and stops at the same human authority boundary.
 
 ## Next
 
-- [Recurring tasks](/docs/recurring-tasks/)
-- [Triggers](/docs/triggers/)
+- [Routines](/docs/recurring-tasks/)
 - [Skills and tools](/docs/skills-and-tools/)
+- [Work plans](/docs/work-plans/)

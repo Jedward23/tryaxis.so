@@ -1,73 +1,75 @@
 ---
 title: Model providers
-description: Bring the model subscriptions and credentials you already have.
+summary: Connect approved model access and switch models without abandoning the session's durable identity.
+description: Connect approved model access and switch models without abandoning the session's durable identity.
 ---
 
-Axis works across model providers. You connect the accounts you already pay for rather
-than buying capacity again through Axis.
+**Builder lane · Job: provide usable model access**
 
-## Connecting a provider
+Axis orchestrates model access you connect. The exact provider catalog, authentication
+method, model list, and effort levels come from the installed Axis/Pi runtime and current
+provider capability state.
 
-Provider setup offers two paths:
+<!-- PROOF-ID: PROVIDER-STATES-01 -->
 
-- **Sign in with your account.** Opens the provider's own login. Use this when you have
-  a subscription.
-- **Use an API key.** Paste a key directly. Use this for pay-as-you-go access.
+![A real Axis project Overview: working agreement, sessions, Routines, and project-owned context in one place.](/docs/proof/harness-overview.png)
 
-Credentials go into your operating system keychain, not into project files or the Axis
-database.
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-## Switching models
+## Connect through the offered method
 
-Change the model from the composer's model control. The session continues — switching
-does not restart the conversation or lose context.
+Depending on the provider, the current setup surface may offer account authorization,
+API-key entry, a supported local/CLI bridge, or more than one path. Follow the provider-
+specific instructions shown by Axis.
 
-Alongside the model you can set an effort level, which applies to the next message
-rather than retroactively.
+A separate provider CLI being logged in does not always mean Axis can use that login.
+Treat Axis's verified connection state as authoritative.
 
-## Choosing a model
+Credentials belong in the supported secure credential store. Never put keys or tokens
+in project files, AGENTS.md, Routines, screenshots, or transcript messages.
 
-There is no single correct choice, but some rough guidance:
+## Verify before relying on it
 
-| Work | Lean toward |
-| --- | --- |
-| Long refactors, architecture, ambiguity | A stronger reasoning model |
-| Mechanical edits, formatting, renames | A faster, cheaper model |
-| Review and critique | A different model than wrote the code |
-| Anything visual | A model that handles images |
+A saved credential is not proof that a model call works. Provider status should
+separate configured, verified, expired, rate-limited, unavailable, and unsupported
+states where the runtime can determine them.
 
-Using a different model to review than to implement is genuinely useful — it catches
-things a model tends not to notice in its own output.
+The first-run wizard requires at least one verified core agent provider before setup can
+complete.
 
-## Per-slice selection
+## Switch without creating a new thread
 
-When spawning [sub-agents](/docs/sub-agents/), each slice can specify its own agent and
-model. A research slice, an implementation slice, and a review slice can each use
-something appropriate.
+The composer combines model selection and effort in one control. The model change uses
+the exact canonical model reference exposed by the runtime; friendly labels are
+presentation only. Effort is applied separately to the next work context.
 
-## Local models
+Switching should preserve the exact session identity and conversation. Use a new session
+only when the objective changes, not merely because the provider changes.
 
-Local runtimes are supported alongside hosted providers. Useful when work must not
-leave the machine at all.
+## Choose for the job
 
-## Availability
+- Use stronger reasoning for ambiguity, architecture, and high-consequence review.
+- Use faster options for bounded mechanical work.
+- Use image-capable models for visual input.
+- Consider an independent model for critique rather than asking the author to self-grade.
 
-If a provider is down, rate-limited, or your credentials have expired, Axis surfaces
-that as an actionable failure rather than a stalled session.
+Availability, privacy, latency, context limits, and cost depend on the provider and
+account. Axis should not present one universal model recommendation as permanent truth.
 
-Sending is gated on having working credentials, so you get told immediately rather than
-watching a turn hang.
+## Route sub-agent slices deliberately
 
-## Costs
+Each child slice can use an appropriate available agent/model. The provider is metadata
+on a normal child session in the same Agent Graph. The parent still owns context,
+coordination, integration, and evidence.
 
-```bash
-axis stats                          # cost and token statistics
-axis usage --plan max20 --hours 24  # usage with burn rate
-axis session context <ref>          # usage for one session
-```
+## Handle failure explicitly
 
-## Next
+Expired credentials, rate limits, usage limits, and provider outages should surface as
+actionable transcript states. Recovery must resume the exact session; it must not route
+the continuation into the newest similar conversation.
 
+## Related reference
+
+- [Sub-agents](/docs/sub-agents/)
 - [Configuration](/docs/configuration/)
-- [Sub-agents](/docs/sub-agents/#choosing-the-agent)
-- [Troubleshooting](/docs/troubleshooting/)
+- [Troubleshooting](/docs/troubleshooting/#provider-or-usage-failure)

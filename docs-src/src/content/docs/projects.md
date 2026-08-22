@@ -1,114 +1,93 @@
 ---
 title: Projects and workspaces
-description: How projects scope your work, and how workspace panes attach to sessions.
+description: Give related work a durable home and keep each session's tools and evidence attached to it.
 ---
 
-## Projects
+**Learn lane · Mission: establish the work boundary**
 
-A project is a directory Axis watches — usually a repository. It scopes sessions,
-panes, services, memory, work plans, and settings.
+A project is the durable home for related work. A workspace is the session-owned view
+of the conversation and the resources needed to complete that work.
 
-Add a project by pointing Axis at an existing directory. Axis reads it in place and
-does not move or copy your files.
+<!-- PROOF-ID: PROJECT-WORKSPACE-01 -->
 
-### Managing projects
+![A real Axis project Overview: working agreement, sessions, Routines, and project-owned context in one place.](/docs/proof/harness-overview.png)
 
-From the CLI:
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-```bash
-axis projects                       # list all projects
-axis projects info ~/myapp          # detail: git state, agents, activity
-axis projects create myapp          # create a new project directory
-axis projects connect ~/existing    # register a directory you already have
-axis projects archive ~/old         # hide without deleting
-axis projects rename ~/myapp "New"  # change the display name
-```
+## What a project carries
 
-Archiving hides a project without touching its files or history. Unarchive to bring it
-back.
+A project usually points at an existing directory and works with it in place. It scopes:
 
-### The project rail
+- sessions and workstream folders,
+- the AGENTS.md working agreement,
+- relevant memory and shared work plans,
+- skills, services, Routines, and Collections,
+- project settings, costs, and history.
 
-The rail on the left switches projects. Badges show what needs you — unresolved
-approvals and recent unacknowledged attention — not a backlog count. A project with
-twenty open issues and nothing waiting on you shows no badge.
+The point is not only isolation. It is that a new session enters a stable operating
+environment instead of an empty chat.
 
-### Appearance
+## Workstream folders preserve the objective
 
-Each project can carry its own theme and background so you can tell them apart at a
-glance. These persist across refreshes, restarts, and devices.
+A folder can group sessions around a durable line of work. Useful folder context includes
+purpose, current objective, decisions, blockers, linked resources, and next action.
 
-## Workspaces
+That makes a folder workstream memory, not a decorative sidebar accordion.
 
-Each session can open a workspace on the right: a tabbed area of panes that session
-owns.
+## A workspace belongs to its session
 
-Open it from the session header. `+` adds another pane. Different resources open as
-siblings rather than replacing each other.
+Opening the workbench reveals tabs owned by the displayed session:
 
-### Pane types
-
-| Pane | Use |
+| Surface | Burden it removes |
 | --- | --- |
-| Browser | A real browser the agent drives, or you take over |
-| Preview | A running local app |
-| Artifact | A file the session produced |
-| Terminal | A live shell attached to this session |
-| Service shell | A long-running process such as a dev server |
-| Agent graph | The orchestration tree, when the session has children |
+| Browser | Keeps the live web state and visual proof with the work |
+| Preview | Keeps the running app route beside the discussion |
+| Collection item | Keeps a durable report, image, document, or tool accessible |
+| Terminal | Exposes an exact live shell when human inspection is needed |
+| Service shell | Keeps long-running processes named and visible |
+| Agent Graph | Keeps the parent and child orchestration navigable |
 
-### Ownership
+Different resources open as sibling tabs. Closing a support tab changes visibility; it
+does not necessarily delete the underlying saved resource or durable attachment.
+Closing the last visible tab collapses the workbench.
 
-Panes belong to the session that opened them. Switching sessions swaps the visible set.
+## Ownership prevents workspace drift
 
-Closing a pane is a visibility choice, not a deletion — it stays attached and can be
-reopened. Closing the last visible pane collapses the workspace.
+Switching sessions swaps the supporting surfaces with the conversation. A background
+session may attach a surface quietly, but should not steal focus from the workspace you
+are using.
 
-Background sessions attach panes quietly. An agent working in another session will not
-steal your screen.
+A browser or preview may be pinned as a reusable project resource. Reattaching a live
+browser should reuse its identity rather than create a duplicate page with separate
+history.
 
-### Layout
+## Services are project resources
 
-With the workspace open, the session fills the usable area: transcript on the left,
-panes on the right, one draggable divider between them.
-
-Only that divider adjusts. Moving between parent and child sessions, switching tabs, or
-resizing the window preserves the layout.
-
-### Pinning
-
-Browser and preview panes can be pinned to a project so they stay mounted across every
-session in it. Useful for a dev server you always want visible.
-
-## Browsers as project resources
-
-The browser picker offers already-open browsers, recent project browsers, and detected
-runtime ports before it offers a blank URL field.
-
-Reattaching a live browser reuses its existing pane rather than duplicating it.
-
-## Services
-
-A project has one managed service shell per runtime port. Page-specific destinations
-like `/settings` are browser rows, not new services.
-
-```bash
-axis servers ~/myapp                    # detected dev servers and status
-axis servers start myapp backend        # start one
-axis servers stop myapp frontend        # stop one
-```
+Long-running servers and workers belong in named service shells. A project should have
+one canonical managed service per runtime port. Routes such as `/settings` are browser
+destinations, not separate servers.
 
 See [Service shells](/docs/service-shells/).
 
-## Folders
+## Project attention is not backlog volume
 
-Sessions can be grouped into folders that act as workstream records — purpose, current
-objective, linked sessions and files, decisions, blockers, next action.
+Project badges should point to human-visible attention—such as unresolved approvals or
+new actionable state—not count every open task. Open the Inbox or Plans view for the
+full workload.
 
-A folder is durable project memory about a line of work, not just a UI grouping.
+## Builder reference
+
+Current CLI support can register, inspect, archive, unarchive, and rename projects. Use
+`axis projects --help` from the installed version before scripting exact flags. Archiving
+is a visibility/lifecycle action; it must not be described as deleting the directory.
+
+## Mission complete when
+
+A new session begins in the right project, follows its working agreement, and keeps its
+browser, service, saved result, and evidence attached after you navigate away and back.
 
 ## Next
 
-- [Sessions](/docs/sessions/)
-- [Service shells](/docs/service-shells/)
-- [Browser control](/docs/browser/)
+- [The project working agreement](/docs/working-agreement/)
+- [Sessions and steering](/docs/sessions/)
+- [Collections](/docs/artifacts/)

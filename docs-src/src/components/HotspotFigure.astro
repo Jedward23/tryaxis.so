@@ -1,0 +1,66 @@
+---
+import ProofLabel, { type ProofKind } from './ProofLabel.astro';
+
+export interface Hotspot {
+  x: number;
+  y: number;
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  src: string;
+  alt: string;
+  caption: string;
+  hotspots: Hotspot[];
+  kind?: ProofKind;
+  label?: string;
+  width?: number;
+  height?: number;
+  id: string;
+}
+
+const {
+  src,
+  alt,
+  caption,
+  hotspots,
+  kind = 'seeded',
+  label,
+  width,
+  height,
+  id,
+} = Astro.props;
+
+const clamp = (value: number) => Math.min(100, Math.max(0, value));
+---
+
+<figure class="axis-docs-block axis-hotspot-figure" id={id}>
+  <div class="axis-hotspot-stage">
+    <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
+    <ol class="axis-hotspot-markers" aria-label="Image annotations">
+      {hotspots.map((hotspot, index) => (
+        <li style={`--hotspot-x:${clamp(hotspot.x)}%;--hotspot-y:${clamp(hotspot.y)}%`}>
+          <a href={`#${id}-annotation-${index + 1}`} aria-label={`Annotation ${index + 1}: ${hotspot.title}`}>
+            {index + 1}
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+  <figcaption>
+    <ProofLabel kind={kind} label={label} />
+    <span>{caption}</span>
+  </figcaption>
+  <ol class="axis-hotspot-annotations">
+    {hotspots.map((hotspot, index) => (
+      <li id={`${id}-annotation-${index + 1}`} tabindex="-1">
+        <span class="axis-annotation-number" aria-hidden="true">{index + 1}</span>
+        <div>
+          <h3>{hotspot.title}</h3>
+          <p>{hotspot.description}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</figure>

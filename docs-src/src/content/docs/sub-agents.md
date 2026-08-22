@@ -1,97 +1,95 @@
 ---
 title: Sub-agents
-description: Splitting a large goal across parallel agents while keeping it coherent.
+summary: Split independent slices across child sessions, then converge their evidence through one parent.
+description: Split independent slices across child sessions, then converge their evidence through one parent.
 ---
 
-A session can spawn child sessions that work in parallel on slices of a larger goal,
-coordinated by the parent.
+**Learn lane · Mission: parallelize without fragmenting the goal**
 
-## When to use them
+Sub-agents are focused child sessions inside one orchestration. The parent starts from
+one goal, delegates genuinely independent slices, and integrates them back into one
+validated result:
 
-Sub-agents help when a goal genuinely splits into **independent** slices:
+> **1 goal → N focused branches → 1 result**
 
-- Research across several unrelated sources
-- Changes to separate subsystems that do not share files
-- A build plus an independent review of that build
-- Generating several options to compare
+<!-- PROOF-ID: SUBAGENT-GRAPH-01 -->
 
-They hurt when work is sequential or shares files. Three agents editing the same module
-is slower than one, and produces conflicts you then have to untangle.
+![A real Axis project Overview: working agreement, sessions, Routines, and project-owned context in one place.](/docs/proof/harness-overview.png)
 
-:::caution
-Being *large* is not the same as being *parallelizable*. Split by independence, not by
-size.
-:::
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-## How it works
+## Split by independence, not size
 
-The parent describes each slice and spawns children. Each child is a real session with
-its own transcript, panes, and status — visible in the sidebar indented under its
-parent.
+Good slices can progress without editing the same files or waiting for another slice's
+answer:
 
-Children appear immediately as queued rows, before they have started, so you can see
-what was requested. They reconcile in place into live sessions once running.
+- research across separate sources,
+- implementation in disjoint subsystems,
+- several design or strategy options,
+- implementation plus independent review.
 
-## The agent graph
+A large sequential task is still sequential. Three children racing on the same file or
+external record create coordination work instead of speed.
 
-The graph pane shows the orchestration tree: the root, every child, and nesting.
+## What the parent supplies
 
-Clicking a node switches the transcript on the left while the graph stays mounted on
-the right. Moving between parent and child never loses your place, and every child has
-a direct way back to its parent.
+Every child needs the shared objective, relevant decisions, its exact deliverable,
+ownership boundary, acceptance criteria, and expected proof. A vague title is not a
+brief.
 
-The overview counts children, not the root.
+The parent remains responsible for:
 
-## Choosing the agent
+- keeping slices non-overlapping,
+- tracking queued and active children,
+- answering or routing blockers,
+- integrating results,
+- validating across slices,
+- reporting one coherent outcome.
 
-Each slice can specify which agent and model handles it. A review slice might use a
-different model than the implementation slice.
+A child finishing does not prove the parent goal is complete.
 
-Provider choice is metadata on a child, not a separate kind of thing — every child is a
-normal session in the same tree.
+## Read the Agent Graph
 
-## Keeping it coherent
+Queued slices should appear immediately so requested work is visible before capacity is
+available. When a child starts, that row reconciles into the real session rather than
+becoming a duplicate.
 
-The parent owns coherence. It:
+The graph keeps the root and all descendants navigable. Selecting a node changes the
+conversation while preserving the orchestration view. Child sessions should retain a
+clear path back to their parent.
 
-- gives each child the shared goal, constraints, and its specific deliverable
-- tells each child which files it owns, so children do not collide
-- collects results and integrates them
-- validates across slices, not just within one
+## Choose models by the slice
 
-A child that finishes is not the goal. An integrated, validated result is.
+A research, implementation, visual, and reviewer slice may benefit from different
+models or effort levels. Provider and model are attributes of a normal child session,
+not separate species of agent.
 
-### File ownership
+Use a reviewer when subjective quality, architecture, migrations, or high-regression
+work needs an independent rubric.
 
-Agents working in the same tree must not race on the same files. Slices declare what
-they own; overlaps get coordinated through the parent rather than fought out in the
-working tree.
+## Keep the tree governed
 
-## Reviewers
+Parallel sessions sharing a checkout or external system need explicit ownership. When
+overlaps appear, coordinate through the parent rather than racing writes.
 
-For subjective or high-risk work — UI, architecture, data correctness, migrations — a
-reviewer child can evaluate the work against a rubric before the parent moves on.
+Long orchestrations may use continuation so the parent wakes when children finish. The
+parent stays in progress while any requested child is queued or active and turns that
+continuation off only after integration, cancellation, handoff, or a genuine human
+blocker.
 
-This catches "technically complete but wrong" before it compounds.
+## Human judgment still converges the work
 
-## Continuation
+The parent can compare child options and make evidence-backed recommendations, but a
+product, business, cost, or risk decision that belongs to you should return as one
+coherent choice—not several children asking independently.
 
-Long orchestrations use a continuation loop so the parent wakes when children finish
-rather than relying on you to prompt it.
+## Mission complete when
 
-The agent that starts a loop turns it off when the work is complete, blocked on you, or
-handed to another owner.
-
-## Watching progress
-
-The parent stays in progress while children are queued or running. A single spawned
-child does not mean the group is done.
-
-Attention collapses to one count at the orchestration root, so a ten-child run does not
-produce ten separate notifications.
+You can open every branch, inspect its evidence, see the parent synthesize the slices,
+and verify one integrated result rather than a folder of disconnected answers.
 
 ## Next
 
-- [Work plans](/docs/work-plans/) — where parallel work reports.
-- [Sessions](/docs/sessions/)
+- [Work plans](/docs/work-plans/)
+- [Sessions and steering](/docs/sessions/)
 - [Inbox and approvals](/docs/inbox/)

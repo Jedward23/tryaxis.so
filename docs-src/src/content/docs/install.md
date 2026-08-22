@@ -1,86 +1,97 @@
 ---
 title: Install Axis
-description: How the Axis installer works, what it downloads, and what stays on your machine.
+description: Set up the local Axis node, connect one model provider, and reach a ready workspace.
 sidebar:
-  order: 1
+  order: 2
 ---
 
-Axis runs on your own machine. Your projects, sessions, transcripts, and credentials
-stay local — Axis does not upload your code or conversations to run them.
+**Learn lane · Mission: reach a ready workspace**
 
-## What you download
+Your job is not to understand the release pipeline. It is to install Axis confidently,
+know where trust boundaries sit, and finish with one working model connection.
 
-The installer is a small bootstrapper rather than the whole product. It does three
-things in order:
+<!-- PROOF-ID: INSTALL-ONBOARDING-01 -->
 
-1. **Signs you in.** You enter your email and confirm a six-digit code.
-2. **Activates your install.** Activation ties the runtime download to your account.
-3. **Fetches the runtime.** Axis downloads the components that match your operating
-   system and processor, verifies them, and installs them locally.
+![The packaged Axis bootstrap reaches a clear ready state before opening the main workspace.](/docs/proof/install-ready.png)
 
-This keeps the download you click small, and means the runtime you receive is built
-for your exact platform instead of bundling every platform at once.
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-:::note
-The browser components that let agents control a real browser are fetched separately
-and are not on the critical path for first launch. Axis starts without them and picks
-them up in the background.
-:::
+## What the installer does
 
-## Availability
+The installer is a small bootstrap rather than every runtime component in one file. It:
 
-Download links for each platform appear on [tryaxis.so](https://tryaxis.so) when that
-platform is ready. If a platform shows as unavailable, there is nothing to configure
-on your side — it simply is not open yet.
+1. verifies your account by email,
+2. activates this installation,
+3. downloads and verifies the runtime for your platform,
+4. opens the setup wizard,
+5. requires at least one working core agent provider before setup completes.
 
-## Signing in
+Optional browser components can download separately. Axis can reach its first usable
+workspace before every optional capability is ready.
 
-The first screen after launch asks for an email address.
+## What stays where
 
-- **New account.** Enter your email, accept the terms, and confirm the code.
-- **Existing account.** Choose *Welcome back* and confirm the code for the email you
-  already use.
-
-Codes arrive by email and expire quickly. If one lapses, request another from the same
-screen rather than reusing the old message.
-
-:::caution
-Signing in is required before the runtime downloads. An installed set of runtime files
-is not the same thing as an authenticated session, so a machine that has the files but
-no valid sign-in will return you to the sign-in screen rather than opening.
-:::
-
-## After activation
-
-Once activation completes, Axis opens into an empty workspace. Nothing is configured
-yet — you have no projects and no model access.
-
-Two things are worth doing immediately:
-
-1. **Connect a model provider.** See [Model providers](/docs/model-providers/). You can
-   bring subscriptions and credentials you already have.
-2. **Add your first project.** See [Quick start](/docs/quick-start/).
-
-## Where Axis keeps things
-
-| What | Where |
+| Data | Boundary |
 | --- | --- |
-| Session and project records | A local database in your home directory |
-| Session transcripts | Local files on disk, one per session |
-| Provider credentials | Your operating system keychain |
-| Project files | Wherever your code already lives — Axis does not move it |
+| Project files | Stay in the directories you choose; Axis does not relocate them |
+| Axis project/session records | Stored on the machine running your Axis node |
+| Session transcripts | Stored locally with the node |
+| Provider credentials | Stored through the supported credential/keychain flow, not in project files |
+| Model requests | The selected provider receives the prompt and context sent for that request |
+| Remote-device traffic | Travels through the remote-access configuration you control |
 
-Axis reads the directories you point it at. It does not relocate your repositories or
-copy them somewhere else.
+Axis running locally does **not** mean a hosted model sees nothing. A hosted provider
+receives the context required to answer, under that provider's terms. Use an appropriate
+provider and scope for sensitive work.
 
-## Updating
+## Install and activate
 
-Axis updates itself in place. When a new version is available it downloads and verifies
-the replacement components, then applies them. Your projects, sessions, and history are
-untouched by an update.
+1. Download the currently available build from [tryaxis.so](https://tryaxis.so).
+2. Launch it and enter the email associated with your Axis account.
+3. Enter the fresh verification code from that email.
+4. Let the bootstrap verify and activate the runtime.
+5. Continue into provider setup.
+
+Codes expire. If one is stale, request a new code rather than retrying the old one.
+Platform availability is shown on the download page; an unavailable build is not a
+local configuration problem.
+
+## Connect one core provider
+
+The setup wizard must verify at least one provider that can run an agent session. The
+exact choices depend on the installed Axis version and provider availability.
+
+- Use the provider's sign-in flow when offered.
+- Use an API key only through the supported credential field.
+- Keep secrets out of project files, AGENTS.md, prompts, and screenshots.
+
+See [Model providers](/docs/model-providers/) for ongoing management.
+
+## Add a project, not a copy
+
+Choose an existing directory or create a new project. Axis works with that location in
+place. A project becomes the durable home for its sessions, rules, plans, memory,
+Routines, Collections, and evidence.
+
+## Updates and recovery
+
+Updates replace Axis runtime components without intentionally moving your project
+files or resetting the durable project/session record. If an update is interrupted,
+reopen Axis and follow the recovery state shown by the installer rather than deleting
+runtime or data directories manually.
+
+For exact platform support, current download status, and version-specific behavior,
+use the release presented by the installer and the live download page.
+
+## Mission complete when
+
+- Axis opens without an activation prompt.
+- At least one core provider shows as usable.
+- You can add or open a project.
+- No secret was copied into the project itself.
 
 ## Next
 
-- [Quick start](/docs/quick-start/) — finish one real task end to end.
-- [Concepts](/docs/concepts/) — the model behind projects, sessions, and panes.
-- [Remote access](/docs/remote-access/) — reach this machine from your phone or another computer.
+- [Run your first real task](/docs/quick-start/)
+- [Understand data and provider boundaries](/docs/faq/#does-my-code-leave-my-machine)
+- [Connect another device](/docs/remote-access/)

@@ -1,117 +1,94 @@
 ---
-title: Sessions
-description: The unit of work in Axis — transcripts, the working fold, steering, and recovery.
+title: Sessions and steering
+description: Keep one outcome continuous while you inspect, redirect, pause, recover, and review the work.
 ---
 
-A session is one continuous conversation with one agent, bound to one project. It is
-the unit you start, resume, review, and finish.
+**Learn lane · Mission: keep one thread coherent**
 
-## Starting one
+A session is a continuing thread of work with one agent, bound to a project. It keeps
+the request, working history, draft, evidence surfaces, and status together so you do
+not reconstruct the task after every interruption.
 
-New sessions begin empty and stay that way until you send something. A blank session is
-*ready*, not *connecting* — nothing is running and nothing is queued.
+<!-- PROOF-ID: SESSION-LIFECYCLE-01 -->
 
-Your first message defines the session's scope. Axis titles it from what you actually
-asked for.
+![A real seeded session begun in ordinary language. The project supplied the working agreement and context automatically.](/docs/proof/mission-request.png)
 
-## The transcript
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-The transcript alternates between what you asked and what the agent did.
+## Start from an outcome
 
-- **Your messages** appear as sent, with any images you attached shown above them.
-- **The agent's work** collapses into a single fold per turn.
-- **The final answer** sits outside that fold, as plain readable text.
+A new session is **Ready** until you send its first request. That first request defines
+the thread. Keep using the session while the objective and its evidence remain coherent;
+start another when the goal truly changes.
 
-Opening a session loads the whole conversation, not just the recent tail, so you can
-scroll to the beginning without paging.
+Axis titles the session from the work rather than the project directory name.
 
-## The working fold
+## Read the transcript in layers
 
-While the agent is working you see one summary: **Working for 2m**.
+- Your requests remain visible as the human intent.
+- One **Working** fold owns the reasoning and tool activity for an active turn.
+- The conclusive response remains outside that fold as readable text.
+- Open actions expose evidence such as changed lines, command output, file previews,
+  browser steps, and inspected images.
 
-Open it and you get the complete timeline for that turn — reasoning, commands, file
-reads, edits, browser steps — in the order they happened, each with the time it took.
+The fold becomes **Worked** after the turn settles. It stays available without flooding
+the main conversation.
 
-Every action inside is a disclosure. Click one to see its evidence:
+## Steer without losing the message
 
-| Action | Evidence when opened |
-| --- | --- |
-| Edited a file | The changed lines, red and green |
-| Ran a command | The command and its output |
-| Read files | A preview, plus a link to open the file |
-| Browsed | The steps taken, without exposing typed values |
-| Viewed images | The images themselves |
+Send a follow-up during active work and it enters the steering queue. Pending rows can
+be reordered. Editing withdraws the queued version and returns its text and attachments
+to the composer; deleting removes that pending instruction.
 
-Consecutive actions of the same kind group together — *Ran commands*, *Read files* —
-so a long turn stays scannable.
+Pressing `Enter` on a truly empty composer explicitly steers the oldest queued item
+through immediately. Use that to change the current direction, not as a routine send.
 
-When the turn ends, the fold collapses to **Worked for 6m**. The detail stays.
+## Interrupt when meaning is wrong
 
-:::tip
-Actions start closed on purpose, including the one running right now. Axis shows you
-that work is happening without flooding the transcript with output you did not ask for.
-:::
+The primary composer control shows **Stop** only while work is cancelable and there is
+nothing sendable. Type or attach something and it becomes **Send**, allowing the next
+instruction to queue while the current turn continues.
 
-## The steering queue
+Stop when the objective, risk boundary, or customer trade-off is wrong. Do not stop only
+to inspect reversible details—the Working fold already preserves those.
 
-Send something while the agent is mid-turn and it joins the steering queue rather than
-interrupting.
+## Follow plans without creating a second transcript
 
-The queue shows one row per pending message. You can reorder by dragging, and edit or
-delete from the overflow menu. Editing returns your text and any attachments to the
-composer and cancels the queued row, so a refresh cannot deliver the version you
-withdrew.
+When a session uses a multi-step plan, a compact step indicator appears above the
+composer. The plan remains visible across turns until complete. Shared project intent
+belongs in [work plans](/docs/work-plans/), not a private checklist lost with one turn.
 
-To push something through immediately, press `Enter` on an empty composer. That steers
-the oldest queued item straight into the agent's current work.
+## Recover the same thread
 
-## Plans
+Axis keeps durable identity separate from live connection state. Closing a browser tab,
+losing network access, or remounting the interface should not create a replacement
+conversation. Reopen the exact session.
 
-When an agent is following a multi-step plan, a compact **Step 3 / 7** indicator appears
-above the composer. Hover or click it for the full list.
+Drafts, queued input, transcript history, and attached surfaces are designed to recover
+from the durable record. The host still needs to be running for active work to continue.
 
-Unfinished plans persist across turns, so you can always see where a long task actually
-is.
+## Rendered and Raw
 
-## Interrupting
+**Rendered** is the human surface: conversation, Working folds, plans, approvals, and
+evidence. **Raw** is the exact agent terminal surface for diagnosis. They are two views
+of the same session; Raw is not a second agent.
 
-The composer's right-hand control is **Stop** while the agent is working and there is
-nothing to send. Type anything and it becomes **Send** — your message queues, and the
-control returns to Stop once the composer is empty again.
+Use Rendered for normal work. Use Raw when a provider error, prompt-delivery problem, or
+terminal-level state needs exact inspection.
 
-## Rendered and raw
+## Human-facing state
 
-**Rendered** is the human view described above. **Raw** shows the terminal exactly as
-the agent sees it.
+A session may be working, waiting on you, or settled. If the agent requires an answer,
+login, credential action, or approval, the session remains open and appears in the
+Inbox. Waiting and done are not the same state.
 
-Raw is the ground truth when you need to know precisely what happened at the terminal
-level. Rendered is where you work.
+## Mission complete when
 
-Your choice of view is remembered per pane and survives refreshes.
-
-## Recovery
-
-Sessions survive things that would normally lose work:
-
-- **Connection drops.** Axis shows a reconnection indicator and keeps your message.
-  Nothing is lost.
-- **Closing the tab.** The session keeps running server-side.
-- **Restarting Axis.** Sessions, panes, and drafts come back.
-- **A stuck session.** If a session stalls without finishing, Axis notices and can wake
-  it. If it cannot recover it safely, it escalates to you rather than retrying forever.
-
-An unsent draft is preserved too, including attachments, and follows you between devices.
-
-## Status
-
-Set a session's status from its row or header. Marking it **done** closes out any stale
-running state.
-
-An agent that needs your input stays open and asks — it will not mark itself done while
-waiting on you.
+You can leave the session, return to the same identity, inspect the full intent and
+evidence, and continue without pasting the context again.
 
 ## Next
 
-- [Inbox and approvals](/docs/inbox/) — where sessions surface when they need you.
-- [Sub-agents](/docs/sub-agents/) — splitting a session into parallel work.
-- [Artifacts and collections](/docs/artifacts/) — keeping what a session produced.
+- [Projects and workspaces](/docs/projects/)
+- [Inbox and approvals](/docs/inbox/)
+- [Sub-agents](/docs/sub-agents/)

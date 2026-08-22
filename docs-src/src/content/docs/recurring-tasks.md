@@ -1,78 +1,93 @@
 ---
-title: Recurring tasks
-description: Turn a prompt you keep retyping into a real scheduled session with run history.
+title: Routines
+summary: Turn repeatable work into visible, reviewable sessions with history and the same human checkpoints as interactive work.
+description: Turn repeatable work into visible, reviewable sessions with history and the same human checkpoints as interactive work.
 ---
 
-A recurring task runs work on a schedule. Each run starts a real session — with a
-transcript, evidence, and approval gates — rather than firing a prompt into the dark.
+**Learn lane · Mission: repeat the work without hiding it**
 
-## What it is not
+A Routine is a reusable workflow whose runs create or resume real Axis sessions. Each
+run should have a prompt-delivery record, status, evidence, and scoped approval gates—not
+be a timer that fires text into the dark.
 
-A recurring task is not a reminder and not a timer that pokes an agent. Each run is a
-tracked execution with its own history and result.
+<!-- PROOF-ID: ROUTINE-RUN-01 -->
 
-That distinction matters: you can go back and see what the Tuesday run actually did.
+![Real Axis Routines: scheduled work, event-triggered work, and manual actions remain visible and inspectable.](/docs/proof/routines.png)
 
-## Creating one
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-Describe the work and the cadence. A task can run:
+## Choose the activation
 
-- daily, at one or several times of day
-- weekly, on a chosen day
-- manually, with no schedule at all
+| Need | Use |
+| --- | --- |
+| Repeat on a known cadence | Scheduled Routine |
+| Run the same workflow whenever you choose | Manual Routine |
+| Launch a lightweight prepared request | Quick action |
+| Respond to a supported external event | Event-triggered Routine |
+| Wake one exact continuing session later | Scheduled check-in |
 
-A manual task is a button you press rather than a clock. Useful when the work is
-repeatable but the timing is not.
+These are activation choices around visible work, not separate automation philosophies.
 
-## Anatomy of a run
+## Define the job, not only the prompt
 
-Each run:
+A useful Routine states:
 
-1. Claims the work, so two runs never double-fire
-2. Respects project capacity, waiting rather than overloading the machine
-3. Starts a real session
-4. Delivers the prompt and records that delivery
-5. Records status and evidence
-6. Pauses for approval before anything with external consequences
+- the outcome of each run,
+- the project and source context it should inspect,
+- what changed since the last successful run when relevant,
+- the evidence expected,
+- which side effects must pause for approval.
 
-## Run history
+Example:
 
-Opening a task shows its recent runs and the sessions behind them. That is the primary
-view — what happened, and what it produced.
+```text
+Review client health changes since the last successful run. Prepare a concise report
+with source links and proposed actions. Do not send messages; ask before any external
+update.
+```
 
-Editing the prompt, schedule, or icon lives behind the gear or context menu, so reading
-history is never one misclick from rewriting the task.
+## Each run is a real execution
 
-## Approvals
+A scheduled run must claim the due work once, respect project capacity, start or bind a
+session, prove prompt delivery, and record status/evidence. If the project is busy, the
+run can wait instead of spawning unlimited work.
 
-Scheduled work follows the same rules as anything else. If a run wants to send an
-email, push code, or spend money, it stops and asks.
+The session is the audit trail. Open it to see what the run actually inspected and
+produced.
 
-An unattended run that needs you waits in the [inbox](/docs/inbox/) rather than acting
-on its own judgment.
+## Read history before editing the recipe
+
+The primary Routine view should answer: what ran, what happened, what needs attention,
+and which session proves it. Prompt, schedule, icon, enable/disable, and deletion belong
+in the manage surface so reviewing history cannot accidentally rewrite the workflow.
+
+## Keep human authority in the loop
+
+A Routine may research, reconcile, and prepare a draft unattended. It should stop before
+sending, deleting, purchasing, publishing, deploying, or performing another external
+side effect unless that exact action was already authorized by the workflow's current
+policy and product surface.
+
+Approval waits appear in the Inbox and remain linked to the run session.
 
 ## Good candidates
 
-- A morning digest of what changed overnight
-- A weekly check across projects for stale work
-- A recurring report that needs live data
-- A periodic health or dependency check
+- A daily digest from live sources.
+- A weekly review of stale work across projects.
+- A recurring health or dependency check.
+- A report with stable inputs and a stable evidence standard.
 
-## Poor candidates
+If you rewrite the request every run, use an ordinary session or quick action. If the
+central judgment must happen halfway through every time, automate preparation rather
+than pretending the whole workflow is unattended.
 
-- Anything needing your judgment mid-run every time
-- Work whose inputs change so much the prompt is wrong by the second run
+## Mission complete when
 
-If you find yourself rewriting the prompt before every run, it wants to be a
-[quick action](/docs/quick-actions/) instead.
-
-## Capacity
-
-Runs respect project capacity limits. A busy project queues rather than spawning
-unlimited parallel agents, and a queued run reports as waiting rather than failing.
+You can run the workflow twice, open both run sessions, compare their evidence, and see
+a consequential action pause at the same clear human boundary.
 
 ## Next
 
-- [Scheduled prompts](/docs/scheduled-prompts/) — one-off, not recurring.
-- [Quick actions](/docs/quick-actions/) — on-demand buttons.
-- [Triggers](/docs/triggers/) — starting work from external events.
+- [Scheduled check-ins](/docs/scheduled-prompts/)
+- [Quick actions](/docs/quick-actions/)
+- [Event-triggered work](/docs/triggers/)

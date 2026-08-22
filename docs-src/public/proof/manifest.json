@@ -1,0 +1,49 @@
+{
+  "project": "axis-docs-demo",
+  "sourceCommit": "84fbfd1",
+  "capturedAt": "2026-08-22T07:45:00Z",
+  "disclosure": "Real Axis UI with deliberately seeded, privacy-safe demonstration content.",
+  "assets": {
+    "project-overview.png": {
+      "state": "Project Overview with working agreement, sessions, and Routines",
+      "viewport": "1440x900",
+      "privateData": false
+    },
+    "harness-overview.png": {
+      "state": "Focused Overview crop",
+      "viewport": "1440x700 crop",
+      "privateData": false
+    },
+    "mission-request.png": {
+      "state": "Completed real business session: ordinary request, Worked fold, result",
+      "viewport": "1370x900 crop",
+      "privateData": false
+    },
+    "mission-evidence.png": {
+      "state": "Completed real business session: validation and diff evidence",
+      "viewport": "1370x900 crop",
+      "privateData": false
+    },
+    "routines.png": {
+      "state": "Routines: scheduled, event-triggered, and manual",
+      "viewport": "1440x900",
+      "privateData": false
+    },
+    "browser-result.png": {
+      "state": "Real browser-inspected output created by a demo session",
+      "viewport": "browser capture",
+      "privateData": false
+    },
+    "mobile-workspace.webp": {
+      "state": "Real compact Axis project workspace",
+      "viewport": "mobile",
+      "privateData": false,
+      "note": "Existing product capture; update with axis-docs-demo mobile state when native capture harness is available."
+    },
+    "install-ready.png": {
+      "state": "Packaged Axis bootstrap ready state",
+      "viewport": "1440x900",
+      "privateData": false
+    }
+  }
+}

@@ -1,0 +1,116 @@
+---
+title: How the harness works
+description: The five-part model behind contextualized, visible, governed, and durable agent work.
+sidebar:
+  order: 4
+---
+
+import HotspotFigure from '../../components/HotspotFigure.astro';
+import MissionFlow from '../../components/MissionFlow.astro';
+
+**Learn lane · Concept atlas**
+
+Axis is easiest to understand as one work lifecycle, not a list of features.
+
+<HotspotFigure
+  id="harness-atlas"
+  src="/docs/proof/harness-overview.png"
+  alt="The real Brightside Studio Axis Overview with project navigation, working agreement, sessions, and Routines"
+  caption="One project surface exposes the connected system without making the user assemble it for every request."
+  hotspots={[
+    { x: 47, y: 7, title: 'Project-owned navigation', description: 'Routines, Collections, Memories, Files, and Skills are scoped to this durable home.' },
+    { x: 13, y: 63, title: 'Working agreement', description: 'Standing rules are available before the next session begins.' },
+    { x: 52, y: 36, title: 'Continuing sessions', description: 'Business and technical outcomes keep separate, resumable identities.' },
+    { x: 83, y: 34, title: 'Repeatable work', description: 'Scheduled, triggered, and manual Routines remain visible instead of becoming hidden automation.' },
+  ]}
+/>
+
+## 1. Context: start in the right operating environment
+
+A **project** is the durable home for related work. It scopes sessions, files,
+instructions, skills, work plans, services, Routines, Collections, and history.
+
+**AGENTS.md** is the project's working agreement: standing rules every agent should
+begin with automatically. **Memory** adds learned decisions and lessons relevant to the
+request. Files and connected source systems remain authoritative for current state.
+
+### Boundary card: rules, knowledge, and truth
+
+| Surface | Job |
+| --- | --- |
+| AGENTS.md / project instructions | How work should be done here |
+| Memory | What was learned and may matter again |
+| Project files and connected systems | What is true now |
+| Session history | What happened and what supports the result |
+
+## 2. Continuity: keep work attached to its identity
+
+A **session** is a continuing thread of work with one agent—not a disposable chat. It
+holds the conversation, folded work, draft, status, and the surfaces opened for that
+work.
+
+A **workspace** is the session's coherent view: transcript plus tabs such as browser,
+preview, Collection item, service shell, terminal, or agent graph. A pane stays attached
+to the session that created it so evidence does not become an orphaned window.
+
+A **workstream folder** groups related sessions and records purpose, decisions,
+blockers, resources, and next action.
+
+## 3. Control: make work and judgment visible
+
+The **Working fold** presents one chronological rail for a turn. Actions disclose their
+actual evidence when opened. The **steering queue** lets you redirect active work
+without losing a message.
+
+The **Inbox** collects questions, approvals, and other human actions that genuinely
+block progress. An approval is a narrow authority boundary, not a generic "agent got
+stuck" state.
+
+### Boundary card: status has two layers
+
+- Human-facing activity describes what you see now: working, waiting on you, or settled.
+- Durable workflow status tracks lifecycle in records, such as backlog, todo,
+  in-progress, review, done, or cancelled where that object supports those states.
+
+Do not treat those two vocabularies as one universal enum.
+
+## 4. Coordination: share intent and converge branches
+
+A **work plan** is current shared intent that multiple sessions can continue. A
+**task** is work waiting to begin or be resumed. A **sub-agent** is a focused branch of
+a larger goal; the parent remains responsible for convergence and integration:
+
+> **1 goal → N focused branches → 1 validated result**
+
+A **Routine** is a reusable workflow. Scheduled, manual, or event-triggered runs should
+create or resume visible sessions with history and the same approval boundaries as
+interactive work.
+
+## 5. Learning: keep what should outlive the turn
+
+**Memory** preserves deliberate lessons, preferences, decisions, and references.
+**Collections** is the project-scoped home for durable saved material; an artifact is a
+saved item type, not a competing destination.
+
+Evidence connects the entire model. A claim should lead to the exact changed state,
+test, browser view, saved result, or recorded side effect that supports it.
+
+## The lifecycle in one line
+
+<MissionFlow
+  steps={[
+    { label: 'Intent', title: 'Say what you want', description: 'Use ordinary language.', icon: 'message-circle' },
+    { label: 'Context', title: 'Enter the harness', description: 'Project, rules, memory, tools, and plan.', icon: 'layers' },
+    { label: 'Execution', title: 'Keep work visible', description: 'A continuing session owns the work and its surfaces.', icon: 'bot' },
+    { label: 'Judgment', title: 'Decide what matters', description: 'Inspect proof and authorize narrow consequential actions.', icon: 'shield-check' },
+    { label: 'Learning', title: 'Start ahead next time', description: 'Preserve useful rules, lessons, results, and open work.', icon: 'brain' },
+  ]}
+/>
+
+Every major Axis surface exists to remove friction from one of those transitions.
+
+## Next
+
+- [Write the working agreement](/docs/working-agreement/)
+- [Learn the human operating rhythm](/docs/how-to-work/)
+- [Use projects and workspaces](/docs/projects/)

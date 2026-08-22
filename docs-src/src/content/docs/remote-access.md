@@ -1,73 +1,78 @@
 ---
 title: Remote access
-description: Reach the Axis on your machine from your phone, tablet, or another computer.
+summary: Reach the Axis node you own through user-installed Tailscale and your own network policy.
+description: Reach the Axis node you own through user-installed Tailscale and your own network policy.
 ---
 
-Axis runs on your machine. Remote access is how your other devices reach *that* machine
-— not a copy of your work in someone else's cloud.
+**Learn lane · Mission: connect another device to the same node**
 
-## How it works
+Axis runs on a host you control. In the MVP networking model, you install and manage
+Tailscale; Axis helps a client pair with the node reachable through that tailnet.
 
-Axis uses [Tailscale](https://tailscale.com), which you install yourself. It creates a
-private network between your own devices.
+<!-- PROOF-ID: REMOTE-PAIRING-01 -->
 
-Your machine gets a stable private hostname. Devices on your network reach Axis at that
-hostname; nothing else can.
+![The real compact Axis workspace keeps project work, sessions, and judgment available on the go.](/docs/proof/mobile-workspace.webp)
 
-:::note
-Axis deliberately does not implement its own network mesh. Tailscale is smaller,
-better tested, and more secure than a bespoke alternative — so Axis guides you to it
-rather than reinventing it.
-:::
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-## Setting it up
+## Understand the trust boundary
+
+Tailscale creates an encrypted network path between authenticated devices according to
+your tailnet identity and policy. Whether a node is reachable depends on your Tailscale
+configuration, ACLs/grants, sharing, DNS, host firewall, Axis binding, and device state.
+
+Do not claim that "nothing else can reach it" as an absolute. Review your own tailnet
+and host configuration. Avoid exposing Axis directly to the public internet unless a
+separately supported and secured deployment explicitly requires it.
+
+## Connect the devices
 
 1. Install Tailscale on the machine running Axis.
-2. Install Tailscale on your phone or other device.
-3. Sign both into the same Tailscale account.
-4. Open Axis on the second device and pair with your node.
+2. Install it on the phone, tablet, or computer you want to use.
+3. Authenticate both devices under the intended tailnet and policy.
+4. Confirm the Axis host is running and reachable inside that network.
+5. Open the Axis client and pair it with your node using the available pairing surface.
 
-List the devices Axis can see:
+Shipped clients should not contain a personal hardcoded server address. Each user pairs
+with their own node.
 
-```bash
-axis peers
-```
+## Use the canonical node address
 
-## Pairing
+A Tailscale `*.ts.net` hostname is the preferred remote identity when available. Its
+publicly trusted certificate can rotate, so it must not be treated like a permanent
+fingerprint. Fingerprint pinning is appropriate only where a self-signed LAN certificate
+is the explicit trust anchor.
 
-Mobile asks which node to connect to on first launch. Once paired it remembers.
+## Keep the host available
 
-Shipped builds contain no hardcoded address — every install pairs with your own node.
+Remote access cannot wake a powered-off or sleeping host by itself. For work to continue,
+the machine must remain powered, awake enough to serve Axis, connected to the relevant
+network, and running the Axis services.
 
-## Security
+## Pairing is sensitive
 
-- Traffic between your devices is encrypted end to end.
-- Your node is not exposed to the public internet.
-- Certificates are handled for you and rotate automatically.
+Do not publish node hostnames, tailnet names, IP addresses, pairing codes, QR codes, or
+certificate fingerprints. Pair only the device and node you intend. Revoke lost or
+untrusted devices through the relevant Axis and Tailscale controls.
 
-## Working remotely
+## Diagnose in layers
 
-Once connected, a phone or tablet is a real client. Everything in [Mobile](/docs/mobile/)
-applies — read sessions, steer agents, answer approvals, take over browsers.
+1. Are both devices connected to the intended tailnet?
+2. Does your policy allow the client to reach the host and Axis port?
+3. Is the host awake and Axis healthy?
+4. Is the client paired to the correct node?
+5. Did the node hostname or local trust configuration change?
 
-Sessions keep running on your machine whether or not a device is watching.
+Use `axis peers`, `axis health`, and `axis service` only if those commands exist in your
+installed version and do not expose sensitive output in shared transcripts.
 
-## Troubleshooting
+## Mission complete when
 
-**The device cannot see the node.** Confirm both are signed into the same Tailscale
-account and both show as connected.
-
-**Connected but Axis will not load.** Check Axis is actually running on the host:
-
-```bash
-axis health
-axis service
-```
-
-**It worked yesterday.** If the host machine restarted, confirm Axis came back up.
+Open the same seeded session from the second device, make one harmless change or answer,
+and confirm it appears in the exact same session on the host.
 
 ## Next
 
-- [Mobile](/docs/mobile/)
+- [Mobile work](/docs/mobile/)
 - [Configuration](/docs/configuration/)
 - [Troubleshooting](/docs/troubleshooting/)

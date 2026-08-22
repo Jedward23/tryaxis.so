@@ -1,54 +1,72 @@
 ---
-title: Triggers
-description: Start focused Axis work from external events, as a visible session.
+title: Event-triggered work
+summary: Turn a supported external event into a visible, governed Axis session rather than an opaque background action.
+description: Turn a supported external event into a visible, governed Axis session rather than an opaque background action.
 ---
 
-A trigger starts an Axis session in response to something that happens outside Axis.
+**Reference lane · Job: route an event into governed work**
 
-## The principle
+An event trigger is useful only when the installed Axis build exposes a supported,
+authenticated activation path. The result should be a real Routine run/session you can
+open, inspect, steer, and review.
 
-The result of a trigger is a real session you can open, read, and steer — not an opaque
-automation running somewhere you cannot see.
+<!-- PROOF-ID: EVENT-ROUTINE-01 -->
 
-That is the whole point. Automation you cannot inspect is automation you cannot trust.
+![Real Axis Routines: scheduled work, event-triggered work, and manual actions remain visible and inspectable.](/docs/proof/routines.png)
 
-## What can start work
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-Anything that can reach your Axis node:
+## Do not promise a generic webhook by concept alone
 
-- A webhook from a service you use
-- A CI or deployment event
-- A monitoring alert
-- A scheduled job on another machine
+A conceptual ability to reach the Axis node is not a public integration contract. Before
+configuring an event, verify the current product exposes:
 
-## Shaping the work
+- the supported event source or endpoint,
+- authentication and authorization,
+- payload limits and schema,
+- project/Routine destination,
+- deduplication behavior,
+- failure and retry visibility.
 
-A trigger carries context into the session it starts. An alert that fires should arrive
-with what fired, when, and the relevant identifiers — so the agent starts from evidence
-rather than a bare notification.
+If those controls are absent, treat event triggering as unavailable or advanced—not a
+finished customer feature.
 
-Point each trigger at the project the work belongs to.
+## Shape the event into useful context
 
-## Safety
+A good activation includes the safe minimum needed to investigate: what happened, when,
+which project or resource it belongs to, a stable event identifier, and links or fields
+the agent can verify.
 
-Triggered sessions follow the same rules as everything else:
+Do not place credentials, raw customer secrets, or unnecessary payloads in the session.
+The session should begin from a redacted summary and fetch authoritative detail through
+an approved integration where possible.
 
-- Approval gates still apply
-- External side effects still need your yes
-- Project capacity still limits how much runs at once
+## Deduplicate before doing work
 
-A trigger cannot grant an agent permission it would not otherwise have.
+External systems retry. A stable event identity should prevent two deliveries from
+creating duplicate runs or duplicate side effects. Retrying transport is not permission
+to perform the job twice.
 
-## Keeping it useful
+## Preserve the same authority boundary
 
-The failure mode is noise. A trigger that fires constantly produces sessions nobody
-reads, and real signals get buried.
+An event can start investigation. It does not automatically authorize a response,
+deployment, deletion, message, purchase, or permission change. Those actions follow the
+same project rules and human gates as interactive work.
 
-Trigger on things that genuinely warrant an agent looking. For anything you check on a
-predictable rhythm, a [recurring task](/docs/recurring-tasks/) is usually better.
+## Prefer the simpler activation
 
-## Next
+Use a scheduled Routine for predictable cadence, a quick action for human-launched work,
+and an event only when reacting to the external state materially improves the outcome.
+Noise-heavy triggers produce sessions nobody reads.
 
-- [Recurring tasks](/docs/recurring-tasks/)
-- [Remote access](/docs/remote-access/) — reaching your node from outside.
+## Complete reference only with live support
+
+The final published version of this page should name the supported sources, exact setup
+path, auth model, and current limitations from the installed release. Until proof exists,
+keep those mechanics explicitly qualified.
+
+## Related reference
+
+- [Routines](/docs/recurring-tasks/)
 - [Integrations](/docs/integrations/)
+- [Inbox and approvals](/docs/inbox/)

@@ -12,7 +12,7 @@ export default defineConfig({
     starlight({
       title: 'Axis docs',
       description:
-        'Axis keeps your agents, work, and context in one place. Install it, learn the model, and automate the work you repeat.',
+        'Learn how Axis turns ordinary requests into contextualized, visible, durable agent work.',
       logo: {
         src: './src/assets/axis-icon.svg',
         alt: 'Axis',
@@ -41,55 +41,57 @@ export default defineConfig({
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },
       sidebar: [
         {
-          label: 'Start here',
+          label: 'Learn Axis',
           items: [
+            { label: 'Why Axis', slug: 'why-axis' },
             { label: 'Install Axis', slug: 'install' },
-            { label: 'Quick start', slug: 'quick-start' },
-            { label: 'Concepts', slug: 'concepts' },
-            { label: 'Keyboard', slug: 'keyboard' },
+            { label: 'Your first real task', slug: 'quick-start' },
+            { label: 'How the harness works', slug: 'concepts' },
+            { label: 'The working agreement', slug: 'working-agreement' },
+            { label: 'How to work with Axis', slug: 'how-to-work' },
           ],
         },
         {
-          label: 'Using Axis',
+          label: 'Do real work',
           items: [
-            { label: 'How to work with Axis', slug: 'how-to-work' },
-            { label: 'Sessions', slug: 'sessions' },
+            { label: 'Sessions and steering', slug: 'sessions' },
             { label: 'Projects and workspaces', slug: 'projects' },
             { label: 'Inbox and approvals', slug: 'inbox' },
             { label: 'Memory', slug: 'memory' },
             { label: 'Work plans', slug: 'work-plans' },
             { label: 'Sub-agents', slug: 'sub-agents' },
-            { label: 'Browser control', slug: 'browser' },
-            { label: 'Artifacts and collections', slug: 'artifacts' },
+            { label: 'Browser and proof', slug: 'browser' },
+            { label: 'Collections', slug: 'artifacts' },
+            { label: 'Service shells', slug: 'service-shells' },
             { label: 'Mobile', slug: 'mobile' },
           ],
         },
         {
-          label: 'Automate',
+          label: 'Routines',
           items: [
-            { label: 'Recurring tasks', slug: 'recurring-tasks' },
-            { label: 'Scheduled prompts', slug: 'scheduled-prompts' },
+            { label: 'Routines overview', slug: 'recurring-tasks' },
+            { label: 'Scheduled check-ins', slug: 'scheduled-prompts' },
             { label: 'Quick actions', slug: 'quick-actions' },
-            { label: 'Triggers', slug: 'triggers' },
+            { label: 'Event-triggered work', slug: 'triggers' },
           ],
         },
         {
-          label: 'Configure',
+          label: 'Customize',
           items: [
             { label: 'Configuration', slug: 'configuration' },
             { label: 'Model providers', slug: 'model-providers' },
             { label: 'Skills and tools', slug: 'skills-and-tools' },
-            { label: 'Service shells', slug: 'service-shells' },
+            { label: 'Integrations', slug: 'integrations' },
             { label: 'Remote access', slug: 'remote-access' },
           ],
         },
         {
           label: 'Reference',
           items: [
+            { label: 'Keyboard', slug: 'keyboard' },
             { label: 'CLI reference', slug: 'cli-reference' },
-            { label: 'Agent tools', slug: 'agent-tools' },
+            { label: 'Agent capabilities', slug: 'agent-tools' },
             { label: 'Config reference', slug: 'config-reference' },
-            { label: 'Integrations', slug: 'integrations' },
           ],
         },
         {

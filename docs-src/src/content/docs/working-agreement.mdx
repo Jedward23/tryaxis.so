@@ -1,0 +1,119 @@
+---
+title: The project working agreement
+sidebar:
+  order: 5
+description: Use AGENTS.md to give every agent the same durable rules for how work should be done.
+---
+
+import HotspotFigure from '../../components/HotspotFigure.astro';
+import ConceptGrid from '../../components/ConceptGrid.astro';
+
+**Learn lane · Mission: stop repeating the rules**
+
+Your project's `AGENTS.md` is its working agreement. It tells every agent how to operate
+before the specific request arrives: the mission, boundaries, validation standard,
+important workflows, and rules that must survive from one session to the next.
+
+<HotspotFigure
+  id="working-agreement-proof"
+  src="/docs/proof/project-overview.png"
+  alt="The Brightside Studio project Overview showing the project working agreement beside two completed sessions"
+  caption="The Brightside sessions followed these rules without the user pasting them into either request."
+  hotspots={[
+    { x: 14, y: 70, title: 'One project agreement', description: 'Plain language, privacy boundaries, approval rules, and evidence standards live in one durable place.' },
+    { x: 52, y: 30, title: 'Two independent sessions', description: 'Business and technical work both inherited the same agreement automatically.' },
+    { x: 82, y: 33, title: 'The same rules govern Routines', description: 'Scheduled work does not bypass the project’s safety or proof standards.' },
+  ]}
+/>
+
+## The burden it removes
+
+Without a working agreement, every session begins with a policy interview. You repeat
+which tests matter, what must never be deployed automatically, which terminology is
+canonical, and where authoritative state lives.
+
+Put stable operating rules in one place and keep task-specific requests in the session.
+
+## What belongs in AGENTS.md
+
+- What this project is and who it serves.
+- The small set of architectural truths an agent must know before broad work.
+- How to validate changes at the affected layer.
+- Safety and approval boundaries.
+- Canonical terminology and reusable project conventions.
+- Commands or workflows that are genuinely stable.
+- Links to deeper project-owned documentation.
+
+A useful rule explains both **what** and **why**:
+
+```md
+## Visual changes
+Open the real route and inspect a post-change screenshot before claiming success.
+A passing DOM assertion does not prove the interface looks right.
+```
+
+## What does not belong
+
+- Passwords, tokens, one-time codes, or other secrets.
+- The current task checklist.
+- A transcript of everything the project has ever done.
+- Facts that source files already answer more accurately.
+- A temporary workaround presented as permanent policy.
+- Personal memory copied into a public repository.
+
+### Concept boundary
+
+<ConceptGrid
+  title="Five needs, five homes"
+  concepts={[
+    { title: 'Standing rules', definition: 'Put project-wide operating expectations in AGENTS.md.', icon: 'shield-check', is: ['Safety boundaries', 'Validation standards'], isNot: ['One task’s outcome'], href: '/docs/working-agreement/' },
+    { title: 'Learned knowledge', definition: 'Put reusable corrections, preferences, and reasons in Memory.', icon: 'brain', is: ['Lessons', 'Decisions'], isNot: ['Current source truth'], href: '/docs/memory/' },
+    { title: 'Unfinished intent', definition: 'Put active, open, and deferred work in a shared work plan.', icon: 'list-checks', is: ['Next actions', 'Dependencies'], isNot: ['Permanent policy'], href: '/docs/work-plans/' },
+    { title: 'Exact behavior', definition: 'Keep authoritative architecture and behavior in project source and documentation.', icon: 'library', is: ['Current contracts', 'Specifications'], isNot: ['Historical recollection'] },
+    { title: 'This outcome', definition: 'Use the session request for the result you want now.', icon: 'target', is: ['Goal', 'Observed problem'], isNot: ['The entire operating manual'], href: '/docs/sessions/' },
+  ]}
+/>
+
+## A practical first agreement
+
+Start small:
+
+1. State the project mission in two or three sentences.
+2. Name the authoritative files or systems.
+3. Define the default validation for meaningful changes.
+4. Define actions that require human approval.
+5. Add only recurring rules that have already proved necessary.
+
+A short agreement that agents can follow beats a large policy archive nobody can scan.
+When a rule grows into a long operating guide, keep the concise rule and link to the
+detail.
+
+## How it changes the request
+
+With the agreement in place, you can say:
+
+```text
+Add the same approval boundary to the export workflow and prove the real state.
+```
+
+The request carries the outcome. The project supplies the established safety and proof
+standard. If the relevant rule is missing or ambiguous, the agent should investigate
+and ask only when the decision materially belongs to you.
+
+## Keep it current
+
+Treat AGENTS.md as living project documentation. Update it when a correction should
+guide every future agent. Remove stale rules when the source of truth changes. Do not
+let a one-off task silently rewrite the agreement without reviewing the broader effect.
+
+## Mission complete when
+
+Start a fresh low-risk session and give it an ordinary request. It should discover and
+follow the relevant rule without you pasting the rule again. Inspect the evidence, then
+refine the agreement if the behavior was ambiguous.
+
+## Next
+
+- [How to work with Axis](/docs/how-to-work/)
+- [Memory](/docs/memory/)
+- [Configuration](/docs/configuration/)

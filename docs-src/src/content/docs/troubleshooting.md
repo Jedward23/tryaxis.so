@@ -1,131 +1,120 @@
 ---
 title: Troubleshooting
-description: When something is stuck, start here.
+description: Diagnose the exact layer that failed while preserving durable work, drafts, sessions, and external state.
 ---
 
-## First checks
+**Reference lane · Job: recover without making the failure bigger**
+
+Start from the symptom, identify the authoritative layer, and avoid destructive cleanup
+until you know what owns the state.
+
+<!-- PROOF-ID: TROUBLESHOOT-STATES-01 -->
+
+![The same session retains validation and exact change evidence instead of asking you to trust a completion claim.](/docs/proof/mission-evidence.png)
+
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+
+## First: preserve the thread
+
+Do not delete session files, reset databases, kill unknown ports, clear runtime folders,
+or start replacement sessions as a first response. Capture the exact session, project,
+visible state, time, and any error message.
+
+Read-only checks in current builds include:
 
 ```bash
-axis health     # is the server running?
-axis service    # are both processes up?
-axis version    # version and update status
+axis health
+axis service
+axis version
+axis sessions --active
 ```
 
-Most problems are one of these three being unhappy.
+Use installed `axis --help` if a command is unavailable.
 
-## A session appears stuck
+## Session looks stuck
 
-A session showing **Working** for far longer than the task warrants.
+1. Open the Working fold. Is a command/tool still running?
+2. Check whether the session says it is waiting on you.
+3. Open Raw only if terminal-level truth is needed.
+4. Confirm the host and connection are healthy.
+5. Resume or recover the **exact session identity** rather than starting a similar one.
 
-Axis detects genuinely stalled sessions and can wake them. It backs off between
-attempts and escalates to you rather than retrying forever.
+A waiting session is not stalled. A transport acknowledgement is not proof the prompt
+entered the transcript. Recovery is complete only when the exact session shows the new
+request and agent activity.
 
-If it has been a long time with nothing happening:
+## Message is sending or queued
 
-1. Check the working fold — is it mid-command, or genuinely idle?
-2. Check Raw to see the terminal directly.
-3. Look for an unanswered question in your [inbox](/docs/inbox/).
+- During active work, a normal follow-up belongs in the steering queue.
+- During a real connection loss, the durable prompt can remain visible with the canonical
+  reconnecting state.
+- Refresh should not duplicate or discard the prompt.
 
-A session waiting on you is not stuck; it is waiting.
+Do not repeatedly press Send. Inspect whether the same durable message already exists
+before retrying.
 
-## A message did not send
+## Provider or usage failure
 
-Sending shows local state immediately, then confirms once accepted.
+An actionable provider boundary should show the failure in the transcript rather than
+leave Working running forever.
 
-- **Stuck sending, connection healthy.** The agent is mid-turn — your message is in the
-  [steering queue](/docs/sessions/#the-steering-queue). Press `Enter` on the empty
-  composer to push it through.
-- **Reconnecting shown.** The connection dropped. Your message is preserved and delivers
-  on reconnect.
+- Reconnect expired credentials through the provider surface.
+- Wait for a rate/usage window or switch to an available provider/model.
+- Preserve the exact session when changing models during recovery.
+- Verify the selected provider/model and new exact-session activity after resuming.
 
-Refreshing does not lose a queued message.
+Do not assume a provider CLI login means Axis has usable credentials.
 
-## Nothing loads / the interface looks broken
+## Project-capacity wait or sluggish host
 
-Usually a partially updated client.
-
-1. Reload the page.
-2. If it persists, hard reload.
-
-Axis recovers from server restarts and network drops without a hard refresh, so
-repeated need for one is worth reporting.
-
-## The machine is sluggish
-
-Usually too much running at once.
+A waiting launch may be correctly respecting the project governor. Inspect active
+sessions and named services before changing limits.
 
 ```bash
-axis agents      # what is running
-axis sessions    # how many sessions exist
+axis agents
+axis terminal list
+axis servers status <project>
 ```
 
-Background work runs at lower priority than your active session, and abandoned
-terminals are cleaned up automatically. If there are dozens of live sessions, close
-what you are not using.
+Old clientless terminals and runaway service shells are control-plane problems. Confirm
+ownership before killing anything; noisy output alone does not prove human use.
 
-If everything restarted recently, give it a few minutes — a machine coming back up is
-briefly busy.
+## Service or local app will not start
 
-## A dev server will not start
+Read current status and logs before restarting:
 
 ```bash
-axis servers status ~/myapp
-```
-
-- **Port already in use.** Find what holds it before killing anything — it may be work
-  you want.
-- **Wrong command.** Override it:
-  ```bash
-  axis servers config myapp npm:dev "npm run dev -- --port 4000"
-  ```
-- **Starts then dies.** Read its output rather than restarting repeatedly.
-
-## A browser pane is blank
-
-1. Confirm the underlying service is actually running.
-2. Check the URL is what you expect.
-3. Close and reopen the pane.
-
-If the page failed to load, the pane keeps showing the URL you asked for rather than an
-internal error address.
-
-## Provider errors
-
-Rate limits, expired credentials, and outages surface as actionable failures rather
-than silent hangs.
-
-- **Credentials expired.** Reconnect the provider.
-- **Rate limited.** Wait, or switch models for the session.
-- **Provider down.** Switch providers; the session continues.
-
-See [Model providers](/docs/model-providers/).
-
-## A phone cannot reach Axis
-
-1. Both devices signed into the same Tailscale account?
-2. Both showing connected?
-3. Is Axis actually running on the host — `axis health`?
-4. Did the host restart without Axis coming back?
-
-See [Remote access](/docs/remote-access/#troubleshooting).
-
-## Terminals disappeared
-
-Restarting the Axis server does not kill terminals — they are owned by a separate
-process. Restarting *that* process does.
-
-```bash
-axis service start pty
-```
-
-## Reading logs
-
-```bash
-axis service logs --lines 100
+axis servers status <project>
 axis service logs axis --lines 100
 ```
 
-## Next
+Identify a port owner before terminating it. Fix the canonical launch command rather
+than saving a cleanup command that destroys state on every start.
 
+## Browser or preview is blank
+
+1. Confirm the backing service is healthy.
+2. Check the exact route and URL.
+3. Reuse the existing owned pane or live browser identity.
+4. Capture and inspect the visible state after recovery.
+
+Do not open a second authenticated browser profile as a fallback; it may not share the
+user's login or page state.
+
+## Mobile cannot reach the node
+
+Check host power/awake state, Axis health, Tailscale device identity, tailnet policy,
+node pairing, and network reachability. Do not publish peer lists, hostnames, IPs, QR
+codes, or pairing codes while asking for help.
+
+## Escalate with evidence
+
+Provide the Axis version, platform, exact user-visible symptom, timestamp, session or
+project reference when safe, read-only diagnostic output, and a scrubbed screenshot.
+State what you already tried and what work must not be disturbed.
+
+## Related reference
+
+- [Sessions and steering](/docs/sessions/)
+- [Remote access](/docs/remote-access/)
 - [FAQ](/docs/faq/)
-- [Configuration](/docs/configuration/)

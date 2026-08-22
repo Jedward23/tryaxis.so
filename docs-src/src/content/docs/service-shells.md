@@ -1,74 +1,78 @@
 ---
 title: Service shells
-description: Long-running processes — dev servers, workers, imports — that stay visible.
+summary: Keep long-running servers, workers, imports, and watchers named, visible, reusable, and attached to the project.
+description: Keep long-running servers, workers, imports, and watchers named, visible, reusable, and attached to the project.
 ---
 
-A service shell is a long-running process Axis owns and keeps visible: a dev server, a
-worker, a build watcher, a long import.
+**Builder lane · Mission: stop hiding durable processes in disposable terminals**
 
-## Why not just run it in a terminal
+A service shell is a managed, visible home for a long-running process. Use it for dev
+servers, workers, imports, scrapers, monitors, and watchers that should keep running
+while a session continues.
 
-A process buried in an ad-hoc terminal is invisible. Nobody knows it is running, its
-logs are wherever it started, and it survives as a mystery CPU consumer.
+<!-- PROOF-ID: SERVICE-SHELL-01 -->
 
-A service shell appears in the project, can be read and restarted, and pairs with a
-browser or preview pane.
+![A real browser-inspected result created by an Axis session inside the privacy-safe demo project.](/docs/proof/browser-result.png)
 
-Anything long-running belongs here rather than in a one-off terminal.
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-## Dev servers
+## Why the surface matters
 
-Axis detects runnable servers in a project:
+A process started in an ad-hoc terminal is easy to duplicate and hard to diagnose.
+Nobody knows which command owns the port, where logs live, or whether the process should
+survive the session.
 
-```bash
-axis servers ~/myapp                 # detected servers and status
-axis servers status ~/myapp          # detailed status
-axis servers scripts ~/myapp         # available scripts
-axis servers start myapp backend     # start one
-axis servers stop myapp frontend     # stop one
-```
+A named service can be inspected, reused, restarted, stopped, and paired with a browser
+or preview in the project workspace.
 
-Override a command when detection guesses wrong:
+## Reuse before launching
 
-```bash
-axis servers config myapp npm:dev "npm run dev -- --port 4000"
-```
+Before starting a server or worker, inspect existing project services and ports. If the
+canonical process already exists, attach to it instead of creating a duplicate.
 
-## One service per port
+One runtime port should map to one canonical managed service. `/settings` and `/reports`
+are browser routes, not separate services when the same server owns both.
 
-A project has one canonical service per runtime port. Different pages of the same app
-are browser rows, not separate services.
+## Use a stable start command
 
-:::caution
-A service's command should be how you *start* it. Never save a cleanup command such as
-a cache wipe as the launch command — it will run every time the service starts.
-:::
+The saved command should start the process. Do not make a cleanup operation such as a
+cache wipe part of the canonical launch command; it would run on every restart and can
+destroy useful state.
 
-## Reading output
+When auto-detection chooses the wrong command, change the managed configuration
+explicitly and record why.
 
-Read a service's recent output without attaching to it. Check here before starting a
-second copy of something already running.
+## Read logs before restarting
 
-## Pairing with a browser
+Inspect bounded recent output and current status first. A repeated restart can hide the
+first useful error or create a port race. If a port is occupied, identify the owner
+before killing it; the process may belong to another active workstream.
 
-A service shell can open a browser or preview pane pointed at it, so you get the server
-and the running app side by side.
+## Pair the runtime with evidence
 
-Pin the pane to keep it mounted across sessions in that project.
+Attach the service and its real browser/preview route to the session doing the work.
+For UI changes, the server log supports diagnosis; the inspected live page and screenshot
+prove the experience.
 
-## Priority
+## Keep background work subordinate
 
-Background and automated services run at lower priority than the session you are
-actively using, so a busy build does not make the interface sluggish.
+Managed background services should run with lower priority than the active Axis
+workspace where supported. Capacity and visibility do not guarantee a process is safe;
+stop stale or runaway services deliberately.
 
-## Cleaning up
+## CLI note
 
-Kill a service when it is stale or wrong, optionally releasing its port. If a port is
-already occupied, find what holds it rather than force-killing blindly — it may be
-someone else's work.
+The installed CLI exposes `axis servers ...` commands for listing, status, scripts,
+start, stop, and command overrides in current builds. Use `axis servers --help` or the
+top-level `axis --help` from the installed version before scripting exact arguments.
+
+## Mission complete when
+
+A later session can find the one named service, read its logs, open the correct route,
+and stop or reuse it without guessing which hidden terminal owns the process.
 
 ## Next
 
-- [Projects and workspaces](/docs/projects/#services)
-- [Browser control](/docs/browser/#previews)
-- [CLI reference](/docs/cli-reference/#dev-servers)
+- [Projects and workspaces](/docs/projects/)
+- [Browser control](/docs/browser/)
+- [CLI reference](/docs/cli-reference/)

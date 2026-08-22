@@ -1,110 +1,88 @@
 ---
-title: Agent tools
-description: What agents can do inside Axis, and what each capability is for.
+title: Agent capability reference
+summary: Understand the user-visible jobs Axis capabilities perform without treating internal tool names as the product model.
+description: Understand the user-visible jobs Axis capabilities perform without treating internal tool names as the product model.
 ---
 
-Agents working in Axis have tools for the product's own surfaces. This is a guide to
-what exists and when each is appropriate — useful for understanding what an agent is
-doing, and for writing your own [skills](/docs/skills-and-tools/).
+**Reference lane · Job: understand what an agent can ask Axis to do**
 
-## Memory
+Axis exposes harness capabilities to agents. Exact tool names and schemas can evolve;
+the stable customer model is the job each capability performs and the evidence it must
+return.
 
-Agents read memory before rediscovering something, and save when they learn something
-durable.
+<!-- PROOF-ID: AGENT-CAPABILITIES-01 -->
 
-| Capability | Use |
-| --- | --- |
-| Recall | Look up decisions, preferences, lessons, references |
-| Save | Record a learning, correction, or reference |
+![The same session retains validation and exact change evidence instead of asking you to trust a completion claim.](/docs/proof/mission-evidence.png)
 
-Memory is written through the save capability only — never by editing files by hand.
-See [Memory](/docs/memory/).
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-## Work plans
+## Context and learning
 
-| Capability | Use |
-| --- | --- |
-| List and add | Read and extend the shared project plan |
-| Continue or create | Join an existing plan, or open a new one |
-| Defer | Record work for later, with an optional date and note |
-| Backlog | Find work that is due, blocked, or has gone quiet |
+Agents can recall relevant memory before rediscovering decisions and save a deliberate
+lesson when it occurs. They should use AGENTS.md for standing rules, project/source
+state for current truth, and Memory for learned knowledge.
 
-Removal is soft. Clearing detaches a local view rather than destroying another
-session's items. See [Work plans](/docs/work-plans/).
+A memory result should include provenance and confidence where useful; recalled mutable
+facts still need live verification.
 
-## Sessions
+## Planning and unfinished work
 
-| Capability | Use |
-| --- | --- |
-| Title | Name the session once, early |
-| Set status | Move between in progress, review, done |
-| Resume | Continue a specific existing session by id |
-| New session | Start a fresh independent session |
+Agents can discover or continue a shared work plan, add verifiable items, mark the active
+leaf, record evidence, defer future work, and find due or forgotten items.
 
-Resuming targets an exact session. Agents do not route work by "most recent session in
-this directory".
+They should not create a duplicate plan merely because a new session began. Clearing one
+local view must not silently destroy other sessions' shared items.
 
-## Orchestration
+## Session continuity
 
-| Capability | Use |
-| --- | --- |
-| Spawn sub-agents | Split a goal into parallel child sessions |
-| Get children | Check status of spawned children |
-| Continuation loop | Wake the parent when children finish |
+Capabilities can title the current session, set its status, resume an exact existing
+session, start a fresh independent session, or create focused child sessions.
 
-See [Sub-agents](/docs/sub-agents/).
+These operations are different. Resume preserves exact durable identity. A new session
+creates a separate thread. Sub-agents create children under a coordinating parent.
 
-## Human gates
+## Human judgment
 
-| Capability | Use |
-| --- | --- |
-| Ask | Put a real question to you, with options |
-| Request approval | Flag that work is blocked pending your decision |
+Agents can present structured questions and request approval for consequential actions.
+A gate should appear in the owning session and Inbox, state the exact blocker and scope,
+and stop the action until the answer arrives.
 
-An agent that needs you stays open and asks. These appear in your
-[inbox](/docs/inbox/).
+A notification that input is needed is not itself the decision surface.
 
-## Workspace
+## Workspace and services
 
-| Capability | Use |
-| --- | --- |
-| Inspect workspace | See existing panes before creating new ones |
-| Open panes | Materialise a browser, preview, or artifact pane |
-| Render artifact | Turn a file into something you can open |
-| Launch service shell | Start a long-running process visibly |
+Agents can inspect the current workspace, reuse or open session-owned panes, register a
+durable saved result, and launch a named long-running service.
 
-Agents check for an existing pane before opening another, so you do not accumulate
-duplicates. See [Projects and workspaces](/docs/projects/#workspaces).
+Inspection comes first so the agent does not duplicate an authenticated browser, live
+preview, or canonical service. Background work should attach quietly rather than steal
+focus.
 
-## Browser
+## Browser and visual proof
 
-| Capability | Use |
-| --- | --- |
-| Navigate, click, fill, type | Drive a page |
-| Screenshot | Capture visual proof |
-| Read page | Extract content |
-| Fill from password manager | Log in without exposing credentials |
+Local browser capabilities can navigate and interact with a real page, read state, and
+capture screenshots. Sensitive typed values and credentials must not appear in the
+human trace. Browser-visible work is complete only after the real state is opened,
+captured, inspected, and compared with the claim.
 
-Browser control is local. See [Browser control](/docs/browser/).
+## Routines and continuation
 
-## Scheduling
+Agents can create/manage Routines or quick actions where supported and schedule bounded
+check-ins for exact sessions. Long-running continuation must stop on completion,
+cancellation, handoff, or a genuine human blocker; it is not an invisible infinite
+loop.
 
-| Capability | Use |
-| --- | --- |
-| Schedule task | Create a recurring task |
-| Schedule check-in | Deliver a prompt to a session later |
-| Create quick action | Add an on-demand button |
+## Results are part of the contract
 
-See [Recurring tasks](/docs/recurring-tasks/).
+Every capability needs a readable success, empty, loading, and error presentation.
+Summary comes first; exact evidence is disclosed progressively; raw output is a final
+fallback. Secrets and high-risk identifiers must be redacted.
 
-## Result presentation
+A tool transport acknowledgement is not proof that the intended side effect occurred.
+Verify writes through authoritative persisted or destination state.
 
-Every tool is expected to render its result readably — summary first, detail available,
-raw payload behind a disclosure rather than in your face.
-
-A tool that returns unformatted JSON as its primary output is incomplete.
-
-## Next
+## Related reference
 
 - [Skills and tools](/docs/skills-and-tools/)
 - [CLI reference](/docs/cli-reference/)
+- [Inbox and approvals](/docs/inbox/)

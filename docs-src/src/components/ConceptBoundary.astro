@@ -1,0 +1,44 @@
+---
+import DocsIcon from './DocsIcon.astro';
+
+export interface Props {
+  title: string;
+  definition: string;
+  is: string[];
+  isNot: string[];
+  icon?: string;
+  href?: string;
+  label?: string;
+}
+
+const {
+  title,
+  definition,
+  is: isList,
+  isNot,
+  icon = 'layers',
+  href,
+  label = 'Concept boundary',
+} = Astro.props;
+---
+
+<article class="axis-docs-block axis-concept-boundary">
+  <header class="axis-concept-header">
+    <div class="axis-icon-frame" aria-hidden="true"><DocsIcon name={icon} /></div>
+    <div>
+      <p class="axis-card-kicker">{label}</p>
+      <h3>{href ? <a href={href}>{title}</a> : title}</h3>
+    </div>
+  </header>
+  <p class="axis-concept-definition">{definition}</p>
+  <div class="axis-boundary-columns">
+    <div>
+      <h4>It is</h4>
+      <ul>{isList.map((item) => <li>{item}</li>)}</ul>
+    </div>
+    <div>
+      <h4>It is not</h4>
+      <ul>{isNot.map((item) => <li>{item}</li>)}</ul>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,39 @@
+---
+import ProofLabel, { type ProofKind } from './ProofLabel.astro';
+
+export interface Props {
+  src: string;
+  alt: string;
+  caption: string;
+  kind?: ProofKind;
+  label?: string;
+  width?: number;
+  height?: number;
+  loading?: 'eager' | 'lazy';
+  id?: string;
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  caption,
+  kind = 'seeded',
+  label,
+  width,
+  height,
+  loading = 'lazy',
+  id,
+  class: className,
+} = Astro.props;
+---
+
+<figure class:list={["axis-docs-block", "axis-proof-figure", className]} id={id}>
+  <div class="axis-proof-frame">
+    <img src={src} alt={alt} width={width} height={height} loading={loading} decoding="async" />
+  </div>
+  <figcaption>
+    <ProofLabel kind={kind} label={label} />
+    <span>{caption}</span>
+  </figcaption>
+</figure>

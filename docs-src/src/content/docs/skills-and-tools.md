@@ -1,64 +1,82 @@
 ---
 title: Skills and tools
-description: Extending Axis with your own capabilities, processes, and integrations.
+summary: Encode repeatable judgment in skills and grant narrow capabilities through readable, approval-aware tools.
+description: Encode repeatable judgment in skills and grant narrow capabilities through readable, approval-aware tools.
 ---
 
-Axis is designed to grow around your work. Skills capture how you do something; tools
-give agents new abilities.
+**Builder lane · Mission: teach the harness how your work is done**
 
-## Skills
+A **skill** captures a reusable process and quality bar. A **tool** gives an agent a
+specific capability to read or change a system. Together they remove repeated workflow
+explanation without placing every integration in every session's context.
 
-A skill is a written process an agent loads when a task matches it — your steps, your
-constraints, your quality bar.
+<!-- PROOF-ID: SKILL-TOOL-01 -->
 
-Skills are how you stop re-explaining a workflow. Write down how you do a release, or a
-weekly report, or a specific kind of review, and agents follow it.
+![A real browser-inspected result created by an Axis session inside the privacy-safe demo project.](/docs/proof/browser-result.png)
 
-### What makes a good skill
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-- **A clear trigger.** When should this load?
-- **Concrete steps**, in order.
-- **Real constraints** — what must never happen.
-- **What done looks like**, so it can be verified.
+## Write a skill when judgment repeats
 
-Skills are prose, not code. If you can explain it to a new hire, you can write it as a
-skill.
+A useful skill includes:
 
-## Tools
+- a clear trigger—when it applies,
+- ordered steps,
+- constraints and approval boundaries,
+- authoritative sources to inspect,
+- completion criteria and required evidence.
 
-A tool is something an agent can call: reading a system, fetching data, performing an
-action in a service you use.
+Skills are written operating processes. If the stable rule applies to every task in the
+project, keep the concise rule in AGENTS.md and let the skill hold the deeper specialized
+workflow.
 
-Axis ships with tools for its own surfaces — sessions, projects, panes, memory, work
-plans, browsers, artifacts. You can add tools for your own services.
+## Add a tool when an agent needs capability
 
-### Results must be readable
+Tools can read data, inspect state, create an Axis surface, or perform an authorized
+action. Keep each contract narrow and typed. Prefer authoritative identifiers and
+structured state over brittle keyword guessing.
 
-A tool is only finished when its result renders as something a human can read.
+A tool that can change an external system must preserve the project's human checkpoint
+policy. Capability is not authorization.
 
-Returning a wall of JSON is not done. Results should present as a summary with useful
-detail — the raw payload can stay available behind a disclosure, but it should not be
-the primary thing you see.
+## Make results readable
 
-## Loading
+A tool is incomplete if its primary human presentation is a wall of JSON. A useful
+result leads with status and summary, then offers records, fields, tables, media,
+actions, or evidence behind progressive disclosure. Exact raw payload can remain a
+last-resort detail.
 
-Skills and tools load when relevant rather than all at once. A session that needs none
-of your custom capabilities does not pay for them.
+Success, empty, loading, and error states all need a clear human rendering. Secrets and
+sensitive input must be redacted before the result enters the transcript.
 
-## Importing
+## Load only what matches
 
-Skills and tools can be brought in from a repository, so a process you already wrote
-down elsewhere does not need retyping.
+Relevant skills and tools should load when a task needs them rather than filling every
+session with every capability. Keep descriptions specific enough that the harness can
+choose correctly.
 
-## Sensible boundaries
+## Import cautiously
 
-- Keep tool results small. Large payloads crowd out the actual work.
-- Never return secrets in a tool result — they end up in the transcript.
-- Prefer a narrow follow-up call over re-fetching a large blob.
-- Anything with external consequences should route through an approval.
+Before importing a skill, extension, or tool from another repository, inspect its
+source, capability boundary, dependencies, secret handling, and side effects. Imported
+instructions do not outrank your working agreement or safety policy.
+
+## Connect the surrounding system
+
+- AGENTS.md supplies standing rules.
+- Memory supplies learned knowledge.
+- Skills supply specialized process.
+- Tools supply capability.
+- Routines supply repeatable activation and run history.
+- Sessions and evidence show what actually happened.
+
+## Mission complete when
+
+A fresh session recognizes the workflow, loads the skill, uses only the necessary tool,
+renders its result readably, and stops before an unapproved external side effect.
 
 ## Next
 
-- [Agent tools](/docs/agent-tools/) — the built-in tool surface.
+- [Agent tools](/docs/agent-tools/)
 - [Integrations](/docs/integrations/)
-- [Quick actions](/docs/quick-actions/)
+- [Routines](/docs/recurring-tasks/)

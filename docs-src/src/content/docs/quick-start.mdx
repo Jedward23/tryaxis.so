@@ -1,0 +1,125 @@
+---
+title: Your first real task
+description: Complete the Axis lifecycle once—from an ordinary request to evidence and durable learning.
+sidebar:
+  order: 3
+---
+
+import MissionFlow from '../../components/MissionFlow.astro';
+import ProofSequence from '../../components/ProofSequence.astro';
+import ConceptGrid from '../../components/ConceptGrid.astro';
+
+**Learn lane · Guided mission**
+
+Choose one real, low-risk outcome. You do not need a perfect prompt. Axis should help
+supply the project context, plan, tools, and proof around an ordinary request.
+
+<ProofSequence
+  title="The Brightside mission"
+  description="A real Axis session improved a client update without sending or publishing anything."
+  items={[
+    { title: '1 · Durable home', src: '/docs/proof/project-overview.png', alt: 'Brightside Studio demo project with a working agreement and two sessions', caption: 'The project carries the standing rules and related work.' },
+    { title: '2 · Ordinary request', src: '/docs/proof/mission-request.png', alt: 'An ordinary-language request inside the Brightside weekly update session', caption: 'The user describes the outcome and safety boundary in normal language.' },
+    { title: '3 · Inspectable result', src: '/docs/proof/mission-evidence.png', alt: 'Validation and diff evidence retained in the completed Axis session', caption: 'The session keeps the result, validation, and exact change evidence together.' },
+    { title: '4 · Real browser proof', src: '/docs/proof/browser-result.png', alt: 'A real browser-inspected status page built in a separate Brightside session', caption: 'Technical work follows the same lifecycle and ends in visible product proof.' },
+  ]}
+/>
+
+## Mission outcome
+
+By the end, you will have:
+
+- one project with a continuing session,
+- one completed piece of work,
+- evidence you inspected yourself,
+- one useful correction or open item preserved for later.
+
+## 1. Choose the durable home
+
+Open a project that contains the material or system the task belongs to. A project is
+more than a folder picker: it scopes the working agreement, relevant memory, work
+plans, services, sessions, and saved results.
+
+For a first mission, use reversible work: improve a small page, investigate an error,
+organize a report, or review a set of changes.
+
+## 2. Ask normally
+
+Describe what you want as you would to a capable colleague:
+
+```text
+The settings page feels slow when it first opens. Find the cause, improve it,
+and show me evidence that the real page is faster and still looks right.
+```
+
+You supplied the outcome and the observed problem. Axis and the agent should discover
+available project rules, inspect the code or source system, form a plan when needed,
+choose tools, and identify appropriate proof.
+
+If a fact is essential and only you know it, the agent asks. It should not turn every
+discoverable detail into a questionnaire.
+
+## 3. See contextualized execution
+
+The session becomes the continuing thread for this outcome. Open the **Working** fold
+to inspect the chronological work: reasoning, reads, commands, edits, browser actions,
+and other tool calls.
+
+A multi-step job may show a compact plan above the composer. You can let it run, add a
+follow-up to the steering queue, or stop it if the direction is wrong.
+
+### Concept boundary
+
+<ConceptGrid
+  title="Keep each kind of context in its proper place"
+  concepts={[
+    { title: 'Working agreement', definition: 'Standing rules for how work is done in this project.', icon: 'shield-check', is: ['Project-wide rules', 'Validation standards'], isNot: ['One task’s checklist', 'A transcript dump'], href: '/docs/working-agreement/' },
+    { title: 'Memory', definition: 'Lessons or decisions worth recalling later.', icon: 'brain', is: ['Corrections', 'Preferences', 'Reasons'], isNot: ['Current source truth', 'Every past message'], href: '/docs/memory/' },
+    { title: 'Work plan', definition: 'Shared unfinished intent across sessions.', icon: 'list-checks', is: ['Open work', 'Active steps', 'Deferred items'], isNot: ['Permanent policy', 'Long-term knowledge'], href: '/docs/work-plans/' },
+    { title: 'Session history', definition: 'The supporting record of what happened here.', icon: 'history', is: ['Requests', 'Actions', 'Evidence'], isNot: ['The project’s rulebook', 'A replacement for source files'], href: '/docs/sessions/' },
+  ]}
+/>
+
+## 4. Inspect evidence, not the completion sentence
+
+Open the proof that matches the work:
+
+- a real screenshot for a visual change,
+- before/after timings for performance,
+- destination state for an external update,
+- tests and changed lines for code behavior,
+- a saved report or Collection item for durable output.
+
+The agent's summary helps you navigate. It is not itself proof.
+
+## 5. Exercise human judgment
+
+Decide whether the outcome is right, whether the trade-off is acceptable, and whether
+any consequential next action is authorized. If the work needs a login, message send,
+deployment, purchase, deletion, or similarly scoped authority, Axis should stop at a
+clear human checkpoint.
+
+A denial leaves that proposed action unexecuted. An approval authorizes only the action
+and scope described by the gate.
+
+## 6. Make the next session better
+
+Preserve only what should survive:
+
+- Save a durable correction or lesson to [Memory](/docs/memory/).
+- Record unfinished work in the shared [work plan](/docs/work-plans/).
+- Put a standing rule in the project's [working agreement](/docs/working-agreement/).
+- Keep a useful output in [Collections](/docs/artifacts/).
+
+That closes the loop: the next session starts ahead instead of from zero.
+
+## Mission complete when
+
+You can point to the exact session, the exact evidence, the judgment you made, and the
+knowledge or open work that will carry forward.
+
+## Next
+
+- [How the harness works](/docs/concepts/)
+- [How to work with Axis](/docs/how-to-work/)
+- [Sessions and steering](/docs/sessions/)

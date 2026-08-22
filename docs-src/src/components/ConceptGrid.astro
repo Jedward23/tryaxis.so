@@ -1,0 +1,43 @@
+---
+import ConceptBoundary from './ConceptBoundary.astro';
+
+export interface ConceptItem {
+  title: string;
+  definition: string;
+  is: string[];
+  isNot: string[];
+  icon?: string;
+  href?: string;
+  label?: string;
+}
+
+export interface Props {
+  concepts?: ConceptItem[];
+  title?: string;
+  description?: string;
+  eyebrow?: string;
+  id?: string;
+}
+
+const {
+  concepts = [],
+  title,
+  description,
+  eyebrow = 'Concept atlas',
+  id = 'concept-grid',
+} = Astro.props;
+---
+
+<section class="axis-docs-block axis-concept-grid-section" aria-labelledby={title ? `${id}-title` : undefined}>
+  {(title || description) && (
+    <header class="axis-section-header">
+      <p class="axis-eyebrow">{eyebrow}</p>
+      {title && <h2 class="axis-section-heading" id={`${id}-title`}>{title}</h2>}
+      {description && <p class="axis-section-description">{description}</p>}
+    </header>
+  )}
+  <div class="axis-concept-grid">
+    {concepts.map((concept) => <ConceptBoundary {...concept} />)}
+    <slot />
+  </div>
+</section>

@@ -1,91 +1,83 @@
 ---
-title: Configuration
-description: Settings, appearance, capacity, and where Axis keeps your data.
+title: Configure the harness
+summary: Set project rules, providers, capacity, data boundaries, appearance, and remote access without mixing them into every request.
+description: Set project rules, providers, capacity, data boundaries, appearance, and remote access without mixing them into every request.
 ---
 
-## Viewing configuration
+**Builder lane · Mission: make the environment predictable**
 
-```bash
-axis config      # current configuration
-axis version     # version and update status
-axis health      # is the server running?
-```
+Configuration should remove repeated setup from sessions. Put standing behavior in the
+right durable surface and leave one-off outcomes in the request.
 
-## Where things live
+<!-- PROOF-ID: CONFIG-HARNESS-01 -->
 
-| What | Where |
-| --- | --- |
-| Sessions, projects, statuses, history | A local database in your home directory |
-| Session transcripts | Local files, one per session |
-| Provider credentials | Your operating system keychain |
-| Project files | Wherever your code already lives |
+![A real Axis project Overview: working agreement, sessions, Routines, and project-owned context in one place.](/docs/proof/harness-overview.png)
 
-Nothing here is uploaded to run Axis. Your code and conversations stay on your machine.
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-## Appearance
+## Start with the working agreement
 
-Themes and backgrounds can be set per project so you can tell them apart at a glance.
-These persist across refreshes, restarts, and devices.
+`AGENTS.md` is the project's working agreement. Use it for stable conventions, safety
+boundaries, validation requirements, canonical terminology, and source-of-truth rules.
 
-## Project instructions
+Use [Memory](/docs/memory/) for learned knowledge, a [work plan](/docs/work-plans/) for
+unfinished intent, and project files or connected systems for current truth.
 
-A project can carry durable instructions that every session in it loads — conventions,
-constraints, and rules specific to that codebase.
+See [The project working agreement](/docs/working-agreement/).
 
-This is the right home for *how we work here*. Use [memory](/docs/memory/) for
-learnings and history; use project instructions for standing rules.
+## Connect providers through supported flows
 
-## Capacity
+Model and capability providers may offer account sign-in, API-key, local bridge, or
+other connection methods. Use the current provider setup surface. Credentials must not
+be stored in the repository, AGENTS.md, screenshots, or transcript.
 
-Axis limits how much runs at once per project, so a burst of agent work cannot starve
-your machine.
+A hosted provider receives the context sent to it. Local Axis storage does not remove
+that external boundary.
 
-Background and automated sessions run at lower priority than the session you are
-actively using. Foreground work stays responsive.
+## Set capacity around the host
 
-If a launch exceeds capacity it reports as waiting rather than spawning anyway.
+Axis limits concurrent project work so background agents, Routines, and service shells
+do not starve the active workspace. Work over capacity should report a waiting state
+rather than silently launching anyway.
 
-## Session lifetime
+Capacity is not a guarantee that every process will be cheap. Inspect named services and
+active sessions when the host is under pressure.
 
-Terminals that have had no client attached for a long period are cleaned up. Output
-alone does not count as activity — a process printing to a terminal nobody is watching
-is still abandoned.
+## Use appearance for orientation
 
-Sessions with queued work, or that you have open, are not affected.
+Project-specific themes and backgrounds can help distinguish workspaces. Appearance is
+presentation, not project identity; switching a theme must not move sessions, reset
+state, or change the project boundary.
 
-## Services
+## Understand the data boundary
 
-Axis runs two processes: the server, and a separate service that owns terminals.
+Axis keeps its durable project/session record and transcript state on the node running
+Axis. Project files remain in their chosen directories. Provider credentials use the
+supported secure storage path.
 
-```bash
-axis service              # are they running?
-axis service start        # start or restart
-axis service stop
-axis service logs --lines 100
-```
+Hosted models, connected integrations, browsers, and remote devices still exchange the
+minimum data required for the action you authorize. Review those systems' own boundaries.
 
-They are separate so that restarting Axis does not kill your terminals.
+## Manage long-running services visibly
 
-## Remote access
+Use named [service shells](/docs/service-shells/) for servers, workers, imports, and
+watchers. Restarting the Axis application process and restarting the terminal-owning
+service are different operations; consult the installed CLI/help before changing either.
 
-Axis is reachable from your other devices over your private network. See
-[Remote access](/docs/remote-access/).
+## Connect other devices deliberately
 
-```bash
-axis peers   # devices on your network
-```
+Remote access uses user-installed Tailscale in the MVP product direction. Access depends
+on the host, your tailnet configuration, identity, ACLs, and the Axis node being
+available. See [Remote access](/docs/remote-access/).
 
-## Pointing at another node
+## Mission complete when
 
-Commands target a specific Axis server with `--url`, or the `AXIS_URL` environment
-variable:
-
-```bash
-AXIS_URL=http://other-machine:3000 axis pulse
-```
+Start a new low-risk session. It should inherit the correct project rules, offer only
+working provider choices, respect capacity, and require no secret or standing policy in
+the prompt.
 
 ## Next
 
 - [Model providers](/docs/model-providers/)
+- [Skills and tools](/docs/skills-and-tools/)
 - [Config reference](/docs/config-reference/)
-- [Remote access](/docs/remote-access/)

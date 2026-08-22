@@ -1,0 +1,17 @@
+---
+export type ProofKind = 'seeded' | 'live' | 'diagram';
+
+export interface Props {
+  kind?: ProofKind;
+  label?: string;
+}
+
+const { kind = 'seeded', label } = Astro.props;
+const labels: Record<ProofKind, string> = {
+  seeded: 'Seeded demo · Real Axis UI',
+  live: 'Real product proof',
+  diagram: 'Explainer diagram',
+};
+---
+
+<span class="axis-proof-label" data-proof-kind={kind}>{label ?? labels[kind]}</span>

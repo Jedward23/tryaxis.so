@@ -1,185 +1,150 @@
 ---
 title: CLI reference
-description: Every axis command, flag, and example.
+summary: Inspect and control the installed Axis node with exact identities and machine-readable output.
+description: Inspect and control the installed Axis node with exact identities and machine-readable output.
 ---
 
-The `axis` command controls Axis from a terminal. Every command supports `--json` for
-machine-readable output.
+**Reference lane · Job: operate Axis without guessing**
+
+This page reflects the current source CLI at the time the docs were written. Run
+`axis --help` on the installed version before scripting: the installed help is the
+authority for available commands, flags, and defaults.
+
+<!-- PROOF-ID: CLI-REFERENCE-01 -->
+
+![The same session retains validation and exact change evidence instead of asking you to trust a completion claim.](/docs/proof/mission-evidence.png)
+
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+
+## Shape
 
 ```bash
 axis <command> [subcommand] [options]
 ```
 
-## Global options
+Current global options:
 
-| Flag | Effect |
+| Option | Job |
 | --- | --- |
-| `--json`, `-j` | Output JSON |
+| `--json`, `-j` | Request machine-readable output where supported |
 | `--url <url>` | Target a specific Axis server |
-| `--help`, `-h` | Show help |
+| `--help`, `-h` | Show installed help |
 
-The server defaults to `AXIS_URL`, or `http://localhost:3000`.
+The current source defaults to `AXIS_URL` or `http://localhost:3000`. Remote and packaged
+installations may use HTTPS or another configured endpoint; do not paste private node
+addresses into shared scripts or docs.
 
-## System
+## Start with read-only inspection
 
 ```bash
-axis pulse      # global heartbeat — all projects, tasks, agents
-axis health     # is the Axis server running?
-axis agents     # running agents and status
-axis stats      # cost and token statistics
-axis usage      # usage monitor with burn rate
+axis health
+axis pulse
+axis agents
+axis stats
+axis sessions --active
+axis projects
+axis tasks
 ```
 
-`axis usage` takes `--plan <pro|max5|max20>` and `--hours <n>`.
+Use `--json` when another tool needs structured results:
+
+```bash
+axis pulse --json
+axis tasks info <task-id> --json
+```
+
+A transport success proves only that the command reached Axis. For writes and external
+side effects, verify the intended destination state separately.
 
 ## Search
 
 ```bash
-axis search "fix the login bug"
-axis search "project:my-app cost:>0.50 OAuth"
-axis search "model:claude from:2024-01-15"
+axis search "login regression"
+axis search "project:my-app model:claude"
+axis sessions search "migration"
 ```
 
-Operators: `project:` `model:` `role:` `cost:>` `cost:<` `from:` `to:` `tokens:>`
+Current top-level search help lists operators including `project:`, `model:`, `role:`,
+`cost:>`, `cost:<`, `from:`, `to:`, and `tokens:>`. Verify semantics against installed
+help before building durable automation.
 
-Flags: `--limit <n>` (default 20), `--snippet-chars <n>` (default 200)
-
-## Tasks
+## Work with exact sessions
 
 ```bash
-axis tasks                          # across all projects
-axis tasks <project-path>           # for one project
-axis tasks info <task-id>
-axis tasks move <task-id> <status>
-axis tasks delete <task-id>
+axis sessions
+axis sessions info <session-id>
+axis sessions send <session-id> "Review the latest evidence."
+axis sessions pause <session-id>
+axis sessions resume <session-id>
+axis sessions stop <session-id>
 ```
 
-Filter with `--status <status>`.
-
-## Sessions
+Lower-level Pi session commands include current-session discovery, message/tree/context
+inspection, exact PTY lookup, scrollback, and send. Use the full exact session identity.
+Never substitute "newest session in this directory" for a requested target.
 
 ```bash
-axis sessions                       # all sessions
-axis sessions info <id>             # detail with costs and messages
-axis sessions search <query>
-axis sessions send <id> "message"
-axis sessions pause <id>
-axis sessions resume <id>
-axis sessions stop <id>
+axis session current
+axis session show <id|file|current>
+axis session messages <ref> --compact
+axis session tree <ref>
+axis session context <ref>
+axis session pty <ref>
 ```
 
-| Flag | Effect |
-| --- | --- |
-| `--project <path>` | Filter by project |
-| `--active` | Active in the last 5 minutes |
-| `--idle` | 5 minutes to 1 hour |
-| `--inactive` | Over an hour |
-| `--limit <n>` | Max results (default 30) |
-| `--behavior <steer\|followUp>` | How `send` delivers |
+Sending, pausing, resuming, stopping, terminal writes, and kills mutate live work. Inspect
+the target first and preserve unsent or active work.
 
-## Projects
+## Projects and tasks
+
+Current project commands list, inspect, create, connect, archive, unarchive, and rename.
+Task commands list, inspect, move, and delete task records.
 
 ```bash
-axis projects                       # list
 axis projects info <path>
-axis projects create <name>         # --dir <parent>
 axis projects connect <path>
 axis projects archive <path>
-axis projects unarchive <path>
-axis projects rename <path> <name>
+axis tasks <project-path> --status <status>
+axis tasks move <task-id> <status>
 ```
 
-Add `--archived` to include archived projects in the list.
+Archiving a project is not deleting its directory. `tasks delete` is destructive to the
+task record; inspect and confirm the exact target before using it.
 
-## Session control
-
-Lower-level access to session transcripts and live terminals.
-
-```bash
-axis session current                # from environment
-axis session show <id|file|current>
-axis session messages <ref>         # --role, --limit, --compact
-axis session tree <ref>
-axis session context <ref>          # token and cost usage
-axis session fork-candidates <ref>  # --query <text>
-axis session pty <ref>              # find the live terminal
-axis session send <ref|pty> "text"  # --no-newline
-axis session scrollback <ref|pty>
-axis session agent-context          # capability discovery
-```
-
-## Terminals
+## Terminals, servers, and services
 
 ```bash
-axis terminal spawn                 # --cwd, --command, --project
 axis terminal list
-axis terminal write <id> "text"     # --no-newline
-axis terminal read <id>             # --tail <chars>, --lines <n>
-axis terminal open <session-id>     # --message "..."
-axis terminal kill <id>
-```
-
-## Dev servers
-
-```bash
-axis servers <project>
+axis terminal read <id> --lines 20
 axis servers status <project>
 axis servers scripts <project>
-axis servers start <project> <id>
-axis servers stop <project> <id>
-axis servers config <project> <id> "cmd"   # --update-ecosystem
+axis service
+axis service logs axis --lines 100
 ```
 
-## Services
+Write/kill/start/stop/restart commands can interrupt active work. Read current state and
+confirm ownership before mutation. Restarting the terminal-owning service has a different
+impact from restarting the Axis server.
+
+## Tailscale and configuration
 
 ```bash
-axis service                        # are Axis and the terminal service running?
-axis service start [all|axis|pty]
-axis service stop  [all|axis|pty]
-axis service logs  [all|axis|pty]   # --lines <n>
+axis peers
+axis config
+axis version
 ```
 
-## System and config
+These outputs may contain private host, peer, path, or configuration information. Redact
+before sharing.
 
-```bash
-axis peers      # Tailscale peers
-axis config     # configuration
-axis version    # version and update status
-```
+## Keep this reference versioned
 
-## Examples
+A claim that this lists "every command" is safe only when generated from and versioned
+with the shipped CLI. Until that generation pipeline exists, use this as a job-oriented
+map and the installed `axis --help` as exact truth.
 
-```bash
-# What is happening right now
-axis pulse
-axis sessions --active
+## Related reference
 
-# Interact with a session
-axis sessions info abc123
-axis sessions send abc123 "What's your status?"
-
-# Drive a terminal
-axis terminal list
-axis terminal write 3 "npm test"
-axis terminal read 3 --lines 20
-
-# Dev servers
-axis servers ~/myapp
-axis servers start myapp backend
-
-# For scripts and agents
-axis pulse --json
-axis tasks info task_123 --json
-
-# A different Axis node
-AXIS_URL=http://remote:3000 axis pulse
-```
-
-:::note
-`mc` remains as a deprecated alias for `axis`. Prefer `axis` in anything new.
-:::
-
-## Next
-
-- [Agent tools](/docs/agent-tools/)
-- [Configuration](/docs/configuration/)
+- [Config reference](/docs/config-reference/)
+- [Service shells](/docs/service-shells/)
+- [Troubleshooting](/docs/troubleshooting/)

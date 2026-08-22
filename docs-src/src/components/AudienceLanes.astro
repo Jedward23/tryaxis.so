@@ -1,0 +1,53 @@
+---
+import DocsIcon from './DocsIcon.astro';
+
+export interface AudienceLane {
+  title: string;
+  description: string;
+  examples?: string[];
+  icon?: string;
+  label?: string;
+}
+
+export interface Props {
+  title?: string;
+  description?: string;
+  eyebrow?: string;
+  lanes: AudienceLane[];
+  id?: string;
+}
+
+const {
+  title = 'One harness, two equal lanes',
+  description,
+  eyebrow = 'Who Axis is for',
+  lanes,
+  id = 'audience-lanes',
+} = Astro.props;
+---
+
+<section class="axis-docs-block axis-section-shell axis-audience-lanes" aria-labelledby={`${id}-title`}>
+  <header class="axis-section-header">
+    <p class="axis-eyebrow">{eyebrow}</p>
+    <h2 class="axis-section-heading" id={`${id}-title`}>{title}</h2>
+    {description && <p class="axis-section-description">{description}</p>}
+  </header>
+
+  <div class="axis-audience-grid">
+    {lanes.map((lane, index) => (
+      <article class="axis-audience-card">
+        <div class="axis-icon-frame" aria-hidden="true">
+          <DocsIcon name={lane.icon ?? (index === 0 ? 'briefcase' : 'user-round')} />
+        </div>
+        {lane.label && <p class="axis-card-kicker">{lane.label}</p>}
+        <h3>{lane.title}</h3>
+        <p>{lane.description}</p>
+        {lane.examples && lane.examples.length > 0 && (
+          <ul class="axis-compact-list" aria-label={`${lane.title} examples`}>
+            {lane.examples.map((example) => <li>{example}</li>)}
+          </ul>
+        )}
+      </article>
+    ))}
+  </div>
+</section>

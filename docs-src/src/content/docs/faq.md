@@ -1,98 +1,119 @@
 ---
 title: FAQ
-description: Common questions about how Axis works.
+description: Straight answers about trust, providers, host availability, approvals, continuity, Routines, and support boundaries.
 ---
+
+<!-- PROOF-ID: FAQ-TRUST-01 -->
+
+![A real Axis project Overview: working agreement, sessions, Routines, and project-owned context in one place.](/docs/proof/harness-overview.png)
+
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+
+## What is Axis in one sentence?
+
+Axis is an agentic harness that turns ordinary requests into contextualized, visible,
+governed, and durable work across projects and sessions.
+
+## Do I need to learn prompt engineering?
+
+No. State the outcome or problem in ordinary language. Axis supplies available project
+rules, context, memory, tools, planning, and evidence around the request. Important
+ambiguity may still require your judgment, and no harness guarantees a perfect result
+from every vague request.
 
 ## Does my code leave my machine?
 
-No. Axis runs locally. Your projects, sessions, and transcripts stay on your machine.
+Your project files and Axis's durable project/session record remain on the node unless
+you or an authorized workflow move them. A hosted model provider receives the prompt
+and selected context sent for a request. Connected tools, browsers, remote devices, and
+external systems receive the data required for authorized operations under their own
+boundaries.
 
-Model providers receive what you send them in a conversation, as they would in any
-agent tool. Axis itself does not upload your repositories.
+Use providers and scopes appropriate to the work. Do not put secrets in prompts,
+AGENTS.md, screenshots, or project files.
 
-## Do I need an Axis subscription for models?
+## Do I need a separate Axis model subscription?
 
-No. Bring the provider subscriptions and API keys you already have. See
-[Model providers](/docs/model-providers/).
+Axis connects to supported provider access you configure. Authentication methods,
+models, limits, and costs depend on the provider and installed Axis version. At least
+one verified core provider is required during first-run setup.
 
-## What happens if I close my laptop?
+## What happens if I close the laptop?
 
-Sessions keep running on the machine hosting Axis. Closing a tab, closing the lid, or
-losing connectivity does not stop work — you reconnect to it.
+Closing a browser tab or disconnecting a client does not erase the durable session. Work
+can continue only while the host machine remains powered, awake enough to run Axis,
+connected as required, and the relevant processes remain alive. Sleeping or shutting
+down the host pauses that execution until the node is available again.
 
-## Can I use my phone?
+## Can I use a phone or tablet?
 
-Yes, as a real client rather than a status view. See [Mobile](/docs/mobile/) and
-[Remote access](/docs/remote-access/).
+Yes. A mobile client can connect to the same Axis node to read sessions, steer work,
+answer approvals, review saved material, and take over a browser. Remote access depends
+on your host, Tailscale configuration/policy, and node pairing.
 
-## How is memory different from work plans?
+## What is AGENTS.md?
 
-[Memory](/docs/memory/) holds knowledge — decisions, preferences, lessons.
-[Work plans](/docs/work-plans/) hold intent — what is unfinished.
+It is the project's working agreement: stable rules for how agents should work there.
+Memory stores learned knowledge; a work plan stores unfinished intent; source files and
+connected systems remain authoritative for current state.
 
-"We never mock the database" is memory. "Rate limiting is not started" is a work plan.
+## How is Memory different from a work plan?
 
-## Will an agent do something destructive?
+Memory answers **what have we learned?** A work plan answers **what are we still trying
+to complete?** Do not store current task state as memory or durable lessons only inside
+a checklist.
 
-Not without asking. Deletes, force pushes, pushes, messages, purchases, and changes to
-shared systems all require your approval.
+## Will an agent do something destructive or public without asking?
 
-Approving once authorises that action in that scope, not permanently.
+The working agreement and product gates should require approval for consequential actions
+such as deletion, sending, publishing, deployment, purchase, force push, or permission
+change. Approving authorizes only the exact action and scope described. Review the gate;
+do not treat it as blanket permission.
 
-## Can I interrupt mid-task?
+## Can I interrupt or redirect active work?
 
-Yes. Send a follow-up and it joins the [steering queue](/docs/sessions/#the-steering-queue).
-Press `Enter` on an empty composer to push it through immediately.
+Yes. A normal follow-up during active work enters the steering queue. Stop the turn when
+the goal or risk boundary is wrong; use an empty-composer `Enter` only when you intend
+to steer the oldest queued instruction immediately.
 
-## Why did it start a sub-agent?
+## Why use sub-agents?
 
-Because the work split into independent slices. See [Sub-agents](/docs/sub-agents/).
+Use them when one goal splits into independent slices. The parent supplies shared context,
+prevents ownership collisions, integrates evidence, and converges the branches into one
+result. Large but sequential work should stay sequential.
 
-You can see every child in the agent graph, and open any of them.
+## What are Routines?
 
-## Can I run several agents on one project?
+Routines are reusable workflows. Scheduled, manual, or supported event-triggered runs
+should remain visible as real sessions with history, evidence, capacity controls, and
+the same approval boundaries as interactive work.
 
-Yes, but they must not edit the same files simultaneously. Axis coordinates ownership
-between children of the same parent; unrelated sessions editing the same files will
-conflict as you would expect.
+## What are Collections?
 
-## Does Axis make noise?
+Collections is the project-scoped home for durable saved material. Documents, images,
+data, and interactive artifacts are item types inside Collections. Small results can
+remain inline in the session.
 
-No. There are no notification sounds or completion chimes. Browser push notifications
-are available if you want them.
+## What is Rendered versus Raw?
 
-## What is the difference between rendered and raw?
-
-**Rendered** is the human view — messages, folded work, evidence. **Raw** is the
-terminal exactly as the agent sees it. Same session, two views.
-
-## Why is a session still "working" with nothing visible?
-
-It is likely mid-command or mid-tool-call. Open the working fold, or check Raw.
-
-If it genuinely stalled, Axis notices and can wake it. See
-[Troubleshooting](/docs/troubleshooting/#a-session-appears-stuck).
-
-## Can Axis run scheduled work?
-
-Yes — [recurring tasks](/docs/recurring-tasks/) on a cadence,
-[scheduled prompts](/docs/scheduled-prompts/) for one-offs,
-[quick actions](/docs/quick-actions/) for on-demand, and
-[triggers](/docs/triggers/) for external events.
-
-Scheduled work still stops for approval before external side effects.
-
-## How do I stop repeating myself?
-
-Save it to [memory](/docs/memory/) with the reason. Future sessions start knowing.
-
-For a whole process, write a [skill](/docs/skills-and-tools/).
+Rendered is the human conversation surface with Working folds, plans, gates, and
+evidence. Raw is the exact agent terminal surface for diagnosis. They are views of the
+same session, not separate agents.
 
 ## Can I script Axis?
 
-Yes. Every CLI command supports `--json`. See [CLI reference](/docs/cli-reference/).
+Current builds include an `axis` CLI with machine-readable output for supported commands.
+Run `axis --help` on the installed version and verify destination state after any write.
+
+## Where do I start when something fails?
+
+Preserve the exact session and project identity, use read-only health/status checks,
+and follow [Troubleshooting](/docs/troubleshooting/). Avoid deleting local state,
+restarting the terminal service, or creating replacement sessions until you know which
+layer failed.
 
 ## Next
 
+- [Why Axis](/docs/why-axis/)
+- [Your first real task](/docs/quick-start/)
 - [Troubleshooting](/docs/troubleshooting/)
-- [How to work with Axis](/docs/how-to-work/)

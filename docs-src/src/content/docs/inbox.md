@@ -1,79 +1,82 @@
 ---
 title: Inbox and approvals
-description: One place for everything waiting on your judgment.
+description: Spend attention only where an agent needs human judgment, authority, or action.
 ---
 
-Agents work while you are away. The inbox is how you find the moments that actually
-need you, without hunting through sessions.
+**Learn lane · Mission: unblock work without babysitting it**
 
-## What lands here
+The Inbox collects moments that genuinely need a person. It lets sessions continue in
+the background while questions, scoped approvals, logins, and reviewable results return
+to one attention surface.
 
-| Kind | Meaning |
+<!-- PROOF-ID: INBOX-JUDGMENT-01 -->
+
+![A real seeded session begun in ordinary language. The project supplied the working agreement and context automatically.](/docs/proof/mission-request.png)
+
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+
+## What belongs in the Inbox
+
+| Item | Why it needs you |
 | --- | --- |
-| Question | The agent needs an answer to continue |
-| Approval | Something with real consequences needs your yes |
-| Human action | A login, credential, or 2FA step only you can do |
-| Finished work | A session completed and is ready to review |
+| Question | The answer changes scope, judgment, cost, risk, or user experience |
+| Approval | A consequential action needs narrow human authorization |
+| Human action | A login, 2FA, credential, or physical step cannot be completed safely by the agent |
+| Review | Completed work and evidence are ready for your judgment |
 
-Anything genuinely blocked appears here. Routine progress does not — the inbox is for
-decisions, not activity.
+Routine progress belongs in the session, not the Inbox.
 
-## Working through it
+## Open the owning session
 
-Rows are dense and scannable, like an email client: read state, selection, bulk
-controls. Opening a row takes you to the session behind it in the full interaction
-surface, not a summary of it.
+An Inbox row is a route back to the exact session and interaction—not a disconnected
+summary card. Read the surrounding request, inspect the evidence, and answer on the
+full decision surface.
 
-On mobile, tapping a row opens a drawer with the actions inside.
+On smaller screens the same interaction may appear in a drawer, but the authority and
+context should remain the same.
 
-## Approvals
+## What a good approval says
 
-An approval gate asks one plain question and states three things:
+A useful approval asks one plain question and makes four things clear:
 
-- **Why I'm asking**
-- **What's at stake**
-- **What stays untouched**
+1. **Why I'm asking**
+2. **What's at stake**
+3. **The exact action and scope an approval authorizes**
+4. **What remains untouched**
 
-Nothing is deleted by an approval decision. If a choice is impossible, Axis says so in
-a sentence rather than showing you a dead control.
+If the proposed action includes a deletion, deployment, message send, purchase, push,
+permission change, or other consequential side effect, approving may authorize that
+specific effect. Denying leaves that proposed action unexecuted. Approval is never
+blanket permission for later actions.
 
-Approvals are turn-scoped. Once a session moves past the gate, stale approvals are
-cleared rather than lingering.
+## Questions are not a substitute for research
 
-### What requires approval
+Agents should investigate discoverable facts and choose safe reversible defaults before
+asking. Your Inbox is for decisions only you can make or actions only you can perform,
+not a list of file paths the agent could have inspected.
 
-Agents ask before doing things that are hard to undo or visible to others:
+A session waiting on an answer remains open. It should not mark itself done or guess.
 
-- Deleting files or branches, dropping tables, force-pushing
-- Pushing code, opening or commenting on pull requests
-- Sending messages or email
-- Spending money
-- Changing shared infrastructure or permissions
+## Review from evidence
 
-Approving once authorizes that action, in that scope. It is not blanket permission.
+For completed work, follow the item to the exact output, changed state, test, screenshot,
+or side effect. Marking something read is not the same as accepting the result.
 
-## Questions
-
-When an agent needs a decision it cannot make for you, it asks directly — with options
-where the choice is bounded, and free text where it is not.
-
-A session waiting on a question stays open. It does not mark itself done and it does not
-guess.
+Orchestration should collapse attention toward the parent goal rather than generating a
+notification for every child session.
 
 ## Notifications
 
-Axis can send browser push notifications when something needs you, so you do not have to
-keep the tab open.
+Browser or device notifications can tell you that attention is waiting. Axis does not
+need completion chimes or synthesized sounds to make background work useful.
 
-Axis deliberately plays no sounds. There are no completion chimes.
+## Mission complete when
 
-## Filtering
-
-The inbox filters by kind, project, and state. A saved filter becomes a view you can
-return to — for example, *approvals in this project only*.
+You can leave several sessions working, return to one Inbox, distinguish judgment from
+routine activity, and authorize only the exact scope you intended.
 
 ## Next
 
-- [Sessions](/docs/sessions/)
-- [Recurring tasks](/docs/recurring-tasks/) — scheduled work also reports here.
-- [Sub-agents](/docs/sub-agents/) — orchestration collapses to one attention count.
+- [Sessions and steering](/docs/sessions/)
+- [Routines](/docs/recurring-tasks/)
+- [Mobile](/docs/mobile/)

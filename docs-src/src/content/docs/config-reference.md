@@ -1,92 +1,106 @@
 ---
 title: Config reference
-description: Environment variables, ports, paths, and status values.
+summary: Current public configuration boundaries, ports, activity concepts, and status vocabulary.
+description: Current public configuration boundaries, ports, activity concepts, and status vocabulary.
 ---
 
-## Environment variables
+**Reference lane · Job: distinguish stable public settings from version-specific internals**
 
-| Variable | Effect |
+Use `axis config`, `axis version`, and installed help for the node you are operating.
+Do not assume a copied path, port, or enum from another build is authoritative.
+
+<!-- PROOF-ID: CONFIG-REFERENCE-01 -->
+
+![A real Axis project Overview: working agreement, sessions, Routines, and project-owned context in one place.](/docs/proof/harness-overview.png)
+
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+
+## Server target
+
+The current CLI accepts:
+
+| Setting | Effect |
 | --- | --- |
-| `AXIS_URL` | Axis server the CLI targets. Default `http://localhost:3000` |
+| `AXIS_URL` | Default Axis server target when supported by the installed CLI |
+| `--url <url>` | Per-command target override |
 
-```bash
-AXIS_URL=http://other-machine:3000 axis pulse
-```
+The current source CLI default is `http://localhost:3000`. Packaged or secure nodes may
+use another configured HTTPS origin. Never publish a private remote origin as a universal
+default.
 
-Per-command, `--url` overrides both.
+## Standard local processes
 
-## Ports
+Current development architecture commonly uses:
 
-| Port | Process |
+| Port | Role |
 | --- | --- |
 | `3000` | Axis server |
-| `3001` | Terminal service |
+| `3001` | terminal-owning service |
 
-The terminal service is separate so restarting Axis does not kill your terminals.
+Secure/public ports and redirects depend on deployment configuration. Check the running
+node rather than hardcoding development ports into remote clients.
 
-Axis may redirect to HTTPS on a secure port depending on configuration.
+## Data locations
 
-## Paths
+Publicly useful boundaries are more stable than exact private paths:
 
-| Path | Contents |
+| Data | Boundary |
 | --- | --- |
-| Home directory database | Sessions, projects, statuses, history |
-| Session files | One transcript per session |
-| OS keychain | Provider credentials |
+| Project files | Existing user-selected directories |
+| Durable Axis records | Local Axis node storage |
+| Session event/transcript files | Local session storage managed by the runtime |
+| Provider credentials | Supported secure credential/keychain storage |
 
-Project files stay wherever they already are.
+Exact storage paths are platform- and release-sensitive and may expose usernames. Use
+installed diagnostics when support needs them; do not place them in public screenshots.
 
-## Session status
+## Status vocabulary
 
-| Status | Meaning |
-| --- | --- |
-| `backlog` | Not started |
-| `todo` | Queued |
-| `in_progress` | Active |
-| `in_review` | Awaiting review |
-| `done` | Complete |
-| `cancelled` | Abandoned |
+Do not collapse every state into one table.
 
-`done`, `in_review`, and `cancelled` are terminal — they close out stale running state.
+### Human-facing session activity
 
-## Session activity
+- **Ready/idle:** no current turn is running.
+- **Working:** active turn work is visible.
+- **Waiting on you:** a question, approval, credential, or human action blocks progress.
+- **Settled:** the current turn has concluded.
 
-Used by `axis sessions` filters.
+### Durable workflow status
 
-| Filter | Window |
-| --- | --- |
-| `--active` | Under 5 minutes |
-| `--idle` | 5 minutes to 1 hour |
-| `--inactive` | Over 1 hour |
+Records such as tasks or sessions may use lifecycle values including `backlog`, `todo`,
+`in_progress`, `in_review`, `done`, and `cancelled` where the current API/tool supports
+them. Those stored values are not the same thing as live activity indicators.
 
-## Search operators
+Terminal states should clear stale running presentation. Work requiring human input
+must remain open rather than being marked done.
 
-| Operator | Example |
-| --- | --- |
-| `project:` | `project:my-app` |
-| `model:` | `model:claude` |
-| `role:` | `role:user` |
-| `cost:>` `cost:<` | `cost:>0.50` |
-| `from:` `to:` | `from:2024-01-15` |
-| `tokens:>` | `tokens:>10000` |
+## Activity filters
 
-## Schedules
+Current CLI help describes session activity filters around recent activity windows
+(active under about five minutes, idle from about five minutes to one hour, inactive
+after about one hour). These are list filters, not proof that a process is safe to kill
+or that a task is complete.
 
-| Kind | Behaviour |
-| --- | --- |
-| `daily` | One or more times per day |
-| `weekly` | A chosen weekday |
-| `manual` | No schedule; run on demand |
+## Routine schedules
 
-## Priority
+Public schedule kinds include daily, weekly, and manual where supported. One workflow
+with multiple daily times should remain one Routine with one run history rather than
+separate time-named copies.
 
-Background and automated processes run at lower priority than the session you are
-actively using.
+## Capacity and priority
 
-Capacity limits apply per project. Work over the limit reports as waiting rather than
-launching anyway.
+Project capacity constrains new background work. Work over the limit should wait visibly.
+Background/automated work may run at lower priority than the active foreground session,
+but operators still need to inspect runaway services and clientless terminals.
 
-## Next
+## Keep exact schemas generated
 
-- [Configuration](/docs/configuration/)
+A complete configuration reference should eventually be generated from the versioned
+public schema and paired with the matching UI. Until then, avoid presenting an incomplete
+handwritten table as every available setting.
+
+## Related reference
+
+- [Configure the harness](/docs/configuration/)
 - [CLI reference](/docs/cli-reference/)
+- [Remote access](/docs/remote-access/)

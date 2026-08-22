@@ -1,59 +1,69 @@
 ---
-title: Scheduled prompts
-description: Send a prompt later, into the right session, without turning it into a reminder.
+title: Scheduled check-ins
+summary: Deliver one future instruction to the exact continuing session instead of creating a disconnected reminder.
+description: Deliver one future instruction to the exact continuing session instead of creating a disconnected reminder.
 ---
 
-Sometimes the next action should happen later. A scheduled prompt preserves both the
-text and its destination, so it arrives in the right workflow instead of becoming a
-note you have to translate back into work.
+**Reference lane · Job: resume one thread later**
 
-## The difference from a reminder
+A scheduled check-in targets a specific existing session. It is an advanced continuity
+primitive, not a general customer automation model and not a replacement for Routines.
 
-A reminder tells *you* to do something. A scheduled prompt delivers work to the session
-that should receive it.
+<!-- PROOF-ID: SCHEDULED-CHECKIN-01 -->
 
-When it fires, the prompt lands in its target session with that session's context
-intact — the agent picks up where the work already is.
+![Real Axis Routines: scheduled work, event-triggered work, and manual actions remain visible and inspectable.](/docs/proof/routines.png)
 
-## Scheduling
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-Write the prompt, choose when. Delivery targets a specific session, so the destination
-is explicit rather than inferred.
+## When to use it
 
-Write it as a fresh instruction, since it arrives as though you had just typed it.
-Include what future-you needs to act on it:
+Use a check-in when the next instruction belongs to the exact context already in one
+session:
+
+- inspect a long-running operation later,
+- wake a coordinator after children are expected to finish,
+- retry a bounded status check after backoff,
+- return to a known external wait without starting a new thread.
+
+Use a [Routine](/docs/recurring-tasks/) for repeatable project work with run history. Use
+a reminder when the action belongs to you rather than an agent session.
+
+## Write for future delivery
+
+The instruction arrives as a new request later. Include the state to verify and the
+action to take next:
 
 ```text
-Check whether the migration finished cleanly. If it did, re-enable the
-nightly export and confirm the first run succeeds.
+Check whether the import reached a terminal state. If it succeeded, validate the
+persisted record and report the evidence. If it is still running, back off and check
+again without launching another import.
 ```
 
-## Check-ins
+Avoid vague prompts such as `check in`. Future execution should be able to distinguish
+success, continued waiting, failure, and a human blocker.
 
-A common pattern is scheduling a check-in on your own work — start something long,
-schedule a look-in later.
+## Exact destination matters
 
-Agents coordinating sub-agents use the same mechanism to wake and collect results.
+The target is the durable identity of one session. Delivery should not fall back to the
+newest session in the same project or directory. If the exact target cannot be resolved,
+the check-in should report failure rather than deliver into a different conversation.
 
-## Requirements
+## Keep retries bounded
 
-A scheduled prompt needs its target session to still exist when it fires. Axis resolves
-the destination from the durable record, so a session that has been quiet is still a
-valid target.
+A check-in can schedule another bounded check when a real process is still running.
+Continuation should use backoff and stop when work completes, is cancelled, transfers
+to another owner, or genuinely needs a person. It must not become an invisible infinite
+poller.
 
-If the target genuinely cannot be resolved, the prompt reports rather than silently
-going nowhere.
+## Availability
 
-## Choosing the right tool
+The installed Axis interface and agent capabilities are authoritative for whether a
+user-facing schedule control is available. If no schedule UI is exposed in your build,
+treat check-ins as an agent/reference capability rather than promising a customer setup
+path that does not exist.
 
-| You want | Use |
-| --- | --- |
-| Work on a repeating schedule | [Recurring tasks](/docs/recurring-tasks/) |
-| One prompt, later, into a specific session | Scheduled prompts |
-| A button you press on demand | [Quick actions](/docs/quick-actions/) |
-| Work started by an external event | [Triggers](/docs/triggers/) |
+## Related reference
 
-## Next
-
-- [Recurring tasks](/docs/recurring-tasks/)
-- [Sessions](/docs/sessions/)
+- [Routines](/docs/recurring-tasks/)
+- [Sessions and steering](/docs/sessions/)
+- [Agent tools](/docs/agent-tools/)

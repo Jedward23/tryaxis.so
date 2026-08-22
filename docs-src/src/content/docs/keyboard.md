@@ -1,77 +1,73 @@
 ---
-title: Keyboard
-description: Shortcuts and composer keys for moving through Axis without the mouse.
+title: Keyboard reference
+description: Composer, navigation, and palette controls for the installed Axis interface.
 sidebar:
-  order: 4
+  order: 6
 ---
 
-## Global
+**Reference lane · Job: move without losing the thread**
 
-| Keys | Action |
-| --- | --- |
-| `Cmd/Ctrl` + `K` | Open global search across projects and sessions |
-| `Cmd/Ctrl` + `F` | Focus the sidebar session search |
-| `Alt/Option` + `N` | Start a new session |
+Shortcuts can vary by platform and Axis version. The interface and its shortcut/help
+surface are authoritative for the build you are using.
 
-:::note
-`Cmd/Ctrl` + `N` is reserved by most browsers for a new window, so Axis uses
-`Alt/Option` + `N` as the reliable new-session shortcut.
-:::
+<!-- PROOF-ID: KEYBOARD-COMPOSER-01 -->
+
+![A real Axis project Overview: working agreement, sessions, Routines, and project-owned context in one place.](/docs/proof/harness-overview.png)
+
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
 ## Composer
 
-The composer is where most keyboard time goes.
-
 | Keys | Action |
 | --- | --- |
-| `Enter` | Send |
-| `Shift` + `Enter` | New line |
-| `Enter` on an empty composer | Steer the oldest queued message through immediately |
-| `Up` | Step back through messages you have sent |
-| `Down` | Step forward again |
-| `Esc` | Leave history and restore your unsent draft |
+| `Enter` | Send the current message |
+| `Shift` + `Enter` | Add a line break |
+| `Enter` with an empty composer during active work | Steer the oldest queued message now |
+| `Up` from the first logical line | Step backward through sent-message history |
+| `Down` from the last logical line | Step forward through history |
+| `Esc` while browsing history | Restore the unsent draft |
 
-History only opens from the first line, and steps forward only from the last line, so
-arrow keys still move the cursor normally inside a multi-line draft.
+Typing text or staging an attachment changes the busy-session control from **Stop** to
+**Send**. The follow-up joins the steering queue; when the composer is empty, the
+control returns to Stop while the current turn remains interruptible.
 
-## Composer palettes
+## Inline palettes
 
-Two characters open pickers, both of which appear inline as you type.
-
-| Type | Opens |
+| Prefix | Searches |
 | --- | --- |
-| `/` | Axis commands |
-| `@` | Projects, sessions, files in this project, and artifacts |
+| `@` | Projects and sessions globally; files in the current project; saved Collection items |
+| `/` | Axis-owned commands available in the current composer |
 
-Inside either palette:
+Use `Up` and `Down` to select, `Enter` or `Tab` to insert, and `Esc` to dismiss. An `@`
+selection carries durable identity such as a path or session reference rather than
+only visible label text.
 
-| Keys | Action |
-| --- | --- |
-| `Up` / `Down` | Move through results |
-| `Enter` or `Tab` | Insert the selection |
-| `Esc` | Dismiss |
-
-An `@` selection inserts durable identity — a real path, session, or artifact reference
-— rather than plain text, so the agent resolves exactly what you meant.
-
-## Commands
+## `/btw`
 
 | Command | Effect |
 | --- | --- |
-| `/btw` | Open a child session in this session's workspace |
-| `/btw <text>` | Same, starting the child with `<text>` as its first prompt |
+| `/btw` | Open a fresh child composer in this session's workspace |
+| `/btw <text>` | Open the child and use `<text>` as its first request |
 
-`/btw` is handled by Axis, not passed to the agent. Use it when a tangent deserves its
-own thread but belongs to the current work.
+Axis consumes `/btw`; it is not sent to the current agent as prompt text.
 
-## Transcript
+## Transcript navigation
 
-| Action | Effect |
-| --- | --- |
-| Scroll up | Pause auto-follow and hold your position |
-| Jump to latest | Resume following new output |
-| Click a prompt in the turn rail | Jump straight to that prompt |
+- Deliberately scrolling away from the bottom pauses auto-follow.
+- **Jump to latest** resumes following live output.
+- Selecting a prompt in the turn rail jumps to that turn, including the first prompt.
+- Opening a Working/Worked fold reveals its timeline without mixing that evidence into
+  the final answer.
 
-Scrolling up is treated as a deliberate choice. Axis stops pulling you to the bottom
-until you return there or press the jump control — a new message arriving will not
-yank you away from what you are reading.
+## Global shortcuts
+
+Common installed builds expose shortcuts for global search, sidebar search, and starting
+a session. Because browser and operating-system bindings can conflict, use the shortcut
+labels shown in your current Axis interface rather than relying on a copied list from a
+different version.
+
+## Related reference
+
+- [Sessions](/docs/sessions/)
+- [Projects and workspaces](/docs/projects/)
+- [CLI reference](/docs/cli-reference/)

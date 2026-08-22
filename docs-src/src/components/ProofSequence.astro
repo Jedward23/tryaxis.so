@@ -1,0 +1,65 @@
+---
+import DocsIcon from './DocsIcon.astro';
+import ProofFigure from './ProofFigure.astro';
+import type { ProofKind } from './ProofLabel.astro';
+
+export interface ProofSequenceItem {
+  src: string;
+  alt: string;
+  caption: string;
+  title: string;
+  description?: string;
+  kind?: ProofKind;
+  label?: string;
+  width?: number;
+  height?: number;
+}
+
+export interface Props {
+  items: ProofSequenceItem[];
+  title?: string;
+  description?: string;
+  eyebrow?: string;
+  id?: string;
+}
+
+const {
+  items,
+  title = 'See the work become evidence',
+  description,
+  eyebrow = 'Proof sequence',
+  id = 'proof-sequence',
+} = Astro.props;
+---
+
+<section class="axis-docs-block axis-proof-sequence" aria-labelledby={`${id}-title`}>
+  <header class="axis-section-header">
+    <p class="axis-eyebrow">{eyebrow}</p>
+    <h2 class="axis-section-heading" id={`${id}-title`}>{title}</h2>
+    {description && <p class="axis-section-description">{description}</p>}
+  </header>
+
+  <ol class="axis-proof-sequence-list">
+    {items.map((item, index) => (
+      <li class="axis-proof-sequence-item">
+        <header>
+          <span class="axis-sequence-number">{String(index + 1).padStart(2, '0')}</span>
+          <div>
+            <h3>{item.title}</h3>
+            {item.description && <p>{item.description}</p>}
+          </div>
+          {index < items.length - 1 && <DocsIcon name="arrow-right" size={18} class="axis-sequence-arrow" />}
+        </header>
+        <ProofFigure
+          src={item.src}
+          alt={item.alt}
+          caption={item.caption}
+          kind={item.kind}
+          label={item.label}
+          width={item.width}
+          height={item.height}
+        />
+      </li>
+    ))}
+  </ol>
+</section>

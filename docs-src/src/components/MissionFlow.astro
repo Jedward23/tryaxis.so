@@ -1,0 +1,55 @@
+---
+import DocsIcon from './DocsIcon.astro';
+
+export interface MissionStep {
+  title: string;
+  description: string;
+  icon?: string;
+  label?: string;
+}
+
+export interface Props {
+  steps: MissionStep[];
+  title?: string;
+  description?: string;
+  eyebrow?: string;
+  id?: string;
+}
+
+const {
+  steps,
+  title = 'Follow one real outcome',
+  description,
+  eyebrow = 'Guided mission',
+  id = 'mission-flow',
+} = Astro.props;
+const columns = Math.min(Math.max(steps.length, 1), 5);
+---
+
+<section
+  class="axis-docs-block axis-section-shell axis-mission-flow"
+  aria-labelledby={`${id}-title`}
+  style={`--axis-mission-columns:${columns}`}
+>
+  <header class="axis-section-header">
+    <p class="axis-eyebrow">{eyebrow}</p>
+    <h2 class="axis-section-heading" id={`${id}-title`}>{title}</h2>
+    {description && <p class="axis-section-description">{description}</p>}
+  </header>
+
+  <ol class="axis-mission-steps">
+    {steps.map((step, index) => (
+      <li class="axis-mission-step">
+        <div class="axis-mission-step-head">
+          <span class="axis-step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <div class="axis-icon-frame axis-icon-frame--small" aria-hidden="true">
+            <DocsIcon name={step.icon ?? 'arrow-right'} size={18} />
+          </div>
+        </div>
+        {step.label && <p class="axis-card-kicker">{step.label}</p>}
+        <h3>{step.title}</h3>
+        <p>{step.description}</p>
+      </li>
+    ))}
+  </ol>
+</section>

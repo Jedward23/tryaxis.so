@@ -1,77 +1,79 @@
 ---
 title: Work plans
-description: Shared, project-scoped plans that survive the session that created them.
+description: Keep shared unfinished intent visible across sessions instead of losing it in chat.
 ---
 
-A work plan is the list of what is being worked toward in a project. It is shared:
-many sessions contribute to the same plan rather than each keeping a private checklist.
+**Learn lane · Mission: make unfinished work recoverable**
 
-This is what stops work from disappearing when a session ends.
+A work plan is project-scoped intent that multiple sessions can continue. It prevents
+each agent from inventing a private checklist, repeating completed work, or dropping a
+future item into prose nobody revisits.
 
-## Why shared
+<!-- PROOF-ID: WORK-PLAN-01 -->
 
-A per-session todo list dies with its session. The next agent starts blind, redoes
-finished work, or silently drops what was left.
+![A real seeded session begun in ordinary language. The project supplied the working agreement and context automatically.](/docs/proof/mission-request.png)
 
-A project-scoped plan means an agent starting fresh can see what is already underway,
-what is unfinished, and what someone deliberately deferred.
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-## How agents use it
+## Begin by finding existing intent
 
-Before writing its first item, an agent checks for an existing plan matching the goal —
-by overlapping text, linked issue, folder, contributing sessions, and files touched.
+Before adding its first item, an agent checks whether a related plan already exists.
+Matching can use the goal, linked work, contributing sessions, and project context.
+Continue the real match; create a new plan only when the objective is genuinely new.
 
-If one matches it continues that plan. If nothing matches it opens a new one, so later
-sessions can still find the work.
+That recall step is what makes plans shared rather than a pile of duplicate lists.
 
-## Structure
+## Structure work around verifiable leaves
 
-Plans nest. A phase or root item holds concrete sub-items beneath it, which is how a
-large effort stays legible instead of becoming forty flat lines.
+Large work should use phases with concrete child items. A useful leaf names one action
+that can be completed and proved. Plans may include discovery, implementation,
+integration, validation, and closeout rather than one vague "build feature" row.
 
-Each item carries when it was created, when it was last touched, when it completed, and
-whether it is deferred.
+The active session can show a compact step indicator above the composer. The full plan
+remains a project surface, not transcript narration.
 
-## Deferring
+## Defer instead of dropping
 
-Work an agent identifies but is not doing now gets deferred rather than mentioned in
-passing:
+If work is real but out of scope now, defer it with:
 
-- an optional date for when it becomes relevant
-- a note for whoever picks it up
+- an optional date when it should resurface,
+- a note explaining the context and next useful action.
 
-A deferred item stays open but non-actionable until it is due. This is the difference
-between "we know about it" and "it was in a paragraph nobody reread".
+Deferred work stays recorded but does not pretend to be immediately actionable.
+Backlog views can surface due, blocked, stale, or forgotten work later.
 
-## Finding forgotten work
+## Coordinate contributors safely
 
-The backlog view surfaces work that is due, blocked, or open but untouched for a while.
-It can span every project rather than just the current one.
+Plan items can show who is actively working and what evidence completed them. Claims
+help prevent two sessions from silently taking the same leaf; they do not replace clear
+file or system ownership in parallel work.
 
-An item someone is actively working on is never reported as forgotten.
+Removal should be recoverable. Clearing one session's local view must not destroy shared
+work contributed by another session.
 
-## Claims and safety
+## Complete with evidence
 
-Items carry expiring claims so two sessions do not silently work the same thing.
+A checked box is not enough for meaningful work. Completion should point to the changed
+state, test, output, destination, or session that proves the item was finished.
 
-Removal is always soft. Clearing your view detaches it locally — it never destroys
-another session's items.
+A parent phase completes only when its required children and integration checks are
+complete.
 
-## Completion
+## Concept boundary
 
-Completing an item records evidence: what was done and what proves it. A plan that says
-"done" without evidence is a note, not a record.
+- **Plan:** current shared intent.
+- **Task:** work waiting to begin or be resumed.
+- **Memory:** learned knowledge.
+- **Routine:** repeatable work that can run again.
+- **Session:** the continuing thread that performs and records the work.
 
-## Working with plans directly
+## Mission complete when
 
-You do not have to manage plans by hand — agents maintain them. But you can ask:
-
-- *What's still open in this project?*
-- *What have we deferred?*
-- *What's gone quiet across all projects?*
+A fresh session can find the existing objective, identify the next unblocked leaf, see
+what was deliberately deferred, and avoid redoing completed work.
 
 ## Next
 
-- [Memory](/docs/memory/) — knowledge, as opposed to intent.
-- [Sub-agents](/docs/sub-agents/) — how parallel work reports into one plan.
-- [Inbox and approvals](/docs/inbox/)
+- [Memory](/docs/memory/)
+- [Sub-agents](/docs/sub-agents/)
+- [Routines](/docs/recurring-tasks/)

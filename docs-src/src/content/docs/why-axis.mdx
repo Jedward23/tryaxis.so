@@ -1,0 +1,96 @@
+---
+title: Why Axis
+sidebar:
+  order: 1
+description: AI made execution abundant. Axis makes agent work coherent, inspectable, and durable.
+---
+
+import AudienceLanes from '../../components/AudienceLanes.astro';
+import MissionFlow from '../../components/MissionFlow.astro';
+import ProofSequence from '../../components/ProofSequence.astro';
+
+**Learn lane · The thesis**
+
+AI can produce work quickly. The harder problem is now coordination: supplying the
+right context, keeping parallel work coherent, knowing when to intervene, proving what
+changed, and carrying useful learning into the next task.
+
+Axis is the harness around that work.
+
+## The ordinary-language promise
+
+Say what you want in ordinary language. Axis supplies the operational structure around
+the request: project context, working rules, relevant memory, tools, planning,
+continuity, and proof.
+
+That does not mean every vague request becomes perfect. It means you should not have to
+become a prompt engineer or rebuild the operating context before every conversation.
+
+<ProofSequence
+  title="One request, one durable trail"
+  description="These are real Axis states from the privacy-safe Brightside Studio demo project."
+  items={[
+    { title: 'The project supplies context', src: '/docs/proof/project-overview.png', alt: 'Axis project Overview with working agreement, sessions, and Routines', caption: 'The project already contains its working agreement, goals, sessions, and repeatable work.' },
+    { title: 'The user states the outcome', src: '/docs/proof/mission-request.png', alt: 'A seeded Axis session opened with an ordinary-language business request', caption: 'The request describes the outcome. It does not reconstruct the operating environment.' },
+    { title: 'The result leaves proof', src: '/docs/proof/mission-evidence.png', alt: 'The same Axis session retaining validation and exact change evidence', caption: 'Validation, changed lines, and the agent’s explanation remain attached to the work.' },
+  ]}
+/>
+
+## One lifecycle, two equal lanes
+
+<AudienceLanes
+  description="Neither lane is an appendix. Both meet at the same result and the same evidence."
+  lanes={[
+    { title: 'Operators and non-experts', description: 'Investigate a business problem, prepare a report, improve a website, reconcile notes, or run a recurring check without wiring the system together yourself.', icon: 'briefcase', examples: ['Choose the goal', 'Judge trade-offs', 'Authorize consequential actions'] },
+    { title: 'Technical builders', description: 'Shape project rules, model access, skills, tools, services, work plans, sub-agents, and exact reference behavior.', icon: 'wrench', examples: ['Control the harness', 'Inspect exact behavior', 'Keep mechanics out of the beginner path'] },
+  ]}
+/>
+
+## The work loop
+
+<MissionFlow
+  steps={[
+    { label: 'You ask', title: 'Ordinary intent', description: 'Describe the outcome or problem in your own words.', icon: 'message-circle' },
+    { label: 'Axis prepares', title: 'Contextualized execution', description: 'Connect the request to the right project, rules, memory, tools, and plan.', icon: 'layers' },
+    { label: 'The agent works', title: 'Visible evidence', description: 'Keep actions, panes, outputs, and validation inside one continuing session.', icon: 'bot' },
+    { label: 'You decide', title: 'Human judgment', description: 'Surface questions and approvals only when your decision matters.', icon: 'shield-check' },
+    { label: 'Axis keeps it', title: 'Durable learning', description: 'Carry forward useful rules, lessons, open work, and results.', icon: 'brain' },
+  ]}
+/>
+
+## What Axis is not
+
+- Not a prompt-writing course.
+- Not a disposable chat window.
+- Not a terminal launcher with a dashboard around it.
+- Not a promise to let agents act without supervision.
+- Not one enormous context window that remembers everything.
+
+Axis is a continuity system. Work keeps its identity, history, resources, unfinished
+intent, and evidence while it continues, branches, pauses, or moves between devices.
+
+## The burden Axis removes
+
+| Without a harness | With Axis |
+| --- | --- |
+| Repeat the project rules in every chat | Every session starts from the project working agreement |
+| Search old threads for a decision | Relevant memory brings the lesson forward with provenance |
+| Watch terminals to know what happened | One Working fold preserves actions and their evidence |
+| Lose side work in prose | Shared work plans keep unfinished intent visible |
+| Open unrelated agents and reconcile them manually | A parent coordinates focused sub-agents, then converges the result |
+| Trust a completion claim | The exact output, browser state, test, or side effect proves it |
+
+## Your role does not disappear
+
+Axis moves the execution and coordination burden toward agents. It keeps authority with
+you. Your highest-value work is setting direction, making trade-offs, granting narrow
+permissions, and deciding whether the evidence is good enough.
+
+That is why approvals are not errors and evidence is not decoration. They are how
+machine-speed work remains governed by human judgment.
+
+## Next
+
+- [Run your first mission](/docs/quick-start/)
+- [Learn the harness model](/docs/concepts/)
+- [Write the project working agreement](/docs/working-agreement/)

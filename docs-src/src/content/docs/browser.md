@@ -1,83 +1,84 @@
 ---
-title: Browser control
-description: Agents drive a real browser for research, workflows, and visual proof.
+title: Browser control and visual proof
+description: Let an agent use a real local browser while you watch, take over, and inspect evidence.
 ---
 
-Axis gives agents a real browser — not a text fetch. They can navigate, click, fill
-forms, read pages, and take screenshots, and you can watch or take over.
+**Learn lane · Mission: prove the real experience**
 
-## What it is for
+Axis can attach a real local browser to the session using it. The browser is for rendered
+research, web workflows, authenticated state when authorized, and visual proof—not a
+text-only substitute for seeing the page.
 
-- **Research** that needs a page to actually render
-- **Web workflows** an agent completes on your behalf
-- **Visual proof** that a UI change looks right
-- **Scraping** structured data from pages
+<!-- PROOF-ID: BROWSER-PROOF-01 -->
 
-The browser runs locally on your machine, using your local profile.
+![A real browser-inspected result created by an Axis session inside the privacy-safe demo project.](/docs/proof/browser-result.png)
 
-## Watching
+*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
 
-An agent starting a browser attaches a live view to that session automatically. You do
-not have to open anything.
+## One live browser, two presentations
 
-The view can sit as a floating picture-in-picture over the transcript, or docked in the
-session workspace.
+An agent-run browser may appear automatically as a floating picture-in-picture. That
+view is a passive stream you can move and resize. Dock it into the workbench when you
+need full interaction.
 
-- **Picture-in-picture** is a passive thumbnail. Drag it, resize it, and it stays visible
-  while you use other tabs. You cannot click into it.
-- **Docked** is the full pane — you can interact with the page directly.
+Docking moves the same live surface. It should preserve page identity, history, URL,
+scroll position, and session ownership rather than clone the browser.
 
-Dock and undock move the same browser. They never clone it, so the page, history, and
-scroll position stay put.
+## Take over at human boundaries
 
-## Taking over
+Use the docked browser when the workflow reaches:
 
-Dock the browser and you have the page. Useful when an agent hits something it should
-not do alone — a login, a payment step, a judgment call about which result is right.
+- a login or 2FA step,
+- a payment or purchase boundary,
+- a choice that requires visual or business judgment,
+- an action the agent is not authorized to submit.
 
-The agent picks up from wherever you leave it.
+Leave the page in the intended state and the agent can continue from that same browser.
+A takeover is not permission for unrelated later actions.
 
-## Visual proof
+## Authenticate without exposing secrets
 
-For any browser-visible change, a screenshot is the evidence. Agents open the real
-route, exercise the state, capture it, and inspect what they captured.
+Axis can reuse a configured local browser profile. Credential helpers may fill fields
+without placing the secret in the transcript. Review and multi-factor steps should stop
+for you where appropriate.
 
-Screenshots appear inline in the transcript as thumbnails. Click to open full size.
+Ask for a clean browser only when you intentionally want a separate disposable identity.
+Do not paste passwords, tokens, or one-time codes into the session transcript.
 
-:::note
-An uninspected screenshot is not proof. Agents are expected to describe what is
-actually visible and keep working if the image still shows the problem.
-:::
+## Treat screenshots as inspected evidence
 
-## Logins
+For browser-visible claims, the agent should:
 
-Authenticated browsing reuses a configured profile, so sessions do not start logged out
-of everything.
+1. open the real route and exact state,
+2. perform the relevant interaction,
+3. capture a screenshot,
+4. inspect the screenshot,
+5. describe what is visible and continue if the result is wrong or ambiguous.
 
-Credentials are filled from your password manager without appearing in the transcript.
-Where review or two-factor confirmation is appropriate, the agent stops and asks rather
-than auto-submitting.
+A successful automation command and an uninspected screenshot do not prove the user
+experience.
 
-Ask for a clean, disposable browser when you specifically want one with no existing
-identity.
+## Read a safe trace
 
-## Privacy in the trace
+Browser activity should remain human-readable—navigated, clicked, read page, filled a
+field—without revealing typed values, scripts, query secrets, tokens, or credentials.
+The trace supports the work; it is not a replay of sensitive input.
 
-Browser activity appears as a readable trace — *navigated*, *clicked*, *read page*,
-*filled field* — grouped into one row per run and labelled with the hostname.
+## Reuse project browser resources
 
-The trace deliberately omits what you typed, evaluated scripts, URL query strings,
-tokens, and credentials.
+Before creating another browser, agents should inspect the project workspace and reuse
+a matching mounted or recent browser. This prevents split authenticated identities and
+duplicate panes that look identical but carry different state.
 
-## Previews
+Local app routes can use Preview panes paired with named [service shells](/docs/service-shells/).
 
-A preview pane points at a local app you are running. Combined with a service shell,
-this gives you the dev server and its output side by side.
+## Mission complete when
 
-See [Service shells](/docs/service-shells/).
+You can watch the same browser move between floating and docked states, take over safely,
+and inspect a real screenshot that proves the claimed outcome.
 
 ## Next
 
-- [Projects and workspaces](/docs/projects/#browsers-as-project-resources)
-- [Artifacts and collections](/docs/artifacts/)
+- [Projects and workspaces](/docs/projects/)
+- [Collections](/docs/artifacts/)
 - [Service shells](/docs/service-shells/)
