@@ -808,6 +808,32 @@ header.header {
 }
 
 @media (max-width: 44rem) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  main,
+  .main-frame,
+  .content-panel,
+  .sl-container,
+  .sl-markdown-content,
+  .axis-docs-block,
+  .axis-proof-sequence,
+  .axis-proof-sequence-list,
+  .axis-proof-sequence-item,
+  .axis-proof-figure,
+  .axis-section-header {
+    box-sizing: border-box;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .sl-markdown-content {
+    width: 100%;
+  }
+
   .axis-docs-block {
     margin-block: 1.5rem;
   }
