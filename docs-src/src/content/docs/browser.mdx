@@ -3,17 +3,23 @@ title: Browser control and visual proof
 description: Let an agent use a real local browser while you watch, take over, and inspect evidence.
 ---
 
+import ProofSequence from '../../components/ProofSequence.astro';
+
 **Learn lane · Mission: prove the real experience**
 
 Axis can attach a real local browser to the session using it. The browser is for rendered
 research, web workflows, authenticated state when authorized, and visual proof—not a
 text-only substitute for seeing the page.
 
-<!-- PROOF-ID: BROWSER-PROOF-01 -->
-
-![A real browser-inspected result created by an Axis session inside the privacy-safe demo project.](/docs/proof/browser-result.png)
-
-*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+<ProofSequence
+  title="From real page to inspected evidence"
+  description="This is the browser result from the seeded Brightside status-page session."
+  items={[
+    { title: 'The actual rendered page', src: '/docs/proof/browser-result.png', alt: 'The full Brightside Studio status page opened in a real browser', caption: 'The proof source is the real served page—not a component mockup or DOM assertion.' },
+    { title: 'The claim worth inspecting', src: '/docs/proof/browser-result-focused.webp', alt: 'The status page close-up showing project state and a decision gate', caption: 'The focused view makes the visible statuses and remaining decision easy to judge.' },
+    { title: 'The supporting validation', src: '/docs/proof/validation-evidence.webp', alt: 'Measured validation and exact diff evidence kept in the session', caption: 'Visual proof and implementation evidence support different parts of the claim.' },
+  ]}
+/>
 
 ## One live browser, two presentations
 

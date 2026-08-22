@@ -4,17 +4,23 @@ summary: Turn repeatable work into visible, reviewable sessions with history and
 description: Turn repeatable work into visible, reviewable sessions with history and the same human checkpoints as interactive work.
 ---
 
+import ProofSequence from '../../components/ProofSequence.astro';
+
 **Learn lane · Mission: repeat the work without hiding it**
 
 A Routine is a reusable workflow whose runs create or resume real Axis sessions. Each
 run should have a prompt-delivery record, status, evidence, and scoped approval gates—not
 be a timer that fires text into the dark.
 
-<!-- PROOF-ID: ROUTINE-RUN-01 -->
-
-![Real Axis Routines: scheduled work, event-triggered work, and manual actions remain visible and inspectable.](/docs/proof/routines.png)
-
-*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+<ProofSequence
+  title="Repeatable does not mean invisible"
+  description="The seeded project exposes every activation path before it runs."
+  items={[
+    { title: 'Every activation path stays visible', src: '/docs/proof/routines.png', alt: 'The full real Routines surface with scheduled, triggered, and manual workflows', caption: 'Scheduled, event-triggered, and manual work share one governed surface.' },
+    { title: 'The workflow remains inspectable', src: '/docs/proof/routines-panel.webp', alt: 'A close view of the real Axis Routines panel with a daily project coach', caption: 'Names, timing, trigger state, and manual launchers remain attached to the project.' },
+    { title: 'The result remains reviewable', src: '/docs/proof/browser-result-focused.webp', alt: 'A browser-inspected Brightside result with statuses and a launch decision', caption: 'The useful outcome and remaining human judgment are visible—not buried in a timer log.' },
+  ]}
+/>
 
 ## Choose the activation
 

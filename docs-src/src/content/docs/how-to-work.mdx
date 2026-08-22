@@ -3,16 +3,22 @@ title: How to work with Axis
 description: Keep your attention on outcomes, judgment, and evidence while Axis carries the coordination burden.
 ---
 
+import ProofSequence from '../../components/ProofSequence.astro';
+
 **Learn lane · Guided operating rhythm**
 
 You do not need to supervise every tool call or learn a special prompt dialect. Your
 job is to set direction, correct meaning, judge trade-offs, and inspect proof.
 
-<!-- PROOF-ID: OPERATING-RHYTHM-01 -->
-
-![A real seeded session begun in ordinary language. The project supplied the working agreement and context automatically.](/docs/proof/mission-request.png)
-
-*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+<ProofSequence
+  title="Ask, judge, inspect"
+  description="The user supplies direction and judgment; the harness carries the coordination."
+  items={[
+    { title: '1 · Ask normally', src: '/docs/proof/ordinary-request.webp', alt: 'A concise ordinary-language business request', caption: 'State the outcome, source, and meaningful boundary—not a technical recipe.' },
+    { title: '2 · Review the result', src: '/docs/proof/completed-result.webp', alt: 'A completed Axis session explaining concrete changes and safeguards', caption: 'The agent explains what changed and what the working agreement handled.' },
+    { title: '3 · Inspect proof', src: '/docs/proof/validation-evidence.webp', alt: 'Validation and diff evidence from the same session', caption: 'Evidence answers the claim without making you read every tool call.' },
+  ]}
+/>
 
 ## 1. Name the outcome in ordinary language
 

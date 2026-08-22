@@ -44,6 +44,36 @@
       "state": "Packaged Axis bootstrap ready state",
       "viewport": "1440x900",
       "privateData": false
+    },
+    "sessions-panel.webp": {
+      "state": "Project Overview close-up: two durable work sessions",
+      "viewport": "1238x1250 2x crop from project-overview.png",
+      "privateData": false
+    },
+    "routines-panel.webp": {
+      "state": "Project Overview close-up: scheduled, triggered, and manual Routines",
+      "viewport": "1209x1875 3x crop from project-overview.png",
+      "privateData": false
+    },
+    "ordinary-request.webp": {
+      "state": "Session close-up: ordinary-language request with a publication boundary",
+      "viewport": "835x219 crop from mission-request.png",
+      "privateData": false
+    },
+    "completed-result.webp": {
+      "state": "Session close-up: completed result, concrete changes, safeguards, and plan state",
+      "viewport": "835x471 crop from mission-request.png",
+      "privateData": false
+    },
+    "validation-evidence.webp": {
+      "state": "Session close-up: measurable validation and exact diff evidence",
+      "viewport": "835x430 crop from mission-evidence.png",
+      "privateData": false
+    },
+    "browser-result-focused.webp": {
+      "state": "Browser result close-up: visible statuses and a narrow decision gate",
+      "viewport": "1054x713 crop from browser-result.png",
+      "privateData": false
     }
   }
 }

@@ -3,17 +3,23 @@ title: Work plans
 description: Keep shared unfinished intent visible across sessions instead of losing it in chat.
 ---
 
+import ProofSequence from '../../components/ProofSequence.astro';
+
 **Learn lane · Mission: make unfinished work recoverable**
 
 A work plan is project-scoped intent that multiple sessions can continue. It prevents
 each agent from inventing a private checklist, repeating completed work, or dropping a
 future item into prose nobody revisits.
 
-<!-- PROOF-ID: WORK-PLAN-01 -->
-
-![A real seeded session begun in ordinary language. The project supplied the working agreement and context automatically.](/docs/proof/mission-request.png)
-
-*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+<ProofSequence
+  title="Intent becomes verifiable work"
+  description="The same Brightside mission shows the plan before, during, and after execution."
+  items={[
+    { title: 'Outcome first', src: '/docs/proof/ordinary-request.webp', alt: 'The Brightside weekly-update outcome in ordinary language', caption: 'The request defines the result and the safety boundary.' },
+    { title: 'Plan stays visible', src: '/docs/proof/completed-result.webp', alt: 'The completed result with a visible Step 3 of 3 plan indicator', caption: 'The session retains the plan state while explaining the completed work.' },
+    { title: 'Completion points to evidence', src: '/docs/proof/validation-evidence.webp', alt: 'Measured validation, diff summary, and three completed plan steps', caption: 'Completed steps resolve to proof, not only checked boxes.' },
+  ]}
+/>
 
 ## Begin by finding existing intent
 

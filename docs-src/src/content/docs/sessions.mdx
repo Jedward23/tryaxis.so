@@ -3,17 +3,23 @@ title: Sessions and steering
 description: Keep one outcome continuous while you inspect, redirect, pause, recover, and review the work.
 ---
 
+import ProofSequence from '../../components/ProofSequence.astro';
+
 **Learn lane · Mission: keep one thread coherent**
 
 A session is a continuing thread of work with one agent, bound to a project. It keeps
 the request, working history, draft, evidence surfaces, and status together so you do
 not reconstruct the task after every interruption.
 
-<!-- PROOF-ID: SESSION-LIFECYCLE-01 -->
-
-![A real seeded session begun in ordinary language. The project supplied the working agreement and context automatically.](/docs/proof/mission-request.png)
-
-*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+<ProofSequence
+  title="One thread, from request to proof"
+  description="Real states from two privacy-safe Brightside Studio sessions."
+  items={[
+    { title: 'A durable home for each outcome', src: '/docs/proof/sessions-panel.webp', alt: 'The Brightside project showing separate status-page and weekly-update sessions', caption: 'Business and technical outcomes remain separate, resumable work threads.' },
+    { title: 'The request stays attached', src: '/docs/proof/ordinary-request.webp', alt: 'An ordinary-language request with a clear do-not-publish boundary', caption: 'The session keeps the human intent and its safety boundary visible.' },
+    { title: 'The evidence stays attached too', src: '/docs/proof/validation-evidence.webp', alt: 'Validation metrics and exact diff evidence retained in the same session', caption: 'A settled thread remains navigable to measurable proof.' },
+  ]}
+/>
 
 ## Start from an outcome
 

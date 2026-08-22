@@ -3,16 +3,22 @@ title: Projects and workspaces
 description: Give related work a durable home and keep each session's tools and evidence attached to it.
 ---
 
+import ProofSequence from '../../components/ProofSequence.astro';
+
 **Learn lane · Mission: establish the work boundary**
 
 A project is the durable home for related work. A workspace is the session-owned view
 of the conversation and the resources needed to complete that work.
 
-<!-- PROOF-ID: PROJECT-WORKSPACE-01 -->
-
-![A real Axis project Overview: working agreement, sessions, Routines, and project-owned context in one place.](/docs/proof/harness-overview.png)
-
-*Real Axis UI with deliberately seeded, privacy-safe demonstration content.*
+<ProofSequence
+  title="One project, several durable systems"
+  description="The Brightside Studio project keeps related context and execution surfaces together."
+  items={[
+    { title: 'The whole project boundary', src: '/docs/proof/project-overview.png', alt: 'The complete Brightside project Overview', caption: 'Working agreement, sessions, and repeatable work share one durable home.' },
+    { title: 'Independent work threads', src: '/docs/proof/sessions-panel.webp', alt: 'The project Sessions panel with two distinct outcomes', caption: 'Each objective keeps its own continuing identity inside the project.' },
+    { title: 'Repeatable project work', src: '/docs/proof/routines-panel.webp', alt: 'The project Routines panel with scheduled, triggered, and manual workflows', caption: 'The same project boundary governs work that runs later or repeatedly.' },
+  ]}
+/>
 
 ## What a project carries
 
