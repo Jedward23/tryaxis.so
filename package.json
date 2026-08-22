@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
+    "build": "cd docs-src && npm ci && npm run build",
     "start": "serve . -l $PORT"
   },
   "dependencies": {
