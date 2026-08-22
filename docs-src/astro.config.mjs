@@ -30,12 +30,12 @@ export default defineConfig({
             "(()=>{var d=document.documentElement;try{var s=localStorage.getItem('starlight-theme');if(!s||s==='auto'){localStorage.setItem('starlight-theme','dark');d.dataset.theme='dark'}}catch(e){d.dataset.theme='dark'}})();",
         },
       ],
+      // The Axis repository is private, so no GitHub social icon or "Edit page"
+      // link is exposed here — both would 404 for readers and advertise a
+      // private repository path.
       social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/Jedward23/axis' },
+        { icon: 'external', label: 'tryaxis.so', href: 'https://tryaxis.so/' },
       ],
-      editLink: {
-        baseUrl: 'https://github.com/Jedward23/axis/edit/main/docs/content/',
-      },
       lastUpdated: true,
       pagination: true,
       tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 3 },

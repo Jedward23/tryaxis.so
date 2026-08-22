@@ -3,10 +3,27 @@
    collapsed to greyscale rather than given a hue. Dark is the default because
    the marketing pages present dark regardless of OS preference. */
 
+/* Mazzard is the AXIS wordmark face only. DM Sans is the interface face for
+   every heading, paragraph, control, and label. JetBrains Mono is reserved for
+   code and technical identifiers. */
 @font-face {
   font-family: 'Mazzard Soft M';
   src: url('/fonts/MazzardSoftM-Light.woff2') format('woff2');
-  font-weight: 300 700;
+  font-weight: 350;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('/fonts/DMSans-Variable.woff2') format('woff2-variations');
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Variable.woff2') format('woff2-variations');
+  font-weight: 100 800;
   font-display: swap;
 }
 
@@ -19,7 +36,7 @@
   --axis-muted: #aaa;
 
   --sl-font: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
-  --sl-font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+  --sl-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --sl-content-width: 48rem;
   --sl-sidebar-width: 17.5rem;
@@ -79,15 +96,25 @@
   --sl-color-hairline-shade: #e4e4e4;
 }
 
-/* Display type. Mazzard carries headings and the wordmark; DM Sans carries prose. */
-.site-title,
+/* Headings are DM Sans, matching the marketing pages. Mazzard is applied only
+   to the wordmark in the site title, where it keeps its approved tracking. */
+.site-title {
+  font-family: 'Mazzard Soft M', ui-sans-serif, sans-serif;
+  font-weight: 350;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
 .content-panel h1,
 .content-panel h2,
 .sl-markdown-content h1,
-.sl-markdown-content h2 {
-  font-family: 'Mazzard Soft M', ui-sans-serif, sans-serif;
-  font-weight: 400;
-  letter-spacing: -0.015em;
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4 {
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
 
 .sl-markdown-content h1 {
